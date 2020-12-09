@@ -1,0 +1,197 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\KK}{\mathbb{K}}
+
+\newcommand{\dotproduct}[2]{\left\langle#1, #2\right\rangle}
+
+\DeclareMathOperator{\id}{id}
+
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Hausaufgabenübung 2}
+\author{Joshua Feld, 406718 \quad Jeff Vogel, 407758 \quad Henrik Herrmann, 421853}
+\date{16. November, 2020}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Abbildungen)}
+
+    \begin{problem}
+        Welche der folgenden Abbildungen sind injektiv, surjektiv oder bijektiv?
+        \begin{enumerate}
+            \item \(f: \NN \to \NN, f\enbrace*{x} := \absolute*{x}\)
+            \item \(g: \ZZ \to \ZZ, g\enbrace*{x} := \absolute*{x}\)
+            \item \(h: \NN \to \ZZ, h\enbrace*{x} := \absolute*{x}\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir betrachten zunächst die allgemeine Definition des Betrags. Für \(x \in \RR\) gilt
+        \[\absolute*{x} = \begin{cases}
+            x & \text{falls }x \ge 0,\\
+            -x & \text{sonst.}
+        \end{cases}\]
+        Wir können also sehen, dass für \(x \in \NN\) unsere Abbildung \(f\) der \(\id\)-Abbildung entspricht. Wir wollen nun zeigen, dass diese injektiv und surjektiv ist.
+        \begin{itemize}
+            \item Injektivität: Seien \(x_1, x_2 \in \NN\) mit \(f\enbrace*{x_1} = f\enbrace*{x_2}\). Dann gilt
+            \[f\enbrace*{x_1} = f\enbrace*{x_2} \iff \absolute*{x_1} = \absolute*{x_2} \iff x_1 = y_2.\]
+            \item Surjektivität: Es gilt \({\forall}y \in \NN: f\enbrace*{y} = y\). Also gibt es zu jedem \(y \in \NN\) ein \(x \in \NN\), welches durch \(f\) auf \(y\) abgebildet wird.
+        \end{itemize}
+        Die Abbildung ist somit injektiv und surjektiv, also auch bijektiv.
+        \item Für die Abbildung \(g\) gilt:
+        \begin{itemize}
+            \item Injektivität: Sei \(x_1 = 1\) und \(x_2 = -1\). Für diese gilt \(g\enbrace*{x_1} = g\enbrace*{x_2} \iff \absolute*{x_1} = \absolute*{x_2} = 1\) aber \(x_1 \ne x_2\).
+            \item Surjektivität: Sei \(y = -1\). Es existiert offensichtlich kein \(x \in \ZZ\) für das \(g\enbrace*{x} = y\) gilt, denn durch den Betrag werden per Definition nur Zahlen \(\ge 0\) getroffen.
+        \end{itemize}
+        Die Abbildung ist weder injektiv noch surjektiv, also auch nicht bijektiv.
+        \item Für die Abbildung \(h\) gilt:
+        \begin{itemize}
+            \item Injektivität: Seien \(x_1, x_2 \in \NN\) mit \(h\enbrace*{x_1} = h\enbrace*{x_2}\). Dann gilt
+            \[h\enbrace*{x_1} = h\enbrace*{x_2} \iff \absolute*{x_1} = \absolute*{x_2} \iff x_1 = y_2.\]
+            Wir können hier wieder den letzten Schritt anwenden, da der Definitionsbereich \(\NN\) ist und hier keine inversen Elemente im Bezug auf die Addition existieren.
+            \item Surjektivität: Sei \(y = -1\). Es existiert offensichtlich kein \(x \in \NN\) für das \(g\enbrace*{x} = y\) gilt, denn durch den Betrag werden per Definition nur Zahlen \(\ge 0\) getroffen.
+        \end{itemize}
+        Die Abbildung ist injektiv aber nicht surjektiv, also auch nicht bijektiv.
+    \end{enumerate}
+
+    \section*{Aufgabe 2. (Abbildungen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Seien \(p_1\enbrace*{x} = x^2 + 1\) und \(p_2\enbrace*{x} = x^3 + 5x - 1\). Bestimmen Sie \(f = p_1 \circ p_2\) und \(g = p_2 \circ p_1\).
+            \item Sei \(h\enbrace*{x} = \frac{1}{\enbrace*{x - 2}\enbrace*{x - 1}}\). Geben Sie den maximalen Definitionsbereich von \(h\), \(h \circ p_1\) und \(p_1 \circ h\) an.
+            \item Sei \(k_a: \RR \to \RR\) mit \(k_a\enbrace*{x} = x^4 + ax^4 + 2\) und Parameter \(a \in \RR\). Geben Sie den Wertebereich von \(k_a\) in Abhängigkeit von \(a\) an.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item
+        \begin{align*}
+            f\enbrace*{x} &= p_1\enbrace*{p_2\enbrace*{x}} = \enbrace*{x^3 + 5x - 1}^2 + 1 = x^6 + 10x^4 - 2x^3 + 25x^2 - 10x + 2\\
+            g\enbrace*{x} &= p_2\enbrace*{p_1\enbrace*{x}} = \enbrace*{x^2 + 1}^3 + 5\enbrace*{x^2 + 1} - 1 = x^6 + 3x^4 + 8x^2 + 5
+        \end{align*}
+        \item Für einen beliebigen Bruch \(\frac{a}{b}\) muss für den Nenner \(b \ne 0\) gelten. Um den maximalen Definitionsbereich zu finden, müssen wir also die Nullstellen des Nenners finden. Diese können wir direkt ablesen und erhalten
+        \[\enbrace*{x - 2}\enbrace*{x - 1} = 0 \iff x = 2 \lor x = 1\]
+        Folglich ist der Definitionsbereich von \(h\) dann \(D_h = \RR \setminus \penbrace*{1, 2}\). Um den Definitionsbereich von \(h \circ p_1\) zu bestimmen, müssen wir zunächst die Abbildungsvorschrift berechnen:
+        \[\enbrace*{h \circ p_1}\enbrace*{x} = h\enbrace*{p_1\enbrace*{x}} = \frac{1}{\enbrace{x^2 - 1} \cdot x^2}\]
+        Auch hier können wir eine Nullstelle einfach ablesen, nämlich \(x = 0\). Die zweite Nullstelle erhalten wir durch Auflösen des anderen Faktors nach \(x\):
+        \[x^2 - 1 = 0 \iff x^2 = 1 \iff x = -1 \lor x = 1.\]
+        Damit ergibt sich für den maximalen Definitionsbereich \(D_{h \circ p_1} = \RR \setminus \penbrace*{-1, 0, 1}\). Zuletzt für \(p_1 \circ h\):
+        \[\enbrace*{p_1 \circ h}\enbrace*{x} = p_1\enbrace*{h\enbrace*{x}} = \enbrace*{\frac{1}{\enbrace*{x - 2}\enbrace*{x - 1}}}^2 + 1 = \frac{1}{\enbrace*{x - 2}^2\enbrace*{x - 1}^2} + 1\]
+        Auch hier darf der Nenner des Bruchs nicht Null sein. Wir können die Nullstellen des Nenners wieder einfach ablesen:
+        \[\enbrace*{x - 2}^2\enbrace*{x - 1}^2 = 0 \iff x = 2 \lor x = 1\]
+        Folglich gilt \(D_{p_1 \circ h} = \RR \setminus \penbrace*{1, 2}\).
+        \item Wir formen zunächst den Term um:
+        \[k_a\enbrace*{x} = x^4 + ax^4 + 2 = (a + 1) \cdot x^4 + 2.\]
+        Nun können wir eine Fallunterscheidung für \(a\) machen. Für \(a = -1\) ist der Wertebereich trivial, denn dann ergibt sich für die Abbildung \(k_{-1}\enbrace*{x} = 2\). Folglich gilt \(W_{k_{-1}} = \penbrace*{2}\). Für \(a > -1\) hat der Graph von \(k_a\enbrace*{x}\) die Form einer nach oben geöffneten Parabel, d.h. der Wertebereich ist nach oben unbeschränkt. Die untere Grenze ist \(2\), denn der Graph ist um \(2\) entlang der \(y\)-Achse verschoben. Der Wertebereich ist also \(W_{k_a} = \penbrace*{\left.x \in \RR\ \right|\ x \ge 2}\). Zuletzt betrachten wir noch den Fall \(a < -1\). In diesem Fall hat der Graph die Form einer nach unten geöffneten Parabel, d.h. der Wertebereich ist nach unten unbeschränkt. Die obere Grenze ist \(2\), denn der Graph ist um \(2\) entlang der \(y\)-Achse verschoben. Der Wertebereich ist also \(W_{k_a} = \penbrace*{\left.x \in \RR\ \right|\ x \le 2}\). Wir können dies nun allgemein zusammenfassen und erhalten
+        \[W_{k_a} = \begin{cases}
+            \penbrace*{\left.x \in \RR\ \right|\ x \ge 2} & \text{falls }a > -1,\\
+            \penbrace*{\left.x \in \RR\ \right|\ x \le 2} & \text{falls }a < -1,\\
+            \penbrace*{2} & \text{sonst.}
+        \end{cases}\]
+    \end{enumerate}
+
+    \section*{Aufgabe 3. (Mengen und Abbildungen)}
+
+    \begin{problem}
+        Seien \(A = \penbrace*{a_1, \ldots, a_n}\) und \(B = \penbrace*{b_1, \ldots, b_m}\) mit \(n, m \in \NN\) und \(n < m\) endliche Mengen, die \(a_i\) und \(b_j\) sind beliebige Objekte.
+        \begin{enumerate}
+            \item Beweisen Sie: Es existiert keine bijektive Abbildung von \(A\) nach \(B\).
+            \item Geben Sie eine injektive Abbildung von \(A\) nach \(B\) und eine surjektive Abbildung von \(B\) nach \(A\) an.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Angenommen, \(f: A \to B\) wäre eine bijektive Abbildung. Daraus folgt, dass \(f\) sowohl injektiv als auch surjektiv ist. Wir betrachten zunächst die Surejtivität. Es muss für jedes \(y \in N\) ein \(x \in M\) geben, für das \(f\enbrace*{x} = y\) gilt. Da jedoch \(\absolute*{A} = n < m = \absolute*{B}\) existieren \(m - n\) Elemente \(b_j\), denen kein \(a_i\) zugeordnet werden kann. Folglich kann \(f\) nicht surjektiv, also auch nicht bijekitv sein.
+        \item
+        \begin{align*}
+            &f_\text{inj.}: A \to B, a_i \mapsto b_i, \quad \text{für }i \in \benbrace*{1, n},\\
+            &f_\text{surj.}: B \to A, b_i \mapsto \begin{cases}
+                a_i & \text{falls }i \le n,\\
+                a_n & \text{sonst,}
+            \end{cases} \quad \text{für }i \in \benbrace*{1, m}.
+        \end{align*}
+    \end{enumerate}
+
+    \section*{Aufgabe 4. (Vollständige Induktion)}
+
+    \begin{problem}
+        Zeigen Sie folgende Gesetzmäßigkeit mittels vollständiger Induktion:
+
+        Für alle \(n \in \NN\) gilt:
+        \[\sum_{k = 1}^n\frac{k}{2^k} = 2 - \frac{n + 2}{2^n}.\]
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{itemize}
+        \item Induktionsverankerung: (\(n = 1\))
+        \[\sum_{k = 1}^1\frac{k}{2^k} = \frac{1}{2} = 2 - \frac{3}{2}.\]
+        \item Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges aber festes \(n \in \NN\).
+        \item Induktionsschritt: (\(n \to \enbrace*{n + 1}\))
+        \begin{align*}
+            \sum_{k = 1}^{n + 1}\frac{k}{2^k} &= \sum_{k = 1}^{n}\frac{k}{2^k} + \frac{n + 1}{2^{n + 1}} \underbrace{=}_\text{I.V.} 2 - \frac{n + 2}{2^n} + \frac{n + 1}{2^{n + 1}}\\
+            &= 2 - \frac{2n + 2}{2^{n + 1}} + \frac{n + 1}{2^{n + 1}} = 2 - \frac{(n + 1) + 2}{2^{n + 1}}
+        \end{align*}
+        Folglich gilt die Behauptung für alle \(n \in \NN\).
+    \end{itemize}
+
+    \section*{Aufgabe 5. (Gruppen)}
+
+    \begin{problem}
+        Sei \(M_3 = \penbrace*{1, 2, 3}\) und \(S_3\) die Menge aller bijektiven Abbildungen auf \(M_3\). Die Hintereinanderausführung zweier Abbildungen bezeichnen wir mit \(\circ\). Zeigen Sie, dass \(\enbrace*{S_3, \circ}\) eine Gruppe ist. Die Gruppe \(S_3\) entspricht der Permutationsgruppe von drei Objekten.
+
+        \textbf{Hinweis:} \quad \emph{Zeigen Sie zuerst, dass die Verknüpfung bijektiver Abbildungen wieder bijektiv ist.}
+    \end{problem}
+
+    \subsection*{Lösung}
+    Wir wollen zunächst zeigen, dass die Hintereinanderausführung zweier bijektiver Abbildungen wieder eine bijektive Abbildung ist. Seien im Folgenden \(f: A \to B\) und \(g: B \to C\) Abbildungen. Wir wollen damit zwei Teilaussagen zeigen:
+    \begin{enumerate}
+        \item \(g \circ f\) ist injektiv, falls \(f\) und \(g\) beide injektiv sind.
+        \item \(g \circ f\) ist surjektiv, falls \(f\) und \(g\) beide surjektiv sind.
+    \end{enumerate}
+    Daraus können wir dann nämlich folgern, dass dies auch für bijektive Funktionen gilt, da ja eine Abbildung bijektiv ist, wenn sie injektiv und surjektiv ist.
+
+    \begin{enumerate}
+        \item Seien \(f, g\) injektive Abbildungen und zusätzlich \(h = g \circ f\). Seien \(x, y \in A\) mit \(h\enbrace*{x} = h\enbrace*{y}\). Dann gilt
+        \[h\enbrace*{x} = h\enbrace*{y} \iff g\enbrace*{f\enbrace*{x}} = g\enbrace*{f\enbrace*{y}} \iff f\enbrace*{x} = f\enbrace*{y} \iff x = y.\]
+        \item Seien \(f, g\) surjektive Abbildungen und zusätzlich \(h = g \circ f\). Sei \(z \in C\). Dann gilt
+        \begin{align*}
+            z \in C \land f,g\text{ surjektiv} &\iff \enbrace*{{\exists}y \in B: g\enbrace*{y} = z} \land f \text{ surjektiv}\\
+            &\iff \enbrace*{{\exists}y \in B: g\enbrace*{y} = z} \land \enbrace*{{\exists}x \in A: f\enbrace*{x} = y}\\
+            &\iff h\enbrace*{x} = g\enbrace*{f\enbrace*{x}} = g\enbrace*{y} = z.
+        \end{align*}
+    \end{enumerate}
+    Insgesamt also gilt die Aussage also auch für bijektive Abbildungen. Wir können daraus folgern, dass die Hintereinanderausführung auf \(S_3\) eine Abbildung der Form \(\circ: S_3 \times S_3 \to S_3\) ist. Wir müssen nun noch folgende drei Aussagen zeigen:
+    \begin{enumerate}
+        \item \(h \circ \enbrace*{g \circ f} = \enbrace*{h \circ g} \circ f\) für alle \(f, g, h \in S_3\) (Assoziativität)
+        \item \({\exists}e \in S_3: e \circ f = f \circ e = f\) für alle \(f \in S_3\) (Existenz des neutralen Elements)
+        \item \({\forall}f \in S_3: {\exists}f^{-1} \in S_3: f \circ f^{-1} = f^{-1} \circ f = e\) (Existenz inverser Elemente)
+    \end{enumerate}
+    Die Beweise führen wir wie folgt:
+    \begin{enumerate}
+        \item Seien \(f,g, h \in S_3\). Dann gilt für alle \(x \in A\)
+        \[h \circ \enbrace*{g \circ f}\enbrace*{x} = h \circ \enbrace*{g \circ f\enbrace*{x}} = h\enbrace*{g\enbrace*{f\enbrace*{x}}} = h \circ g\enbrace*{f\enbrace*{x}} = \enbrace*{h \circ g} \circ f\enbrace*{x}.\]
+        Damit zwei Abbildungen gleich sind, müssen sie zusätzlich den selben Definitionsbereich haben. Dies ist hier gegeben, da alle Abbildungen in \(S_3\) sind und somit alle den Definitionsbereich \(M_3 = \{1, 2, 3\}\) haben.
+        \item Die Identität \(\id: M \to M, x \mapsto x\) ist offensichtlich das neutrale Element.
+        \item Da \(f \in S_3\) ist \(f\) bijektiv. Folglich existiert für alle \(y \in S_3\) ein \(x \in S_3\), sodass \(f\enbrace*{x} = y\) und aus \(f\enbrace*{x_1} = y_1 = y_2 = f\enbrace*{x_2}\) folgt \(x_1 = x_2\). Daraus folgt dann direkt, dass eine Umkehrabbildung \(f^{-1}: S_3 \to S_3, y \mapsto x\) mit \(y = f\enbrace*{x}\) existiert, für die gilt \(f^{-1}\enbrace*{f\enbrace*{x}} = x\), also \(f \circ f^{-1} = f^{-1} \circ f = \id\).
+    \end{enumerate}
+    Da \(\enbrace*{S_3, \circ}\) alle Eigenschaften erfüllt, handelt es sich um eine Gruppe.
+  \end{document}

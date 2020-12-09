@@ -1,0 +1,219 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\dotproduct}[2]{\left\langle#1, #2\right\rangle}
+\newcommand{\dd}{\,\differ}
+
+\DeclareMathOperator{\differ}{d}
+\DeclareMathOperator{\vecspan}{span}
+
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Selbstrechenübung 4}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Komplexe Zahlen)}
+
+    \begin{problem}
+        Schreiben Sie die folgende komplexe Zahl in der Form \(z = x + iy\) mit \(x, y \in \mathbb{R}\) und in Polarkoordinaten, d.h. in der Form \(z = r\enbrace*{\cos\enbrace*{\varphi} + i\sin\enbrace*{\varphi}}\) Bestimmen Sie dazu den Betrag \(r\) und das Argument \(\varphi\) von \(z\) exakt in \(\left(-\pi, \pi\right]\).
+        \[z = \enbrace*{\frac{1 - i}{1 + i}}^5\]
+    \end{problem}
+
+    \subsection*{Lösung} Wir wollen zunächst den Bruch ohne den Exponenten vereinfachen. Dazu multiplizieren wir diesen mit dem komplexen Konjugat des Nenners:
+    \[\frac{1 - i}{1 + i} \cdot \frac{1 - i}{1 - i} = \frac{\enbrace*{1 - i}\enbrace*{1 - i}}{\enbrace*{1 + i}\enbrace*{1 - i}} = \frac{-i}{1} = -i.\]
+    Folglich können wir \(z = \enbrace*{-i}^5\) schreiben. Wir wenden nun die Exponentenregel an, die besagt, dass \(\enbrace*{-a}^n = -a^n\) gilt, falls \(n\) ungerade ist. Somit gilt insgesamt
+    \[z = -i^5 = -i.\]
+    Um \(\varphi\) zu bestimmen benötigen wir zunächst noch den Betrag von \(z\). Dieser ist
+    \[r = \absolute*{z} = \sqrt{0^2 + \enbrace*{-1}^2} = 1.\]
+    Nun können wir \(\varphi\) wie folgt bestimmen:
+    \[x = r \cdot \cos\enbrace*{\varphi} \iff 0 = \cos\enbrace*{\varphi} \iff \varphi = \arccos\enbrace*{0} = \frac{\pi}{2}.\]
+    Also ist
+    \[z = r\enbrace*{\cos\enbrace*{\varphi} + i\sin\enbrace*{\varphi}} = \cos\enbrace*{\frac{\pi}{2}} + i\sin\enbrace*{\frac{\pi}{2}}.\]
+
+    \section*{Aufgabe 2. (Komplexe Zahlen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Bestimmen Sie Realteil und Imaginärteil der komplexen Zahlen
+            \[w_1 = \frac{2}{1 - 3i}, \quad w_2 = \frac{1}{i}, \quad w_3 = \frac{1 + it}{1 - it} \text{ mit }t \in \mathbb{R}.\]
+            \item Berechnen Sie den Betrag von \(z = \frac{\enbrace*{3 + 4i}\enbrace*{-1 + 2i}}{\enbrace*{-1 - i}\enbrace*{3 - i}}\).
+            \item Für welche \(z \in \mathbb{C}\) ist \(\absolute*{\frac{z + i}{z - i}} \le 1\)? Skizzieren Sie die Lösungsmenge in der komplexen Ebene.
+            \item Für welche \(z \in \mathbb{C}\) ist \(\Re\enbrace*{\frac{1 + z}{1 - z}} \ge 0\)? Skizzieren Sie die Lösungsmenge in der komplexen Ebene.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir multiplizieren zunächst den Zähler und den Nenner von \(w_1\) mit dem komplexen Konjugat des Nenners, um diesen zu eliminieren:
+        \[\frac{2}{1 - 3i} \cdot \frac{1 + 3i}{1 + 3i} = \frac{2\enbrace*{1 + 3i}}{\enbrace*{1 - 3i}\enbrace*{1 + 3i}} = \frac{2\enbrace*{1 + 3i}}{1 - 3i + 3i + \enbrace*{3i}^2} = \frac{2\enbrace*{1 + 3i}}{10}.\]
+        Wir können nun den gemeinsamen Faktor \(2\) rauskürzen und erhalten
+        \[\frac{1 + 3i}{5} = \frac{1}{5} + \frac{3}{5}i,\]
+        d.h. es gilt \(\Re\enbrace*{w_1} = \frac{1}{5}\) und \(\Im\enbrace*{w_1} = \frac{3}{5}\).
+
+        Wir multiplizieren wieder mit dem komplexen Konjugat und erhalten
+        \[\frac{1}{i} \cdot \frac{-i}{-i} = \frac{1 \cdot \enbrace*{-i}}{i\enbrace*{-i}} = \frac{-i}{1} = -i.\]
+        Somit ist \(\Re\enbrace*{w_2} = 0\) und \(\Im\enbrace*{w_2} = -1\).
+
+        Wir multiplizieren erneut mit dem komplexen Konjugat und erhalten
+        \[\frac{1 + it}{1 - it} \cdot \frac{1 + it}{1 + it} = \frac{\enbrace*{1 + it}\enbrace*{1 + it}}{\enbrace*{1 - it}\enbrace*{1 + it}} = \frac{1 - t^2 + 2it}{1 + t^2} = \frac{1 - t^2}{t^2 + 1} + \frac{2t}{t^2 + 1}i,\]
+        also \(\Re\enbrace*{w_3} = \frac{1 - t^2}{t^2 + 1}\) und \(\Im\enbrace*{w_3} = \frac{2t}{t^2 + 1}\).
+        \item Wir definieren zunächst vier neue komplexe Zahlen \(z_1, \ldots, z_4 \in \mathbb{C}\) mit
+        \[z_1 = 3 + 4i, \quad z_2 = -1 + 2i, \quad z_3 = -1 - i, \quad z_4 = 3 - i.\]
+        Nun können wir den Betrag von \(z\) berechnen mit
+        \[\absolute*{z} = \frac{\absolute*{z_1} \cdot \absolute*{z_2}}{\absolute*{z_3} \cdot \absolute*{z_4}} = \sqrt{\frac{\enbrace*{3^2 + 4^2}\enbrace*{\enbrace*{-1}^2 + 2^2}}{\enbrace*{\enbrace*{-1}^2 + \enbrace*{-1}^2}\enbrace*{3^2 + \enbrace*{-1}^2}}} = \sqrt{\frac{25 \cdot 5}{2 \cdot 10}} = \sqrt{\frac{125}{20}} = \frac{5}{2}.\]
+        \item Seien \(x := \Re\enbrace*{z}, y := \Im\enbrace*{z}\) für \(z \in \CC\). Wir berechnen zunächst \(\absolute*{\frac{z + i}{z - i}}\) für \(z \in \CC \setminus \penbrace*{i}\):
+        \[\absolute*{\frac{z + i}{z - i}} = \absolute*{\frac{x + iy + i}{x + iy - i}} = \absolute*{\frac{x + \enbrace*{y + 1}i}{x + \enbrace*{y - 1}i}} = \sqrt{\frac{x^2 + \enbrace*{y + 1}^2}{x^2 + \enbrace*{y - 1}^2}}.\]
+        Für \(c \in \CC \setminus \penbrace*{i}\) gilt somit
+        \begin{align*}
+            \absolute*{\frac{z + i}{z - i}} \le 1 &\iff \sqrt{\frac{x^2 + \enbrace*{y + 1}^2}{x^2 + \enbrace*{y - 1}^2}} \le 1 \iff \frac{x^2 + \enbrace*{y + 1}^2}{x^2 + \enbrace*{y - 1}^2} \le 1\\
+            &\iff x^2 + \enbrace*{y + 1}^2 \le x^2 + \enbrace*{y - 1}^2 \iff \enbrace*{y + 1}^2 \le \enbrace*{y - 1}^2\\
+            &\iff y^2 + 2y + 1 \le y^2 - 2y + 1 \iff 4y \le 0 \iff y \le 0.
+        \end{align*}
+        Daraus folgt für die Lösungsmenge
+        \[M := \penbrace*{z \in \CC : \absolute*{\frac{z + i}{z - i}} \le 1} = \penbrace*{z \in \CC : \Im\enbrace*{z} \le 0}.\]
+        In der komplexen Zahlenebene sieht die Menge wie folgt aus:
+        \begin{center}
+            \begin{tikzpicture}[scale=.75]
+                \begin{scope}[thick,font=\scriptsize]
+                    \draw [->] (-5,0) -- (5,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (0,-5) -- (0,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-4,-3,...,-1,1,2,...,4}{
+                        \draw (\n,3pt) -- (\n,-3pt) node [below] {\(\n\)};
+                        \draw (3pt,\n) -- (-3pt,\n) node [left] {\(\n\)};
+                    }
+
+                    \filldraw[draw=none,fill=gray,fill opacity=0.45] (-5,0) -- (-5,-5) -- (5,-5) -- (5,0) -- cycle;
+                \end{scope}
+            \end{tikzpicture}
+        \end{center}
+        \item Seien \(x := \Re\enbrace*{z}, y := \Im\enbrace*{z}\) für \(z \in \CC\). Wir wollen nun \(\Re\enbrace*{\frac{1 + z}{1 - z}}\) für \(z \ne 1\) (\(z \in \CC\)) berechnen. Es gilt
+        \begin{align*}
+            \frac{1 + z}{1 - z} &= \frac{1 + x + iy}{1 - x - iy} = \frac{\enbrace*{1 + x + iy}\enbrace*{1 - x + iy}}{\enbrace*{1 - x}^2 + y^2}\\
+            &= \frac{1 - x^2 + \enbrace*{1 + x + 1 - x}yi - y^2}{\enbrace*{1 - x}^2 + y^2}\\
+            &= \frac{1 - x^2 - y^2}{\enbrace*{1 - x}^2 + y^2} + \frac{2y}{\enbrace*{1 - x}^2 + y^2} \cdot i,
+        \end{align*}
+        also \(\Re\enbrace*{\frac{1 + z}{1 - z}} = \frac{1 - x^2 - y^2}{\enbrace*{1 - x}^2 + y^2}\). Für \(z \in \CC \setminus \penbrace*{1}\) gilt
+        \begin{align*}
+            \Re\enbrace*{\frac{1 + z}{1 - z}} \ge 0 &\iff 1 - x^2 - y^2 \ge 0 \iff 1 \ge x^2 + y^2\\
+            &\iff 1 \ge \absolute*{z}^ 2 \iff 1 \ge \absolute*{z}.
+        \end{align*}
+        Daraus folgt für die Lösungsmenge
+        \[M := \penbrace*{z \in \CC : \Re\enbrace*{\frac{1 + z}{1 - z}} \ge 0} = \penbrace*{z \in \CC : z \ne 1, \absolute*{z} \le 1}.\]
+        \begin{center}
+            \begin{tikzpicture}[scale=.75]
+                \begin{scope}[thick,font=\scriptsize]
+                    \draw [->] (-5,0) -- (5,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (0,-5) -- (0,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-2,-1,1,2} {
+                        \draw (\n * 2,3pt) -- (\n * 2,-3pt) node [below] {\(\n\)};
+                        \draw (3pt,\n * 2) -- (-3pt,\n * 2) node [left] {\(\n\)};
+                    }
+
+                    \path [draw=black,fill=gray,fill opacity=0.45] (0,0) circle (2);
+                \end{scope}
+            \end{tikzpicture}
+        \end{center}
+    \end{enumerate}
+
+    \section*{Aufgabe 3. (Unterräume)}
+
+    \begin{problem}
+        Überprüfen Sie, ob die folgenden Mengen Unterräume der jeweils angegebenen \(\mathbb{R}\)-Vektorräume \(V\) sind:
+        \begin{enumerate}
+            \item \(U = \penbrace*{a, b \in \mathbb{Z}: \enbrace*{a + b, 3a - b, 2a + b}}\), \quad \(V = \mathbb{R}^3\)
+            \item \(U = \penbrace*{a, b \in \mathbb{R}: \enbrace*{a + b, 3a - b, 2a + b}}\), \quad \(V = \mathbb{R}^3\)
+            \item \(U = \penbrace*{a, b \in \mathbb{R}: \enbrace*{a + b, 3a - b, 2a + b + 1}}\), \quad \(V = \mathbb{R}^3\)
+            \item \(U = \penbrace*{a, b \in \mathbb{R}: \enbrace*{a + b, 3a - b, 2a + b, a}}\), \quad \(V = \mathbb{R}^3\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Sei \(a = 1\) und \(b = 0\). Dann ist \(\enbrace*{1, 2, 3} \in U\). Sei nun \(\lambda = \frac{1}{2}\). Dann gilt
+        \[\lambda \cdot \enbrace*{1, 2, 3} = \enbrace*{\frac{1}{2}, 1, \frac{3}{2}} \not\in U,\]
+        denn es es existieren keine zwei ganzen Zahlen \(a, b \in \ZZ\), so dass \(a + b = \frac{1}{2}\). Folglich ist \(U\) kein Unterraum von \(V\).
+        \item Es gilt \(U \subset V\) und \(0 \in U\) offensichtlich mit \(a = b = 0\). Seien nun
+        \[v = \enbrace*{a_1 + b_1, 3a_1 - b_1, 2a_1 + b_1}, \quad w = \enbrace*{a_2 + b_2, 3a_2 - b_2, 2a_2 + b_2} \in U\]
+        und \(\lambda \in \RR\). Dann gilt
+        \begin{align*}
+            \lambda \cdot \enbrace*{v + w} &= \lambda \cdot \enbrace*{a_1 + b_1 + a_2 + b_2, 3a_1 - b_1 + 3a_2 - b_2, 2a_1 + b_1 + 2a_2 + b_2}\\
+            &= \lambda \cdot \enbrace*{a' + b', 3a' - b', 2a' + b'} \quad \text{mit }a' = a_1 + a_2\text{ und }b' = b_1 + b_2\\
+            &= \enbrace*{a + b, 3a - b, 2a + b} \in U \quad \text{mit }a = \lambda{a'}\text{ und }b = \lambda{b'}
+        \end{align*}
+        Da \(U\) abgeschlossen ist im Bezug auf Addition und Multiplikation mit Skalaren, ist \(U\) ein Unterraum von \(V\).
+        \item Falls \(U\) ein Unterraum von \(V\) ist, muss \(U\) den Nullvektor enthalten. In anderen Worten, wir müssten \(a, b \in \RR\) finden, so dass
+        \[a + b = 0, \quad 3a - b = 0, \quad 2a + b + 1 = 0.\]
+        Allerdings folgt aus den ersten zwei Gleichungen \(a = b = 0\), was die dritte Gleichung nicht erfüllt. Daraus schließen wir, dass \(U\) kein Unterraum von \(V\) ist.
+        \item \(U\) ist offensichtlich kein Unterraum von \(V\), denn \(U \subset \mathbb{R}^4\) aber \(V = \mathbb{R}^3\).
+    \end{enumerate}
+
+    \section*{Aufgabe 4. (Parallelogrammidentität)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Gegeben sei ein Vektorraum \(V\) in dem ein Skalarprodukt definiert ist mit \(\norm*{x} = \sqrt{\dotproduct{x}{x}}\), \(x \in V\). Beweisen Sie die Parallelogrammidentität
+            \[\norm*{x + y}^2 + \norm*{x - y}^2 = 2\enbrace*{\norm*{x}^2 + \norm*{y}^2}.\]
+            \item Gilt in einem normierten Vektorraum die Parallelogrammidentität, so existiert ein Skalarprodukt welches die Norm erzeugt:
+            \[\norm*{x} = \sqrt{\dotproduct{x}{x}}.\]
+            Beweisen Sie diese Aussage.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \begin{enumerate}
+        \item Wir können die Parallelogrammidentität mit simplen Umformungen direkt zeigen:
+        \begin{align*}
+            \norm*{x + y}^2 + \norm*{x - y}^2 &= \dotproduct{x + y}{x + y} + \dotproduct{x - y}{x - y}\\
+            &= \dotproduct{x}{x + y} + \dotproduct{y}{x + y} + \dotproduct{x}{x - y} - \dotproduct{y}{x - y}\\
+            &= \dotproduct{x}{x} + \dotproduct{x}{y} + \dotproduct{y}{x} + \dotproduct{y}{y} + \dotproduct{x}{x} - \dotproduct{x}{y}\\
+            &\quad\, - \dotproduct{y}{x} + \dotproduct{y}{y}\\
+            &= 2\dotproduct{x}{x} + 2\dotproduct{y}{y} = 2\enbrace*{\norm*{x}^2 + \norm*{y}^2}.
+        \end{align*}
+        \item Mit Hilfe der Polarisationsformel wählen wir
+        \[\dotproduct{x}{y} = \frac{1}{4}\enbrace*{\norm*{x + y}^2 - \norm*{x - y}^2}.\]
+        Es bleibt zu zeigen, dass dies ein Skalarprodukt definiert. Die Symmetrie, Definitheit und Nichtnegativität ist klar, da das Skalarprodukt durch eine Norm definiert ist. Es bleibt die Bilinearität
+        \[\dotproduct{\alpha{x}}{y} = \alpha\dotproduct{x}{y},\]
+        \[\dotproduct{x_1 + x_2}{y} = \dotproduct{x_1}{y} + \dotproduct{x_2}{y}\]
+        zu zeigen. Es gilt unter Verwendung der Parallelogrammgleichung:
+        \begin{align*}
+            &\norm*{x_1 + x_2 + y}^2 - \norm*{x_1 + x_2 - y}^2 - \norm*{x_1 + y}^2 - \norm*{x_2 + y}^2 + \norm*{x_1 - y}^2 + \norm*{x_2 - y}^2\\
+            &= \norm*{x_1 + x_2 + y}^2 - \norm*{x_1 + x_2 - y}^2 - \norm*{x_1 + y}^2 - \norm*{x_2}^2 - \norm*{x_2 + y}^2 - \norm*{x_1}^2\\
+            &\quad\, + \norm*{x_1 - y}^2 + \norm*{x_2}^2 + \norm*{x_2 - y}^2 + \norm*{x_1}^2\\
+            &= \norm*{x_1 + x_2 + y}^2 - \norm*{x_1 + x_2 - y}^2\\
+            &\quad\, - \frac{1}{2}\enbrace*{\norm*{x_1 + x_2 + y}^2 - \norm*{x_1 - x_2 + y}^2} - \frac{1}{2}\enbrace*{\norm*{x_1 + x_2 + y}^2 - \norm*{x_2 - x_1 + y}^2}\\
+            &\quad\, + \frac{1}{2}\enbrace*{\norm*{x_1 + x_2 - y}^2 - \norm*{x_1 - x_2 + y}^2} - \frac{1}{2}\enbrace*{\norm*{x_1 + x_2 - y}^2 - \norm*{x_2 - x_1 + y}^2}\\
+            &= 0
+        \end{align*}
+        Damit haben wir die Additivität gezeigt. Es bleibt die Aussage
+        \[\norm*{\alpha{x} + y}^2 - \norm*{\alpha{x} - y}^2 = \alpha\enbrace*{\norm*{x + y}^2 - \norm*{x - y}^2}\]
+        zu beweisen. Wir setzen in der vorherigen Rechnung \(x = x_1 = x_2\), somit haben wir
+        \[\norm*{2x + y}^2 - \norm*{2x - y}^2 = 2\enbrace*{\norm*{x + y}^2 - \norm*{x - y}^2}\]
+        bewiesen. Dann können wir die obige Aussage induktiv für alle \(\alpha \in \NN\) beweisen. Wegen
+        \[\norm*{x + y}^2 - \norm*{x - y}^2 = n\enbrace*{\norm*{n^{-1}x + y}^2 - \norm*{n^{-1}x - y}^2}, \quad n \in \NN\]
+        können wir die Aussage für alle \(q \in \QQ_{> 0}\) folgern. Dank der Additivität gilt die Aussage auf \(q \in \QQ\). Da die rationalen Zahlen dicht in der Menge der reellen Zahlen liegen, folgt die Behauptung.
+    \end{enumerate}
+\end{document}

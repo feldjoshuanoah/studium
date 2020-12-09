@@ -1,0 +1,329 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Hausaufgabenübung 4}
+\author{Joshua Feld, 406718 \quad Jeff Vogel, 407758 \quad Henrik Herrmann, 421853}
+\date{1. Dezember, 2020}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Abzählbarkeit von Mengen)}
+
+    \begin{problem}
+        In Computern werden Zahlen im Binärsystem dargestellt. Das heißt, die einzigen Ziffern, die eine Zahl haben kann, sind \(b_i \in \penbrace*{0, 1}\). Wir betrachten folgende Menge von Binärzahlen
+        \[M = \penbrace*{b_nb_{n - 1}{\ldots}b_1b_0: n \in \NN \cup \penbrace*{0}, b_i = \penbrace*{0, 1}}.\]
+        Ist diese Menge abzählbar unendlich? Begründen Sie Ihre Antwort.
+    \end{problem}
+
+    \subsection*{Lösung}  Aus dem Hinweis wissen wir, dass eine Binärzahl mit der bijektiven Funktion
+    \[f: M \to \NN \cup \penbrace*{0}, f\enbrace*{x} = \sum_{i = 0}^Nb_i2^i\]
+    in das Dezimalsystem umgerechnet werden kann. Sei nun zusätzlich
+    \[g: \NN \cup \penbrace*{0} \to \NN, g\enbrace*{x} = x + 1.\]
+    Daraus folgt, dass \(\NN \cup \penbrace*{0}\) und \(\NN\) gleichmächtig sind, also abzählbar unendlich. Da sowohl \(f\) als auch \(g\) bijektiv sind, ist auch die Komposition
+    \[g \circ f: M \to \NN, \enbrace*{g \circ f}\enbrace*{x} = \sum_{i = 0}^N\enbrace*{b_i2^i} + 1\]
+    bijektiv und somit sind auch \(M\) und \(\NN\) gleichmächtig, also ebenfalls abzählbar unendlich. Die Menge der Binärzahlen ist als abzählbar unendlich.
+
+    \section*{Aufgabe 2. (Komplexe Mengen)}
+
+    \begin{problem}
+        Skizzieren Sie die folgenden Mengen in der komplexen Ebene:
+        \begin{enumerate}
+            \item \(M_1 = \penbrace*{z \in \CC: \absolute*{z} = 4}\), \(\tilde{M_1} = \penbrace*{z \in \CC: \absolute*{z} \le 4}\), \(\bar{M_1} = \penbrace*{z \in \CC: 2 \le \absolute*{z} \le 4}\)
+            \item \(M_2 = \penbrace*{z \in \CC: 2\Re\enbrace*{z} + 5\Im\enbrace*{z} = 1}\)
+            \item \(M_3 = \penbrace*{z \in \CC: \Re\enbrace*{z} + \Im\enbrace*{z} - 1 > 2}\)
+            \item \(M_4 = \penbrace*{z \in \CC: \Re\enbrace*{z} \ge 0 \land \absolute*{z} < 9 \land \Re\enbrace*{z} \le \Im\enbrace*{z}}\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Die Menge \(M\) enthält nur die Punkte auf der Linie. \(\tilde{M}\) und \(\bar{M}\) hingegen enthalten alle Punkte in dem grau ausgemalten Bereich.
+        \begin{center}
+            \begin{tikzpicture}[scale=.45]
+                \begin{scope}[thick,font=\tiny]
+                    \draw [->] (-5,0) -- (5,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (0,-5) -- (0,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-4,...,-1,1,2,...,4}{
+                        \draw (\n,3pt) -- (\n,-3pt) node [below] {\(\n\)};
+                        \draw (3pt,\n) -- (-3pt,\n) node [left] {\(\n\)};
+                    }
+
+                    \draw [->] (6,0) -- (16,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (11,-5) -- (11,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-4,...,-1,1,2,...,4}{
+                        \draw (\n + 11,3pt) -- (\n + 11,-3pt) node [below] {\(\n\)};
+                        \draw (11cm + 3pt,\n) -- (11cm + -3pt,\n) node [left] {\(\n\)};
+                    }
+
+                    \draw [->] (17,0) -- (27,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (22,-5) -- (22,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-4,...,-1,1,2,...,4}{
+                      \draw (\n + 22,3pt) -- (\n + 22,-3pt) node [below] {\(\n\)};
+                      \draw (22cm + 3pt,\n) -- (22cm + -3pt,\n) node [left] {\(\n\)};
+                    }
+                \end{scope}
+                \path [draw=black] (0,0) circle (4);
+                \node [below right,black] at (1.3,-1.3) {\(M_1\)};
+                \path [draw=black,fill=gray,fill opacity=0.45] (11,0) circle (4);
+                \node [below right,black] at (12.3,-1.3) {\(\tilde{M_1}\)};
+                \path [draw=black,fill=gray,fill opacity=0.45,even odd rule] (22,0) circle (4) (22,0) circle (2);
+                \node [below right,black] at (23.3,-1.3) {\(\bar{M_1}\)};
+            \end{tikzpicture}
+        \end{center}
+        \item Wir können diese Gleichung umformen:
+        \[2\Re\enbrace*{z} + 5\Im\enbrace*{z} = 1 \iff 5\Im\enbrace*{z} = 1 - 2\Re\enbrace*{z} \iff \Im\enbrace*{z} = \frac{1}{5} - \frac{2}{5}\Re\enbrace*{z}\]
+        Dies ist in der Form einer linearen Funktion, die wir wie folgt darstellen können,
+        \begin{center}
+            \begin{tikzpicture}[scale=.75]
+                \begin{scope}[thick,font=\scriptsize]
+                    \draw [->] (-5,0) -- (5,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (0,-5) -- (0,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-4,-3,...,-1,1,2,...,4}{
+                        \draw (\n,3pt) -- (\n,-3pt) node [below] {\(\n\)};
+                    }
+                    \draw (3pt,4) -- (-3pt,4) node [left] {\(1\)};
+                    \draw (3pt,3) -- (-3pt,3) node [left] {\(\frac{3}{4}\)};
+                    \draw (3pt,2) -- (-3pt,2) node [left] {\(\frac{1}{2}\)};
+                    \draw (3pt,1) -- (-3pt,1) node [left] {\(\frac{1}{4}\)};
+                    \draw (3pt,-1) -- (-3pt,-1) node [left] {\(-\frac{1}{4}\)};
+                    \draw (3pt,-2) -- (-3pt,-2) node [left] {\(-\frac{1}{2}\)};
+                    \draw (3pt,-3) -- (-3pt,-3) node [left] {\(-\frac{3}{4}\)};
+                    \draw (3pt,-4) -- (-3pt,-4) node [left] {\(-1\)};
+
+                    \draw[] (-5,4.4) -- (5,-3.6);
+                \end{scope}
+            \end{tikzpicture}
+        \end{center}
+
+        \item Wir können die Gleichung umformen nach \(\Re\enbrace*{z} + \Im\enbrace*{z} > 3\). Somit ergibt sich die folgende Grafik, wobei die Punkte auf der gestrichelten Linie nicht enthalten sind.
+        \begin{center}
+            \begin{tikzpicture}[scale=.75]
+                \begin{scope}[thick,font=\scriptsize]
+                    \draw [->] (-5,0) -- (5,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (0,-5) -- (0,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-6,-4.5,...,-1.5,1.5,3,...,6}{
+                        \draw (\n/1.5,3pt) -- (\n/1.5,-3pt) node [below] {\(\n\)};
+                        \draw (3pt,\n/1.5) -- (-3pt,\n/1.5) node [left] {\(\n\)};
+                    }
+
+                    \filldraw[draw=none,fill=gray,fill opacity=0.45] (-3,5) -- (5,5) -- (5,-3) -- cycle;
+                    \draw[dashed] (-3,5) -- (5,-3);
+                \end{scope}
+            \end{tikzpicture}
+        \end{center}
+
+        \item Die Menge \(M_4\) können wir aufteilen in drei Mengen \(\mathcal{M}_1, \mathcal{M}_2, \mathcal{M}_3\) mit
+        \begin{align*}
+            \mathcal{M}_1 &= \penbrace*{z \in \CC: \Re\enbrace*{z} \ge 0}\\
+            \mathcal{M}_2 &= \penbrace*{z \in \CC: \absolute*{z} < 9}\\
+            \mathcal{M}_3 &= \penbrace*{z \in \CC: \Re\enbrace*{z} \le \Im\enbrace*{z}}
+        \end{align*}
+        \(M_4 = \bigcap_{i = 1}^3\mathcal{M}_i\) ist unten abgebildet.
+
+        \begin{center}
+            \begin{tikzpicture}[scale=.75]
+                \begin{scope}[thick,font=\scriptsize]
+                    \draw [->] (-5,0) -- (5,0) node [above left] {\(\Re\enbrace*{z}\)};
+                    \draw [->] (0,-5) -- (0,5) node [below right] {\(\Im\enbrace*{z}\)};
+
+                    \foreach \n in {-12,-9,...,-3,3,6,...,12}{
+                        \draw (\n/3,3pt) -- (\n/3,-3pt) node [below] {\(\n\)};
+                        \draw (3pt,\n/3) -- (-3pt,\n/3) node [left] {\(\n\)};
+                    }
+                \end{scope}
+                \begin{scope}
+                    \clip (0,-4) rectangle ++(4,8);
+                    \clip [rotate around={45:(0,0)}] (0,0) rectangle ++(4,4);
+                    \draw [draw=black,fill=gray,fill opacity=0.45] (0,0) circle (3);
+                \end{scope}
+                \draw (0,0) -- (0,3);
+                \draw (0,0) -- (2.121,2.121);
+            \end{tikzpicture}
+        \end{center}
+    \end{enumerate}
+
+    \section*{Aufgabe 3. (Polynome und Nullstellen)}
+
+    \begin{problem}
+        Sei \(n \in \NN\) und \(p: \CC \to \CC, p\enbrace*{z} = a_nz^n + \ldots + a_1z + a_0\) ein Polynom mit \(a_n \ne 0\) und \(a_0, \ldots, a_n \in \RR\). Zeigen Sie, dass die Nullstellen von \(p\) entweder reell sind oder konjugiert komplex auftreten, d.h.: Ist \(z \in \CC\) eine Nullstelle von \(p\), so ist auch \(\bar{z}\) eine Nullstelle von \(p\).
+    \end{problem}
+
+    \subsection*{Lösung} Sei \(z\) eine Nullstelle von \(p\). Dann gilt offensichtlich
+    \[p\enbrace*{z} = \sum_{i = 0}^na_iz^i = 0.\]
+    Hier können wir direkt folgern, dass
+    \[\overline{p\enbrace*{z}} = \sum_{i = 0}^n\overline{a_iz^i} = \bar{0}.\]
+    Wir wissen, dass das komplexe Konjugat einer reellen Zahl \(x\) wieder die reelle Zahl ist, d.h. \(\bar{x} = x\). Daraus folgt
+    \[\overline{p\enbrace*{z}} = \sum_{i = 0}^na_i\overline{z^i} = 0.\]
+    Nach der Vorlesung gilt \(\overline{x \cdot y} = \bar{x} \cdot \bar{y}\). Dies können wir auf unsere \(z^i\) aus dem Funktionsterm anwenden und erhalten
+    \[\overline{p\enbrace*{z}} = \sum_{i = 0}^na_i\bar{z}^i = 0 = p\enbrace*{\bar{z}}.\]
+    Somit ist für jede Nullstelle \(z \in \CC\) von \(p\) auch \(\bar{z}\) eine Nullstelle von \(p\).
+
+    \section*{Aufgabe 4. (Polynome, Einheitswurzeln)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Bestimmen Sie alle komplexen Lösungen der folgenden quadratischen Gleichung:
+            \[z^2 = \frac{1 - i + \enbrace*{1 + i}\sqrt{3}}{2 - 2i}\]
+            Vereinfachen Sie dafür zunächst den Ausdruck und schreiben Sie ihn anschließend in Polarkoordinaten.
+            \item Bestimmen Sie von der Gleichung \(z^3 = -7i\) alle Lösungen in den komplexen Zahlen. Es gilt \(\arg\enbrace*{-i} = -\frac{\pi}{2}\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir formen den Bruch zunächst um:
+        \begin{align*}
+            z^2 &= \frac{1 - i + \enbrace*{1 + i}\sqrt{3}}{2 - 2i}\\
+            &= \frac{1}{2} \cdot \frac{1 - i + \enbrace*{1 + i}\sqrt{3}}{1 - i}\\
+            &= \frac{1}{2} \cdot \enbrace*{\frac{1 - i}{1 - i} + \frac{\enbrace*{1 + i}\sqrt{3}}{1 - i}}\\
+            &= \frac{1}{2} \cdot \enbrace*{1 + \sqrt{3} \cdot \frac{1 + i}{1 - i}}
+        \end{align*}
+        Wir multiplizieren nun den sowohl den Nenner als auch den Zähler mit dem komplexen Konjugat des Nenners um diesen zu eliminieren und erhalten
+        \[\frac{1}{2} \cdot \enbrace*{1 + \sqrt{3} \cdot \frac{\enbrace*{1 + i}\enbrace*{1 + i}}{\enbrace*{1 - i}\enbrace*{1 + i}}} = \frac{1}{2} \cdot \enbrace*{1 + \sqrt{3} \cdot i}.\]
+        Für die Polarkoordinatendarstellung benötigen wir den Betrag, welcher sich wie folgt berechnen lässt:
+        \[r = \absolute*{z^2} = \sqrt{\enbrace*{\frac{1}{2}}^2 + \enbrace*{\frac{\sqrt{3}}{2}}^2}.\]
+        Für den Winkel \(\varphi\) ergibt sich:
+        \[\tan\enbrace*{\varphi} = \frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}} \iff \varphi = \arctan\enbrace*{\sqrt{3}} = \frac{\pi}{3}.\]
+        Also ist
+        \[z^2 = \cos\enbrace*{\frac{\pi}{3}} + i \cdot \sin\enbrace*{\frac{\pi}{3}}.\]
+        Wir haben also die allgemeine Gleichung \(z^n = w = r\enbrace*{\cos\enbrace*{\varphi} + i \cdot \sin\enbrace*{\varphi}}\), mit \(n = 2\), \(r = 1\) und \(\varphi = \frac{\pi}{3}\). Dann gibt es nach Bemerkung 6.10 der Vorlesung zwei komplexe Zahlen \(z_0, z_1\), gegeben durch
+        \begin{align*}
+            z_0 &= \cos\enbrace*{\frac{\frac{\pi}{3}}{2} + 0 \cdot \frac{2\pi}{2}} + i \cdot \sin\enbrace*{\frac{\frac{\pi}{3}}{2} + 0 \cdot \frac{2\pi}{2}}\\
+            &= \cos\enbrace*{\frac{\pi}{6}} + i \cdot \sin\enbrace*{\frac{\pi}{6}} = \frac{\sqrt{3}}{2} + \frac{1}{2}i,\\
+            z_1 &= \cos\enbrace*{\frac{\frac{\pi}{3}}{2} + \frac{2\pi}{2}} + i \cdot \sin\enbrace*{\frac{\frac{\pi}{3}}{2} + \frac{2\pi}{2}}\\
+            &= \cos\enbrace*{\frac{\pi}{6} + \pi} + i \cdot \sin\enbrace*{\frac{\pi}{6} + \pi} = -\frac{\sqrt{3}}{2} - \frac{1}{2}i,
+        \end{align*}
+        für die \(\enbrace*{z_k}^n = w\) (\(k = 0, 1\)) erfüllt ist. Dies sind also die Lösungen der quadratischen Gleichung.
+        \item Wir bestimmen auch hier zunächst die Polarkoordinatendarstellung. Dazu bestimmen wir den Betrag wie folgt:
+        \[r = \absolute*{z^3} = \sqrt{\enbrace*{-7}^2} = 7.\]
+        Nun können wir schon unsere Polarkoordinatendarstellung aufschreiben, denn \(\varphi = \arg\enbrace*{z^3} = \arg\enbrace*{-i} = -\frac{\pi}{2}\):
+        \[z^3 = 7\enbrace*{\cos\enbrace*{-\frac{\pi}{2}} + \sin\enbrace*{-\frac{\pi}{2}}}.\]
+        Wir haben also wieder, wie in der ersten Teilaufgabe, die allgemeine Gleichung \(z^n = w = r\enbrace*{\cos\enbrace*{\varphi} + i \cdot \sin\enbrace*{\varphi}}\), mit \(n = 3\), \(r = 7\) und \(\varphi = -\frac{\pi}{2}\). Dann gibt es nach Bemerkung 6.10 der Vorlesung drei komplexe Zahlen \(z_0, z_1, z_2\), gegeben durch
+        \begin{align*}
+            z_0 &= \sqrt[3]{7}\enbrace*{\cos\enbrace*{-\frac{\frac{\pi}{2}}{3} + 0 \cdot \frac{2\pi}{3}} + i \cdot \sin\enbrace*{-\frac{\frac{\pi}{2}}{3} + 0 \cdot \frac{2\pi}{3}}}\\
+            &= \sqrt[3]{7}\enbrace*{\cos\enbrace*{-\frac{\pi}{6}} + i \cdot \sin\enbrace*{-\frac{\pi}{6}}} = \sqrt[3]{7}\enbrace*{\frac{\sqrt{3}}{2} - \frac{1}{2}i},\\
+            z_1 &= \sqrt[3]{7}\enbrace*{\cos\enbrace*{-\frac{\frac{\pi}{2}}{3} + \frac{2\pi}{3}} + i \cdot \sin\enbrace*{-\frac{\frac{\pi}{2}}{3} + \frac{2\pi}{3}}}\\
+            &= \sqrt[3]{7}\enbrace*{\cos\enbrace*{\frac{\pi}{2}} + i \cdot \sin\enbrace*{\frac{\pi}{2}}} = \sqrt[3]{7}i,\\
+            z_2 &= \sqrt[3]{7}\enbrace*{\cos\enbrace*{-\frac{\frac{\pi}{2}}{3} + 2 \cdot \frac{2\pi}{3}} + i \cdot \sin\enbrace*{-\frac{\frac{\pi}{2}}{3} + 2 \cdot \frac{2\pi}{3}}}\\
+            &= \sqrt[3]{7}\enbrace*{\cos\enbrace*{\frac{\pi}{6} + \pi} + i \cdot \sin\enbrace*{\frac{\pi}{6} + \pi}} = \sqrt[3]{7}\enbrace*{-\frac{\sqrt{3}}{2} - \frac{1}{2}i},
+        \end{align*}
+        für die \(\enbrace*{z_k}^n = w\) (\(k = 0, 1\)) erfüllt ist. Dies sind also die Lösungen der Gleichung.
+    \end{enumerate}
+
+    \section*{Aufgabe 5. (Lineare Abhängigkeit)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Für welche \(a, b \in \RR\) sind
+            \[v_1 = \begin{pmatrix}a^2\\1\\b\end{pmatrix} \quad \text{und} \quad v_2 = \begin{pmatrix}b\\-1\\1\end{pmatrix}\]
+            linear abhängig.
+            \item Sind \(v_1, v_2\) für \(a = b = 1\) und \(v_3 = \begin{pmatrix}1\\-1\\-1\end{pmatrix}\) linear unabhängig?
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir prüfen, wie sich \(0 \in \RR^3\) durch die beiden Vektoren \(v_1, v_2\) darstellen lassen.
+        \[0 = \lambda_1 \cdot \begin{pmatrix}a^2\\1\\b\end{pmatrix} + \lambda_2 \cdot \begin{pmatrix}b\\-1\\1\end{pmatrix}.\]
+        Folglich ergibt sich das Gleichungssystem
+        \[\enbrace*{\begin{array}{cc|c}
+            a^2 & b & 0\\
+            1 & -1 & 0\\
+            b & 1 & 0
+        \end{array}} \to \enbrace*{\begin{array}{cc|c}
+            a^2 & b & 0\\
+            1 & -1 & 0\\
+            b + 1 & 0 & 0
+        \end{array}} \to \enbrace*{\begin{array}{cc|c}
+            a^2 + b & 0 & 0\\
+            1 & -1 & 0\\
+            b + 1 & 0 & 0
+        \end{array}}.\]
+        Unter der Annahme, dass \(\lambda_1\) und \(\lambda_2\) beide Null sind folgt aus der letzten Gleichung, dass \(b = -1\). Setzen wir dies nun in die erste Gleichung ein, so folgt \(\absolute*{a} = 1\). Also sind die Vektoren für \(b = -1\) und \(a = -1\) oder \(a = 1\) linear abhängig.
+        \item Für \(a = b = 1\) erhalten wir die drei Vektoren
+        \[v_1 = \begin{pmatrix}1\\1\\1\end{pmatrix}, v_2 = \begin{pmatrix}1\\-1\\1\end{pmatrix}, v_3 = \begin{pmatrix}1\\-1\\-1\end{pmatrix}.\]
+        Wir haben also wieder ein lineares Gleichungssystem, was sich aus der Gleichung \(0 = \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 + \lambda_3 \cdot v_3\) ergibt:
+        \[\enbrace*{\begin{array}{ccc|c}
+            1 & 1 & 1 & 0\\
+            1 & -1 & -1 & 0\\
+            1 & 1 & -1 & 0
+        \end{array}} \to \enbrace*{\begin{array}{ccc|c}
+            1 & 1 & 1 & 0\\
+            1 & -1 & -1 & 0\\
+            0 & 0 & -2 & 0
+        \end{array}} \to \enbrace*{\begin{array}{ccc|c}
+            1 & 1 & 1 & 0\\
+            0 & -2 & -2 & 0\\
+            0 & 0 & -2 & 0
+        \end{array}}.\]
+        Da nun unsere Matrix in Zeilenstufenform ist, können wir von unten nach oben lösen. Aus der dritten Gleichung folgt direkt \(\lambda_3 = 0\). Setzen wir dies in die zweite Gleichung ein, erhalten wir auch \(\lambda_2 = 0\). Beide Lösungen eingesetzt in die erste Gleichung ergibt \(\lambda_1 = 0\). Folglich sind \(v_1, v_2, v_3\) linear unabhängig, denn die \(0 \in \RR^3\) lässt sich nur durch die triviale Lösung \(\lambda_1 = \lambda_2 = \lambda_3 = 0\) darstellen.
+    \end{enumerate}
+
+    \section*{Aufgabe 6. (Unterräume)}
+
+    \begin{problem}
+        Entscheiden und begründen Sie, ob \(U\) ein Unterraum des \(\RR\)-Vektorraums \(V\) ist:
+        \begin{enumerate}
+            \item \(V = \RR^2\), \(U = \penbrace*{\enbrace*{x, y}^T \in \RR^2, t \in \RR: \begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}t\\2t\end{pmatrix}}\)
+            \item \(V = \RR^3\), \(U = \penbrace*{\enbrace*{x, y, z}^T \in \RR^3: y = 2x + 1}\)
+            \item \(V = \RR^3\), \(U = \penbrace*{\enbrace*{x, y, z}^T \in \RR^3: y + 2x + 2z = 0}\)
+            \item \(V = \mathcal{F}\enbrace*{\benbrace*{a, b}, \RR}\) (Raum aller Funktionen \(f: \benbrace*{a, b} \to \RR\)),
+
+            \(U = \penbrace*{f: \benbrace*{a, b} \to \RR: f\text{ ist Polynom vom Grad}\le n}\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item  Es ist \(U \subset V\). Seien \(u, v \in U\) und \(\lambda_1, \lambda_2 \in \RR\). Dann gilt
+        \[\lambda_1 \cdot u + \lambda_2 \cdot v = \lambda_1 \cdot \begin{pmatrix}t_1\\2t_1\end{pmatrix} + \lambda_2 \cdot \begin{pmatrix}t_2\\2t_2\end{pmatrix} = \begin{pmatrix}
+            \lambda_1 \cdot t_1 + \lambda_2 \cdot t_2\\
+            2 \cdot \enbrace*{\lambda_1 \cdot t_1 + \lambda_2 \cdot t_2}
+        \end{pmatrix} = \begin{pmatrix}t\\2t\end{pmatrix},\]
+        mit \(t = \lambda_1 \cdot t_1 + \lambda_2 \cdot t_2\). Folglich ist \(\lambda_1 \cdot u + \lambda_2 \cdot v \in U\). Da \(U\) abgeschlossen ist im Bezug auf Addition und Multiplikation mit Skalaren, ist \(U\) ein Unterraum von \(V\).
+        \item Die \(0 \in \RR^3\) erfüllt offensichtlich die Gleichung \(y = 2x + 1\) nicht. Folglich ist \(0 \not\in U\). Daraus folgt direkt, dass \(U\) kein Unterraum von \(V\) ist.
+        \item Es ist \(U \subset V\). Seien \(u = \enbrace*{u_1, u_2, u_3}^T, v = \enbrace*{v_1, v_2, v_3}^T \in U\). Dann gilt
+        \[u_1 + 2u_2 + 2u_3 = 0 \quad \text{und} \quad v_1 + 2v_2 + 2v_3 = 0\]
+        Hieraus folgt direkt, dass für \(\lambda_1, \lambda_2 \in \RR\) auch \(\lambda_1 \cdot u, \lambda_2 \cdot v \in U\), denn
+        \[\lambda_1u_1 + 2 \cdot \enbrace*{\lambda_1u_2} + 2 \cdot \enbrace*{\lambda_1u_3} = \lambda_1 \cdot \enbrace*{u_1 + 2u_2 + 2u_3} = \lambda_1 \cdot 0 = 0,\]
+        \[\lambda_2v_1 + 2 \cdot \enbrace*{\lambda_2v_2} + 2 \cdot \enbrace*{\lambda_2v_3} = \lambda_2 \cdot \enbrace*{v_1 + 2v_2 + 2v_3} = \lambda_2 \cdot 0 = 0.\]
+        Offensichtlich gilt dann auch \(\lambda_1 \cdot u + \lambda_2 \cdot v \in U\), denn
+        \[\lambda_1 \cdot \enbrace*{u_1 + 2u_2 + 2u_3} + \lambda_2 \cdot \enbrace*{v_1 + 2v_2 + 2v_3} = \lambda_1 \cdot 0 + \lambda_2 \cdot 0 = 0 + 0 = 0.\]
+        Da \(U\) abgeschlossen ist im Bezug auf Addition und Multiplikation mit Skalaren, ist \(U\) ein Unterraum von \(V\).
+        \item Seien \(f,g \in U\) zwei Abbildungen mit
+        \[f: \benbrace*{a, b} \to \RR, x \mapsto f\enbrace*{x} = \sum_{i = 0}^na_ix^i,\]
+        \[g: \benbrace*{a, b} \to \RR, x \mapsto g\enbrace*{x} = \sum_{i = 0}^nb_ix^i.\]
+        Dann ist
+        \begin{align*}
+            \enbrace*{\lambda_1 \cdot f + \lambda_2 \cdot g}\enbrace*{x} &= \lambda_1 \cdot f\enbrace*{x} + \lambda_2 \cdot g\enbrace*{x}\\
+            &= \lambda_1 \cdot \sum_{i = 0}^na_ix^i + \lambda_2 \cdot \sum_{i = 0}^nb_ix^i\\
+            &= \sum_{i = 0}^n\enbrace*{\lambda_1 \cdot a_ix^i} + \sum_{i = 0}^n\enbrace*{\lambda_2 \cdot b_ix^i}\\
+            &= \sum_{i = 0}^n\enbrace*{\lambda_1 \cdot a_ix^i + \lambda_2 \cdot b_ix^i}\\
+            &= \sum_{i = 0}^n\enbrace*{\enbrace*{\lambda_1a_i + \lambda_2b_i}x^i} \in U.
+        \end{align*}
+        Folglich ist \(U\) abgeschlossen im Bezug auf Addition und Multiplikation mit Skalaren und da \(U \subset V\) ist \(U\) auch ein Unterraum von \(V\).
+    \end{enumerate}
+\end{document}

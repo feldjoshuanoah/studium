@@ -1,0 +1,102 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+
+\DeclareSIUnit{\calorie}{cal}
+
+\title{Hausaufgabe 4}
+\author{Joshua Noah Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Dampfgenerierung für einen Autoklav)}
+
+    \begin{problem}
+        Zur Sterilisierung von medizinischer Ausrüstung wird eine Wassermenge von \(200\,\si{\liter}\) von einer Temperatur von \(20\si{\degreeCelsius}\) auf \(100\si{\degreeCelsius}\) erwärmt, verdampft und auf \(121\si{\degreeCelsius}\) überhitzt. Schätzen Sie die notwendige Wärmemenge ab. Die Verdampfungsenthalpie von Wasser beträgt \(\Delta_\text{vap}H = 2\,260\,\si{\joule\per{\g}}\). Beachten Sie, dass die Wärmekapazität des Wasserdampfes über den gegebenen Temperaturbereich \emph{nicht} als konstant angenommen werden kann.
+    \end{problem}
+
+    \subsection*{Lösung} Wir machen folgende Annahmen:
+    \begin{itemize}
+        \item Die Dichte von Wasser bei \(20\si{\degreeCelsius}\) ist \(\rho = 1\,\si{\kg\per{\liter}}\).
+        \item Es treten keine Wärmeverluste während des Prozesses auf.
+        \item Die Wärmekapazität bei konstantem Druch von flüssigem Wasser ist konstant.
+        \item Der Prozess findet bei Standarddruck statt.
+    \end{itemize}
+    Der Prozess lässt sich in drei Unterprozesse unterteilen.
+    \begin{enumerate}
+        \item Zunächst wird das Wasser von \(20\si{\degreeCelsius}\) auf \(100\si{\degreeCelsius}\) erwärmt. Dazu ist die Wärmemenge
+        \[Q_1 = c_pm{\Delta}T_1 = c_p\rho{V}{\Delta}T_1\]
+        mit \({\Delta}T_1 = T_2 - T_1 = 80\,\si{\kelvin}\) notwendig. Dabei ergibt sich die spezifische Wärmekapazität \(c_p\) aus der Tabelle im Vorlesungsumdruck zu \(c_p = 4,181\,\si{\joule\per{\g\kelvin}}\). Es folgt
+        \[Q_1 = c_p\rho{V}{\Delta}T_1 = 4,181\,\si{\joule\per{\g\kelvin}} \cdot 1\,\si{\kg\per{\liter}} \cdot 200\,\si{\liter} \cdot 80\,\si{\kelvin} = 66,9\,\si{\mega\joule}.\]
+        \item Anschließend wird das Wasser bei \(100\si{\degreeCelsius}\) verdapft. Die benötigte Wärmemenge \(Q_2\) ergibt sich mit der Verdampfungsenthalpie \(\Delta_\text{vap}H\) zu
+        \[Q_2 = m\Delta_\text{vap}H = \rho{V}\Delta_\text{vap}H = 1\,\si{\kg\per{\liter}} \cdot 200\,\si{\liter} \cdot 2\,260\,\si{\joule\per{\g}} = 452\,\si{\mega\joule}.\]
+        \item Schließlich wird der Wasserdampf von \(100\si{\degreeCelsius}\) (\(T_2 = 373\,\si{\kelvin}\)) auf \(121\si{\degreeCelsius}\) (\(T_3 = 394\,\si{\kelvin}\)) überhitzt. Mit der temperaturabhängigen molaren Wärmekapazität bei konstantem Druck \(c_{m, p}\enbrace*{T}\) ergibt sich die benötigte Wärmemenge \(Q_3\) zu
+        \[Q_3 = \int_{T_2}^{T_3}c_{m, p}\enbrace*{T}n{\dd}T = \int_{T_2}^{T_3}c_{m, p}\enbrace*{T}\frac{\rho{V}}{M}{\dd}T.\]
+        Entsprechend dem polynomiellen Ansatz aus dem Vorlesungsumdruck ergibt sich \(c_{m, p}\enbrace*{T}\) zu
+        \[c_{m, p}\enbrace*{T} = R\enbrace*{C_0 + C_1T + C_2T^2 + C_3T^3 + C_4T^4}\]
+        mit den Koeffizientenwerten \(C_0 = 4,07\), \(C_1 = -1,108 \cdot 10^{-3}\,\si{\per\kelvin}\), \(C_2 = -4,152 \cdot 10^{-6}\,\si{\per\kelvin\squared}\), \(C_3 = -2,964 \cdot 10^{-9}\,\si{\per\kelvin\cubed}\) und \(C_4 = 0,807 \cdot 10^{-12}\,\si{\per\kelvin\tothe{4}}\). Durch Auflösung des Integrals ergibt sich
+        \begin{align*}
+            Q_3 &= \frac{R\rho{V}}{M}\int_{T_2}^{T_3}C_0 + C_1T + C_2T^2 + C_3T^3 + C_4T^4{\dd}T\\
+            &= \frac{R\rho{V}}{M}\benbrace*{C_0T + \frac{1}{2}C_1T^2 + \frac{1}{3}C_2T^3 + \frac{1}{4}C_3T^4 + \frac{1}{5}C_4T^5}_{T_2}^{T_3}\\
+            &= \frac{8,314\,\si{\joule\per{\mole\kelvin}} \cdot 1\,\si{\kg\per{\liter}} \cdot 200\,\si{\liter}}{18,02\,\si{\g\per{\mole}}}\left[4,07\,T + \frac{-1,108 \cdot 10^{-3}\,\si{\per\kelvin}}{2}T^2\right.\\
+            &\ \ \ + \left.\frac{4,152 \cdot 10^{-6}\,\si{\per\kelvin\squared}}{3}T^3 + \frac{-2,964 \cdot 10^{-9}\,\si{\per\kelvin\cubed}}{4}T^4 + \frac{0,807 \cdot 10^{-12}\,\si{\per\kelvin\tothe{4}}}{5}T^5\right]_{373\,\si{\kelvin}}^{394\,\si{\kelvin}}\\
+            & = 7,96\,\si{\mega\joule}.
+        \end{align*}
+    \end{enumerate}
+    Somit ergibt sich die gesamte Wärmemenge zu
+    \[Q = Q_1 + Q_2 + Q_3 = 66,9\,\si{\mega\joule} + 452\,\si{\mega\joule} + 7,96\,\si{\mega\joule} = 526,86\,\si{\mega\joule}.\]
+
+    \section*{Aufgabe 2. (Revision: Erwärmung von Brokkoli)}
+
+    \begin{problem}
+        In Übung 3 haben Sie folgende Aufgabe gelöst: Bei vielen Lebensmitteln unterscheidet sich die Wärmekapazität im gefrorenen Zustand von der im aufgetauten Zustand. Brokkoli zum Beispiel hat eine Wärmekapazität von \(3,85\,\si{\kilo\joule\per{\kg\kelvin}}\) unter der Schmelztemperatur von Wasser und nur \(1,84\,\si{\kilo\joule\per{\kg\kelvin}}\) oberhalb der Schmelztemperatur. Wie viel Energie muss man aufwenden, um die Temperatur von \(500\,\si{\g}\) Brokkoli von \(-18\si{\degreeCelsius}\) auf \(50\si{\degreeCelsius}\) zu erhöhen? Ignorieren Sie bei der Berechnung den Einfluss der Schmelzwärme von Wasser.
+
+        Betrachten Sie den selben Fall erneut ohne die Annahme vernachlässigbarer Schmelzwärme des Wassers. Nehmen Sie an, dass Brokkoli ausschließlich aus Wasser (Index \(W\)) und Biomasse (Index \(B\)) in einem Massenverhältnis \(\frac{m_B}{m_W} = 0,25\) besteht. Die Biomasse liegt im gesamten betrachteten Temperaturbereich fest vor.
+    \end{problem}
+
+    \subsection*{Lösung} Die Lösung der ursprünglichen Aufgabe ergab eine benötigte Wärmemenge von \(Q_\text{alt} = 80,65\,\si{\kilo\joule}\). Zusätzlich muss nun das Schmelzen des Wasseranteils betrachtet werden. Die Wassermasse \(m_W\) beträgt
+    \[m_W = m\frac{m_W}{m_W + m_B} = m\enbrace*{\frac{m_W + m_B}{m_W}}^{-1} = m\enbrace*{1 + \frac{m_B}{m_W}}^{-1} = 500\,\si{\g}\enbrace*{1 + 0,25}^{-1} = 400\,\si{\g}.\]
+    Mit der Schmelzwärme von Wasser \(\Delta_\text{fus}H = 333,55\,\si{\joule\per{\g}}\) ergibt sich die zusätzlich erforderliche Wärmemenge \(Q_\text{fus}\) zu
+    \[Q_\text{fus} = \Delta_\text{fus}Hm_W = 333,55\,\si{\joule\per{\g}} \cdot 400\,\si{\g} = 133,42\,\si{\kilo\joule}\]
+    und die gesamte benötigte Wärmemenge zu
+    \[Q = Q_\text{alt} + Q_\text{fus} = 80,65\,\si{\kilo\joule} + 133,42\,\si{\kilo\joule} = 214,07\,\si{\kilo\joule}.\]
+
+    \section*{Aufgabe 3. (Wärmekapazität von Gasen)}
+
+    \begin{problem}
+        Ein Mol Kohlenstoffdioxid (\ch{CO2}) befindet sich in einem isolierten Zylinder. Durch einen beschwerten Kolben wird der Druck konstant bei \(2\,\si{\bar}\) gehalten. Dem Zylinder wird eine geringe, präzise dosierte Wärmemenge zugeführt, sodass sich der Kolben hebt. Das gleiche Experiment mit der gleichen Wärmemenge wird mit einem Mol Helium (\ch{He}) durchgeführt. Erwarten Sie, dass sich der Kolben um den gleichen, einen geringeren oder einen höheren Betrag hebt? Begründen Sie ihre Antwort, eine Rechnung ist nicht notwendig.
+    \end{problem}
+
+    \subsection*{Lösung} Aufgrund des geringen Drucks nehmen wir an, dass sich \ch{CO2} und \ch{He} als ideale Gase verhalten. Damit nehmen beide Gase vor der Wärmezufuhr das gleiche Volumen ein. Darüber hinaus ist das Volumen der Gase proportional zur absoluten Temperatur. Wie wir in der Vorlesung gelernt haben, besitzt \ch{CO2} als dreiatomiges Gas mehr Freiheitsgrade der Bewegung als das einatomige \ch{He}. Daraus ergibt sich, dass \ch{He} eine geringere Wärmekapazität als \ch{CO2} besitzt. Es folgt, dass bei Zufabe der gleichen Wärmemenge die Temperatur von \ch{He} um einen größeren Betrag steigt als die Temperatur von \ch{CO2}. Daraus folgt eine größere Volumenausdehnung und das Anheben des Kolbens um einen größeren Betrag.
+
+    \section*{Aufgabe 4. (Kalorie)}
+
+    \begin{problem}
+        Die Kalorie (\(\si{\calorie}\)) ist eine Maßeinheit der Energie. Eine von mehreren Definitionen der Kalorie ist die Wärmemenge, die benötigt wird, um \(1\,\si{\g}\) Wasser von einer Temperatur von \(14,5\si{\degreeCelsius}\) auf \(15,5\si{\degreeCelsius}\) zu erwärmen. Bestimmen Sie den Umrechnungsfaktor, mit dem Sie eine Energiemenge von Kalorien in Joule umrechnen können.
+    \end{problem}
+
+    \subsection*{Lösung} Wir nehmen an, dass der Wert für die spezifische Wärmekapazität bei konstantem Druck von Wasser bei Standardbedingungen \(c_p = 4,181\,\si{\joule\per{\g\kelvin}}\) hinreichend genau ist. Dann ergibt sich eine Kalorie zu
+    \[1\,\si{\calorie} = c_pm{\Delta}T = 4,181\,\si{\joule\per{\g\kelvin}} \cdot 1\,\si{\g} \cdot 1\,\si{\kelvin} = 4,181\,\si{\joule}\]
+    und der Umrechnungsfaktor zu
+    \[\alpha = 1 = 4,181\,\si{\joule\per{\calorie}}.\]
+\end{document}

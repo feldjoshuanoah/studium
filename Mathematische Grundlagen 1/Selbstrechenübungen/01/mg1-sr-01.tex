@@ -1,0 +1,186 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{booktabs}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Selbstrechenübung 1}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Aussagenlogik)}
+
+    \begin{problem}
+        Zeigen Sie mithilfe einer Wahrheitstafel, dass das Kontrapositionsgesetz
+        \[\left(A \implies B\right) \iff \left(\lnot{B} \implies \lnot{A}\right)\]
+        für beliebige Aussagen \(A, B\) gültig ist.
+    \end{problem}
+
+    \subsection*{Lösung} Es seien \(A\) und \(B\) beliebige Aussagen. Dann gilt
+    \begin{center}
+        \begin{tabular}{ccccccc}
+            \toprule
+            \(A\) & \(B\) & \(\lnot{A}\) & \(\lnot{B}\) & \(A \implies B\) & \(\lnot{B} \implies \lnot{A}\) & \(\left(A \implies B\right) \implies \left(\lnot{B} \implies \lnot{A}\right)\)\\
+            \midrule
+            \(w\) & \(w\) & \(f\) & \(f\) & \(w\) & \(w\) & \(w\)\\
+            \(w\) & \(f\) & \(f\) & \(w\) & \(f\) & \(f\) & \(w\)\\
+            \(f\) & \(w\) & \(w\) & \(f\) & \(w\) & \(w\) & \(w\)\\
+            \(f\) & \(f\) & \(w\) & \(w\) & \(w\) & \(w\) & \(w\)\\
+            \bottomrule
+        \end{tabular}
+
+        \vspace{.2in}
+
+        \begin{tabular}{ccc}
+            \toprule
+            \ldots & \(\left(A \implies B\right) \impliedby \left(\lnot{B} \implies \lnot{A}\right)\) & \(\left(A \implies B\right) \iff \left(\lnot{B} \implies \lnot{A}\right)\)\\
+            \midrule
+            \ldots & \(w\) & \(w\)\\
+            \ldots & \(w\) & \(w\)\\
+            \ldots & \(w\) & \(w\)\\
+            \ldots & \(w\) & \(w\)\\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    Da in der letzten Spalte nur die Belegung \(w\), also wahr, herauskommt, ist das Kontrapositionsgesetz bewiesen.
+
+    \section*{Aufgabe 2. (Aussagenlogik: Negation)}
+
+    \begin{problem}
+        Negieren Sie die folgenden Aussagen. Bestimmen Sie anschließend, ob die Aussage oder ihre Negation wahr ist.
+        \begin{enumerate}
+            \item \({\exists}x \in \mathbb{R}: x^2 + 3 < 0\)
+            \item \({\forall}n, m \in \mathbb{N}: \frac{n}{m} \in \mathbb{Z}\)
+            \item \({\forall}x \in \mathbb{R}\ {\exists}y \in \mathbb{R}: x^2 + y^2 = 1\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item \({\forall}x \in \mathbb{R}: x^2 + 3 \ge 0\). Hier ist die Negation wahr, denn \(x^2 + 3 \ge 3 \ge 0\).
+        \item \({\exists}n, m \in \mathbb{N}: \frac{n}{m} \not\in \mathbb{Z}\). Hier ist ebenfalls die Negation wahr, weil \(n = 1, m = 3 \implies \frac{1}{3} \not\in \mathbb{Z}\) ein Gegenbeispiel zur Ursprungsaussage ist.
+        \item \({\exists}x \in \mathbb{R}\ {\forall}y \in \mathbb{R}: x^2 + y^2 \ne 1\). Wieder ist die Negation wahr, denn es gilt
+        \[x^2 + y^2 = 1 \iff y^2 = 1 - x^2 \iff y = \pm\sqrt{1 - x^2}.\]
+        So ein \(x\) existiert, denn für \(\left|x\right| > 1\) ist nämlich \(y\) mit obiger Eigenschaft nicht definiert.
+    \end{enumerate}
+
+    \section*{Aufgabe 3. (Morgansche Regeln)}
+
+    \begin{problem}
+        Beweisen Sie für zwei beliebige Aussagen \(A\) und \(B\) die Regeln von de Morgan:
+        \begin{enumerate}
+            \item \({\lnot}\left(A \land B\right) \iff \left({\lnot}A\right) \lor \left({\lnot}B\right)\).
+            \item \({\lnot}\left(A \lor B\right) \iff \left({\lnot}A\right) \land \left({\lnot}B\right)\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Es seien \(A\) und \(B\) Aussagen. Dann gilt
+        \begin{center}
+            \begin{tabular}{cccccccc}
+                \toprule
+                \(A\) & \(B\) & \(\lnot{A}\) & \(\lnot{B}\) & \(\lnot\enbrace*{A \land B}\) & \(\enbrace*{\lnot{A}} \lor \enbrace*{\lnot{B}}\) & \(\lnot\enbrace*{A \land B} \implies \enbrace*{\lnot{A}} \lor \enbrace*{\lnot{B}}\)\\
+                \midrule
+                \(w\) & \(w\) & \(f\) & \(f\) & \(f\) & \(f\) & \(w\)\\
+                \(w\) & \(f\) & \(f\) & \(w\) & \(w\) & \(w\) & \(w\)\\
+                \(f\) & \(w\) & \(w\) & \(f\) & \(w\) & \(w\) & \(w\)\\
+                \(f\) & \(f\) & \(w\) & \(w\) & \(w\) & \(w\) & \(w\)\\
+                \bottomrule
+            \end{tabular}
+
+            \vspace{.2in}
+
+            \begin{tabular}{cccccccc}
+                \toprule
+                \ldots & \(\lnot\enbrace*{A \land B} \impliedby \enbrace*{\lnot{A}} \lor \enbrace*{\lnot{B}}\) & \(\lnot\enbrace*{A \land B} \iff \enbrace*{\lnot{A}} \lor \enbrace*{\lnot{B}}\)\\
+                \midrule
+                \ldots & \(w\) & \(w\)\\
+                \ldots & \(w\) & \(w\)\\
+                \ldots & \(w\) & \(w\)\\
+                \ldots & \(w\) & \(w\)\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \item Es seien \(A\) und \(B\) Aussagen. Dann gilt
+        \begin{center}
+            \begin{tabular}{cccccccc}
+                \toprule
+                \(A\) & \(B\) & \(\lnot{A}\) & \(\lnot{B}\) & \(\lnot\enbrace*{A \lor B}\) & \(\enbrace*{\lnot{A}} \land \enbrace*{\lnot{B}}\) & \(\lnot\enbrace*{A \lor B} \implies \enbrace*{\lnot{A}} \land \enbrace*{\lnot{B}}\)\\
+                \midrule
+                \(w\) & \(w\) & \(f\) & \(f\) & \(f\) & \(f\) & \(w\)\\
+                \(w\) & \(f\) & \(f\) & \(w\) & \(w\) & \(w\) & \(w\)\\
+                \(f\) & \(w\) & \(w\) & \(f\) & \(w\) & \(w\) & \(w\)\\
+                \(f\) & \(f\) & \(w\) & \(w\) & \(w\) & \(w\) & \(w\)\\
+                \bottomrule
+            \end{tabular}
+
+            \vspace{.2in}
+
+            \begin{tabular}{cccccccc}
+                \toprule
+                \ldots & \(\lnot\enbrace*{A \lor B} \impliedby \enbrace*{\lnot{A}} \land \enbrace*{\lnot{B}}\) & \(\lnot\enbrace*{A \lor B} \iff \enbrace*{\lnot{A}} \land \enbrace*{\lnot{B}}\)\\
+                \midrule
+                \ldots & \(w\) & \(w\)\\
+                \ldots & \(w\) & \(w\)\\
+                \ldots & \(w\) & \(w\)\\
+                \ldots & \(w\) & \(w\)\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+
+
+    \section*{Aufgabe 4. (Relationen)}
+
+    \begin{problem}
+        Es ist \(3\mathbb{Z} = \left\{\ldots, -9, -6, -3, 0, 3, 6, 9, \ldots\right\}\) die Menge aller durch \(3\) teilbaren ganzen Zahlen.
+        \begin{enumerate}
+            \item Zeigen Sie, dass durch \(x \sim y \iff y - x \in 3\mathbb{Z}\) eine Äquivalenzrelation auf \(\mathbb{Z}\) definiert ist.
+            \item Geben Sie die Äquivalenzklassen an, in die \(\mathbb{Z}\) bezüglich \(\sim\) zerlegt werden kann.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir müssen zeigen, dass die Relation \(\sim\) reflexiv, symmetrisch und transitiv ist:
+        \begin{itemize}
+            \item Reflexivität: Sei \(x \in \ZZ\). Dann gilt \(x \sim x \iff x - x = 0 \in 3\ZZ\).
+            \item Symmetrie: Seien \(x, y \in \ZZ\). Dann gilt
+            \begin{align*}
+                x \sim y &\iff y - x \in 3\ZZ \iff \exists{z \in Z}: y - x = 3z\\
+                &\iff\exists{z \in Z}: x - y = -3z \iff x - y \in 3\ZZ \iff y \sim x
+            \end{align*}
+            \item Transitivität: Seien \(x, y, z \in \ZZ\) mit \(x \sim y\) und \(y \sim z\). Es gilt also
+            \begin{equation}\label{eq:1}
+                x \sim y \iff \exists{z_1 \in \ZZ}: y - x = 3z_1,
+            \end{equation}
+            \begin{equation}\label{eq:2}
+                y \sim z \iff \exists{z_2 \in \ZZ}: z - y = 3z_2.
+            \end{equation}
+            Wir addieren nun \eqref{eq:1} und \eqref{eq:2} und erhalten
+            \[z - x = 3\enbrace*{z_1 + z_2} \in 3\ZZ \iff x \sim z.\]
+        \end{itemize}
+        Da alle drei Eigenschaften erfüllt sind, ist \(\sim\) eine Äquivalenzrelation auf \(\ZZ\).
+        \item Die Äquivalenzklassen sind
+        \begin{align*}
+            \benbrace*{0}_\sim &= \penbrace*{\ldots, -6, -3, 0, 3, 6, \ldots} = 3\ZZ,\\
+            \benbrace*{1}_\sim &= \penbrace*{\ldots, -5, -2, 1, 4, 7, \ldots} = 3\ZZ + 1,\\
+            \benbrace*{0}_\sim &= \penbrace*{\ldots, -4, -1, 2, 5, 8, \ldots} = 3\ZZ + 2.
+        \end{align*}
+        Dies sind alle Klassen, da \(\benbrace*{3}_\sim = \benbrace*{0}_\sim\) und \(\benbrace*{-1}_\sim = \benbrace*{2}_\sim\) usw.
+    \end{enumerate}
+\end{document}

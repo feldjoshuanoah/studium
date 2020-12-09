@@ -1,0 +1,269 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\KK}{\mathbb{K}}
+
+\newcommand{\dotproduct}[2]{\left\langle#1, #2\right\rangle}
+
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Hausaufgabenübung 5}
+\author{Joshua Feld, 406718 \quad Jeff Vogel, 407758 \quad Henrik Herrmann, 421853}
+\date{7. Dezember, 2020}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Konvergenz von Folgen)}
+
+    \begin{problem}
+        Untersuchen Sie die angegebenen Folgen \(\enbrace*{a_n}_{n \in \NN}\) auf Konvergenz und bestimmen Sie gegebenenfalls den Grenzwert.
+        \begin{enumerate}
+            \item \(a_n = \enbrace*{\frac{2n}{2n + 1}}^{8n - 1}\)
+            \item \(a_n = \enbrace*{\sqrt[n]{n} + \frac{1}{n}}^n\)
+            \item \(a_n = \frac{4n^2 + 1}{2n^3 + n^2}\)
+        \end{enumerate}
+        \textbf{Hinweis:} \quad \emph{Es gilt \(\lim_{n \to \infty}\enbrace*{1 + \frac{1}{n}}^n = e\).}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Es gilt
+        \begin{align*}
+          \enbrace*{\frac{2n}{2n + 1}}^{8n - 1} &= \enbrace*{\frac{2n}{2n + 1}}^{8n} \cdot \enbrace*{\frac{2n}{2n + 1}}^{-1}\\
+          &= \enbrace*{\frac{1}{1 + \frac{1}{2n}}}^{8n} \cdot \enbrace*{\frac{2n + 1 - 1}{2n + 1}}^{-1}\\
+          &= \enbrace*{\frac{1}{\enbrace*{1 + \frac{1}{2n}}^{2n}}}^4 \cdot \enbrace*{1 - \frac{1}{2n + 1}}^{-1}.
+        \end{align*}
+        Wir definieren \(x_n = \enbrace*{1 + \frac{1}{n}}^n\). Sei nun
+        \(\enbrace*{k_n}_{n \in \NN} \subset \NN\) mit \(k_n = 2n\). Dann ist
+        die Teilfolge \(y_n = x_{k_n}\) unser Nenner
+        \(y_n = \enbrace*{1 + \frac{1}{2n}}^{2n}\). Aus der Vorlesung wissen
+        wir, dass für eine konvergente Folge mit Grenzwert \(x^* \in \RR\) jede
+        ihrer Teilfolgen ebenfalls konvergent ist mit Grenzwert \(x^*\). Daraus
+        folgt \(\lim_{n \to \infty}\enbrace*{1 + \frac{1}{2n}}^{2n} = e\). Da
+        zusätzlich \(\lim_{n \to \infty}\frac{1}{2n + 1} = 0\) gilt insgesamt
+        \[\lim_{n \to \infty}\enbrace*{\frac{2n}{2n + 1}}^{8n - 1} = \lim_{n \to \infty}\enbrace*{\enbrace*{\frac{1}{\enbrace*{1 + \frac{1}{2n}}^{2n}}}^4 \cdot \enbrace*{1 - \frac{1}{2n + 1}}^{-1}} = \enbrace*{\frac{1}{e}}^4 \cdot 1 = e^{-4}.\]
+        Die Folge \(a_n\) kovergiert also mit Grenzwert \(e^{-4}\).
+        \item Wir wissen, dass \(\sqrt[n]{n} + \frac{1}{n} \ge \sqrt[n]{n}\), denn \(\frac{1}{n} \ge 0\) für alle \(n \in \NN\). Daraus folgt
+        \[\enbrace*{\sqrt[n]{n} + \frac{1}{n}}^n \ge \enbrace*{\sqrt[n]{n}}^n = n.\]
+        Die Folge konvergiert offensichtlich nicht; sie ist divergent.
+        \item Wir wissen, dass \(2n^3 + n^2 \le 2n^3\), denn \(n^2 \ge 0\) für alle \(n \in \NN\). Daraus folgt dann
+        \[\frac{4n^2 + 1}{2n^3 + n^2} \le \frac{4n^2 + 1}{2n^3} = \frac{4n^2}{2n^3} + \frac{1}{2n^3} = 2 \cdot \frac{1}{n} + \frac{1}{2} \cdot \frac{1}{n^3}\]
+        Offensichtlich gilt \(\lim_{n \to \infty}\frac{1}{n} = 0\) und \(\lim_{n \to \infty}\frac{1}{n^3} = 0\). Es folgt also \(a_n \le 0\). Wir wissen zudem, dass \(a_n \ge 0\) für alle \(n \in \NN\). Somit konvergiert die Folge und es gilt
+        \[\lim_{n \to \infty}\frac{4n^2 + 1}{2n^3 + n^2} = 0.\]
+    \end{enumerate}
+
+    \section*{Aufgabe 2. (Konvergenz von Folgen)}
+
+    \begin{problem}
+        Beweisen Sie mit Hilfe der Konvergenz-Definition, dass die Folge \(\enbrace*{a_n}\) definiert durch
+        \[a_n = \frac{1}{\enbrace*{n + 1}^2}\text{ für }n \in \NN,\]
+        für \(n \to \infty\) gegen \(0\) konvergiert.
+    \end{problem}
+
+    \subsection*{Lösung} Wir müssen zeigen, dass für jedes \(\varepsilon > 0\) ein \(N \in \NN\) existiert, so dass
+    \[\absolute*{\frac{1}{\enbrace*{n + 1}^2}} < \varepsilon\]
+    für alle \(n \ge N\) gilt. Der Ausdruck \(\frac{1}{\enbrace*{n + 1}^2}\) ist immer positiv, also können wir die Betragsstriche weglassen. Es ergibt sich
+    \begin{align*}
+        \absolute*{\frac{1}{\enbrace*{n + 1}^2}} < \varepsilon &\iff \frac{1}{\enbrace*{n + 1}^2} < \varepsilon \iff 1 < \varepsilon \cdot \enbrace*{n + 1}^2\\
+        &\iff \frac{1}{\varepsilon} < \enbrace*{n + 1}^2 \iff \sqrt{\frac{1}{\varepsilon}} + 1 < n.
+    \end{align*}
+    Wir müssen also \(N > \sqrt{\frac{1}{\varepsilon}} + 1\) wählen. Da die Bedingung erfüllt ist, konvergiert die Folge \(\enbrace*{a_n}\) mit Grenzwert \(0\).
+
+    \section*{Aufgabe 3. (Rekursive Folgen)}
+
+    \begin{problem}
+        Sei \(\enbrace*{a_n} \subset \RR\) rekursiv definiert durch \(a_1 := 1\) und \(a_{n + 1} := \sqrt{2 + a_n}\) für alle \(n \in \NN\).
+        \begin{enumerate}
+            \item Zeigen Sie per vollständiger Induktion, dass \(\enbrace*{a_n}\) der Abschätzung \(a_n < 2\) für alle \(n \in \NN\) genügt.
+            \item Zeigen Sie, dass \(\enbrace*{a_n}\) monoton wachsend ist.
+            \item Zeigen Sie nun, dass \(\enbrace*{a_n}\) eine in \(\RR\) konvergente Folge ist und berechnen Sie den Grenzwert.
+        \end{enumerate}
+
+        \textbf{Hinweis:} \quad \emph{Die Wurzelfunktion ist streng monoton wachsend und stetig in \(\left[0, \infty\right)\).}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir zeigen die Aussage mit vollständiger Induktion:
+        \begin{itemize}
+            \item Induktionsverankerung: (\(n = 1\)) Offensichtlich ist \(a_1 = 1 < 2\).
+            \item Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges aber festes \(n \in \NN\).
+            \item Induktionsschritt: (\(n \to n + 1\)) Da die Wurzelfunktion stetig ist, gilt
+            \[a_{n + 1} = \sqrt{2 + a_n} \underbrace{<}_\text{I.V.} \sqrt{2 + 2} = 2.\]
+        \end{itemize}
+        Nach dem Prinzip der vollständigen Induktion gilt die Aussage damit für alle \(n \in \NN\).
+        \item Da die Wurzelfunktion stetig ist, gilt
+        \[a_{n + 1} = \sqrt{2 + a_n} > \sqrt{a_n + a_n} = \sqrt{2a_n} > \sqrt{a_n^2} = a_n.\]
+        Somit ist die Folge monoton wachsend.
+        \item Aus der Vorlesung wissen wir, dass jede monoton wachsende und nach oben beschränkte Folge konvergent ist. Monotonie haben wir in der zweiten Teilaufgabe gezeigt und Beschränktheit in der ersten Teilaufgabe. Wir wollen nun noch den Grenzwert \(a = \lim_{n \to \infty}a_n\) berechnen:
+        \[a = \lim_{n \to \infty}a_n = \lim_{n \to \infty}a_{n + 1} = \lim_{n \to \infty}\sqrt{2 + a_n} = \sqrt{2 + \lim_{n \to \infty}a_n} = \sqrt{2 + a}.\]
+        Wir erhalten also die Gleichung \(a = \sqrt{2 + a}\). Dies lösen wir nun wie folgt auf
+        \[a^2 = 2 + a \iff a^2 - a - 2 = 0 \iff a = \frac{1}{2} \pm \sqrt{\enbrace*{\frac{1}{2}}^2 + 2} = \frac{1}{2} \pm \frac{3}{2}.\]
+        Wir wissen also, dass \(a = -1\) oder \(a = 2\). Wir wissen aber aus den ersten beiden Teilaufgaben, dass für alle \(a_n\) gilt \(1 \le a_n < 2\), also kommt nur \(a = 2\) als Grenzwert infrage:
+        \[\lim_{n \to \infty}a_n = 2.\]
+    \end{enumerate}
+
+    \section*{Aufgabe 4. (Cauchyfolgen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Zeigen Sie, dass eine konvergente Folge \(\enbrace*{a_n} \in \KK\) eine Cauchy-Folge in \(\KK\) ist.
+            \item Sei \(\enbrace*{a_n} \in \KK\) rekursiv definiert durch
+            \[a_1 := 1, \quad a_{n + 1} := \frac{6 + 7a_n}{7 + 2a_n}\text{ für alle }n \in \NN.\]
+            Zeigen Sie, dass \(\enbrace*{a_n}\) eine Cauchy-Folge in \(\RR\) ist und ermitteln Sie den Grenzwert.
+        \end{enumerate}
+        \textbf{Hinweis:} \quad \emph{Zeigen Sie zuerst, dass es ein \(q \in \enbrace*{0, 1}\) gibt, sodass \(\absolute*{a_{n + 2} - a_{n + 1}} \le q \cdot \absolute*{a_{n + 1} - a_n}\) für alle \(n \in \NN\) gilt und schließen Sie hieraus, dass \(\enbrace*{a_n}\) eine Cauchy-Folge ist.}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Sei \(\varepsilon > 0\). Daraus, dass \(\enbrace*{a_n}\) eine konvergente Folge ist, folgt, dass es ein \(N \in \NN\) gibt mit
+        \[\absolute*{a - a_k} < \frac{\varepsilon}{2} \quad \text{und} \quad \absolute*{a - a_\ell} < \frac{\varepsilon}{2}\]
+        für alle \(k, \ell \ge N\). Daraus folgt dann insgesamt
+        \[\absolute*{a_k - a_\ell} = \absolute*{\enbrace*{a_k - a} + \enbrace*{a - a_\ell}} \le \absolute*{a_k - a} + \absolute*{a - a_\ell} < \varepsilon.\]
+        Dies entspricht der Definition einer Cauchy-Folge und die zu zeigende Aussage gilt.
+        \item Wir zeigen zunächst, dass ein \(q \in \enbrace*{0, 1}\) gibt, sodass \(\absolute*{a_{n + 2} - a_{n + 1}} \le q \cdot \absolute*{a_{n + 1} - a_n}\) für alle \(n \in \NN\) gilt. Es gilt
+        \begin{align*}
+            a_{n + 2} - a_{n + 1} &= \frac{6 + 7a_{n + 1}}{7 + 2a_{n + 1}} - \frac{6 + 7a_n}{7 + 2a_n}\\
+            &= \frac{\enbrace*{6 + 7a_{n + 1}}\enbrace*{7 + 2a_n} - \enbrace*{7 + 2a_{n + 1}}\enbrace*{6 + 7a_n}}{\enbrace*{7 + 2a_{n + 1}}\enbrace*{7 + 2a_n}}\\
+            &= \frac{42 + 12a_n + 49a_{n + 1} + 14a_{n + 1}a_n - \enbrace*{42 + 49a_n + 12a_{n + 1} + 14a_{n + 1}a_n}}{\enbrace*{7 + 2a_{n + 1}}\enbrace*{7 + 2a_n}}\\
+            &= \frac{37a_{n + 1} - 37a_n}{\enbrace*{7 + 2a_{n + 1}}\enbrace*{7 + 2a_n}}\\
+            &= \frac{37}{\enbrace*{7 + 2a_{n + 1}}\enbrace*{7 + 2a_n}} \cdot \enbrace*{a_{n + 1} - a_n}
+        \end{align*}
+        Daraus folgt dann für die Betragsgleichung
+        \[\absolute*{a_{n + 2}- a_{n + 1}} = \frac{37}{\enbrace*{7 + 2a_{n + 1}}\enbrace*{7 + 2a_n}} \cdot \absolute*{a_{n + 1} - a_n} \le \frac{37}{49} \cdot \absolute*{a_{n + 1} - a_n},\]
+        wobei wir im letzten Schritt \(a_{n + 1}\) und \(a_n\) aus dem Nenner weggelassen haben. Dies können wir machen, weil die Folge für alle \(n \in \NN\) größer als \(0\) ist. Das zeigen wir noch kurz per Induktion:
+        \begin{itemize}
+            \item Induktionsverankerung: (\(n = 1\))
+            \[a_1 = 1 > 0.\]
+            \item Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges aber festes \(n \in \NN\).
+            \item Induktionsschritt (\(n \to n + 1\)) Es gilt
+            \[a_{n + 1} = \frac{6 + 7a_n}{7 + 2a_n} > 0,\]
+            weil \(a_n > 0\) nach der Induktionsvoraussetzung.
+        \end{itemize}
+        Daraus folgt, dass die in dem Hinweis gegebene Ungleichung für \(q = \frac{37}{49} \in \enbrace{0, 1}\) erfüllt ist. Hiermit wollen wir nun zeigen, dass \(\enbrace*{a_n}\)  eine Cauchy-Folge ist. Aus dieser Ungleichung folgt
+        \[\absolute*{a_{n + 2} - a_{n + 1}} \le q^n \cdot \absolute*{a_2 - a_1} = \frac{4}{9}q^n,\]
+        mit \(a_1 = 1\) und \(a_2 = \frac{6 + 7}{7 + 2} = \frac{13}{9}\). Dies beweisen wir wieder induktiv
+        \begin{itemize}
+            \item Induktionsverankerung: (\(n = 1\)) Gilt, wie gerade eben schon gezeigt.
+            \item Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges aber festes \(n \in \NN\).
+            \item Induktionsschritt: (\(n \to n + 1\)) Es gilt
+            \begin{align*}
+                \absolute*{a_{n + 3} - a_{n + 2}} &\le q \cdot \absolute*{a_{n + 2} - a_{n + 1}} \underbrace{\le}_\text{I.V.} q \cdot q^n \cdot \absolute*{a_2 - a_1}\\
+                & = q^{n + 1} \cdot \absolute*{a_2 - a_1} = q^{n + 1} \cdot \frac{4}{9}.
+            \end{align*}
+        \end{itemize}
+        Damit zeigen wir nun, dass \(\enbrace*{a_n}_{n \in \NN}\) eine Cauchy-Folge ist. Hierzu betrachten wir für \(m, n \in \NN\) mit \(m > n\): \(\absolute*{a_{m + 1} - a_{n + 1}}\). Sei nun \(k = m - n\), dann gilt
+        \begin{align*}
+            \absolute*{a_{m + 1} - a_{n + 1}} &= \absolute*{a_{n + 1 + k} - a_{n + 1}} \underbrace{\le}_\text{Teleskopsumme}\sum_{\ell = 1}^k\absolute*{a_{n + 1 + \ell} - a_{n + \ell}}\\
+            &\le \sum_{\ell = 1}^kq^{n + \ell - 1} \cdot \frac{4}{9} = \frac{4}{9}q^n \cdot \sum_{\ell = 0}^{k - 1}q^\ell \underbrace{\le}_{k \to \infty} \frac{4}{9\enbrace*{1 - q}} \cdot q^n.
+        \end{align*}
+        Sei \(\varepsilon > 0\) vorgegeben. Dann folgt für alle \(m, n \in \NN\) mit \(m \ge n\) und \(\frac{4}{9\enbrace*{1 - q}}q^{n - 1} < \varepsilon\) aus der obigen Ungleichung \(\absolute*{a_m - a_n} < \varepsilon\). Also ist \(\enbrace*{a_n}_{n \in \NN}\) eine Cauchy-Folge und somit eine konvergente Folge in \(\RR\).
+
+        Den Grenzwert \(a = \lim_{n \to \infty}a_n\) der Folge berechnen wir wie folgt:
+        \[a = \lim_{n \to \infty}a_{n + 1} = \frac{6 + 7\lim_{n \to \infty}a_n}{7 + 2\lim_{n \to \infty}a_n} = \frac{6 + 7a}{7 + 2a}.\]
+        Wir haben also die Gleichung
+        \[a = \frac{6 + 7a}{7 + 2a} \iff 7a + 2a^2 = 6 + 7a \iff a^2 = 3 \iff a = \pm\sqrt{3}.\]
+        Da jedoch die Folge nur Werte größer Null annimmt kommt nur der Fall \(a = \sqrt{3}\) infrage, also \(\lim_{n \to \infty}a_n = \sqrt{3}\).
+    \end{enumerate}
+
+    \section*{Aufgabe 5. (Unterräume)}
+
+    \begin{problem}
+        Entscheiden und begründen Sie, ob \(U\) ein Unterraum des \(\RR\)-Vektorraums \(V\) ist:
+        \begin{enumerate}
+            \item \(V = \RR^3\), \quad \(U = \penbrace*{\enbrace*{x, y, z}^T \in \RR^3 : \dotproduct{\begin{pmatrix}1\\1\\1\end{pmatrix}}{\begin{pmatrix}x\\y\\z\end{pmatrix}} = 0}\)
+            \item \(V = \RR^2\), \quad \(U = \penbrace*{\enbrace*{x, y}^T \in \RR^2 : x \le y}\)
+            \item \(V = \RR^2\), \quad \(U = \penbrace*{\enbrace*{x, y}^T \in \RR^2, a, b \in \RR : \begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}a + 3b\\2b - a\end{pmatrix}}\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Es gilt \(U \subset V\) und offensichtlich \(0 \in U\). Seien \(v, w \in U\) und \(\lambda \in \RR\). Dann folgt
+        \begin{align*}
+            \dotproduct{\begin{pmatrix}1\\1\\1\end{pmatrix}}{\lambda \cdot \enbrace*{v + w}} &= \lambda \cdot \enbrace*{v_1 + w_1} + \lambda \cdot \enbrace*{v_2 + w_2} + \lambda \cdot \enbrace*{v_3 + w_3}\\
+            &= \lambda \cdot \enbrace*{\enbrace*{v_1 + w_1} + \enbrace*{v_2 + w_2} + \enbrace*{v_3 + w_3}}\\
+            &= \lambda \cdot \enbrace{\underbrace{v_1 + v_2 + v_3}_{= 0} + \underbrace{w_1 + w_2 + w_3}_{= 0}} = 0
+        \end{align*}
+        Da \(\lambda \cdot \enbrace*{v + w}\) die Bedingung erfüllt, ist dies in \(U\) enthalten. Folglich ist \(U\) abgeschlossen im Bezug auf Addition und Multiplikation mit Skalaren. Also ist \(U\) ein Unterraum von \(V\).
+        \[\]
+        \item Die angegebene Menge ist kein Unterraum von \(V\). Sei \(v = (-1, 1)^T\) und \(\lambda = -1\). Dann ist \(v \in U\) aber \(\lambda \cdot v = \enbrace*{-1} \cdot (-1, 1)^T = (1, -1)^T \not\in U\). Folglich ist \(U\) nicht abgeschlossen im Bezug auf die Multiplikation mit Skalaren.
+        \item Es gilt \(U \subset \RR^2\). Es ist \(0 \in U\), mit \(a = b = 0\). Seien nun \(v = \begin{pmatrix}a_1 + 3b_1\\2b_1 - a_1\end{pmatrix}, w = \begin{pmatrix}a_2 + 3b_2\\2b_2 - a_2\end{pmatrix} \in U\) und \(\lambda \in \RR\). Dann gilt
+        \begin{align*}
+            \lambda \cdot \enbrace*{v + w} &= \lambda \cdot \enbrace*{\begin{pmatrix}a_1 + 3b_1\\2b_1 - a_1\end{pmatrix} + \begin{pmatrix}a_2 + 3b_2\\2b_2 - a_2\end{pmatrix}}\\
+            &= \lambda \cdot \begin{pmatrix}
+                a_1 + a_2 + 3\enbrace*{b_1 + b_2}\\2\enbrace*{b_1 + b_2} - \enbrace*{a_1 + a_2}
+            \end{pmatrix}\\
+            &= \lambda \cdot \begin{pmatrix}
+                a' + 3b'\\2b' - a'
+            \end{pmatrix} \quad \text{mit }a' = a_1 + a_2\text{ und }b' = b_1 + b_2\\
+            &= \begin{pmatrix}
+                \lambda \cdot a' + \lambda \cdot 3b'\\
+                \lambda \cdot 2b' - \lambda \cdot a'
+            \end{pmatrix} = \begin{pmatrix}
+                a + 3b\\2b - a
+            \end{pmatrix} \in U \quad \text{mit }a = \lambda{a'}\text{ und }b = \lambda{b'}.
+        \end{align*}
+        Da \(U\) abgeschlossen im Bezug auf Addition und Multiplikation mit Skalaren ist, ist \(U\) ein Unterraum von \(V\).
+    \end{enumerate}
+
+    \section*{Aufgabe 6. (Gram-Schmidt Orthogonalisierung)}
+
+    \begin{problem}
+        Wir betrachten den Vektorraum \(V = \RR^3\) mit euklidischem Skalarprodukt \(\dotproduct{\cdot}{\cdot}\) und induzierter Norm \(\norm*{\cdot}_2 = \sqrt{\dotproduct{\cdot}{\cdot}}\). Gegeben seien die drei Vektoren
+        \[v_1 = \begin{pmatrix}1\\2\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\2\\1\end{pmatrix}, \quad v_3 = \begin{pmatrix}2\\4\\3\end{pmatrix}.\]
+        Wenden Sie das Gram-Schmidt Verfahren auf die drei Vektoren an. Was passiert im dritten Schritt des Gram-Schmidt Verfahrens? Erklären Sie die Ursache für das beobachtete Verhalten der Orthogonalisierung.
+    \end{problem}
+
+    \subsection*{Lösung}
+    Wir wählen
+    \[o_1 = v_1 = \begin{pmatrix}1\\2\\0\end{pmatrix}\]
+    Nun berechnen wir \(o_2\), welcher orthogonal zu \(o_1\) ist.
+    \[o_2 = v_2 - \frac{\dotproduct{o_1}{v_2}}{\dotproduct{o_1}{o_1}}o_1 = \begin{pmatrix}1\\2\\1\end{pmatrix} - \frac{\dotproduct{\begin{pmatrix}1\\2\\0\end{pmatrix}}{\begin{pmatrix}1\\2\\1\end{pmatrix}}}{\dotproduct{\begin{pmatrix}1\\2\\0\end{pmatrix}}{\begin{pmatrix}1\\2\\0\end{pmatrix}}} \cdot \begin{pmatrix}1\\2\\0\end{pmatrix} = \begin{pmatrix}1\\2\\1\end{pmatrix} - \frac{5}{5} \cdot \begin{pmatrix}1\\2\\0\end{pmatrix} = \begin{pmatrix}0\\0\\1\end{pmatrix}\]
+    Den letzten Vektor \(o_3\), welcher orthogonal zu \(o_1\) und \(o_2\), berechnen wir wie folgt:
+    \begin{align*}
+        o_3 &= v_3 - \frac{\dotproduct{o_1}{v_3}}{\dotproduct{o_1}{o_1}}o_1 - \frac{\dotproduct{o_2}{v_3}}{\dotproduct{o_2}{o_2}}o_2\\
+        &= \begin{pmatrix}2\\4\\3\end{pmatrix} - \frac{\dotproduct{\begin{pmatrix}1\\2\\0\end{pmatrix}}{\begin{pmatrix}2\\4\\3\end{pmatrix}}}{\dotproduct{\begin{pmatrix}1\\2\\0\end{pmatrix}}{\begin{pmatrix}1\\2\\0\end{pmatrix}}} \cdot \begin{pmatrix}1\\2\\0\end{pmatrix} - \frac{\dotproduct{\begin{pmatrix}0\\0\\1\end{pmatrix}}{\begin{pmatrix}2\\4\\3\end{pmatrix}}}{\dotproduct{\begin{pmatrix}0\\0\\1\end{pmatrix}}{\begin{pmatrix}0\\0\\1\end{pmatrix}}} \cdot \begin{pmatrix}0\\0\\1\end{pmatrix}\\
+        &= \begin{pmatrix}2\\4\\3\end{pmatrix} - \frac{10}{5} \cdot \begin{pmatrix}1\\2\\0\end{pmatrix} - \frac{3}{1} \cdot \begin{pmatrix}0\\0\\1\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}
+    \end{align*}
+    Im dritten Schritt wird versucht, den dritten Vektor \(v_3\) orthogonal zu den ersten beiden Vektoren \(o_1, o_2\) zu stellen. Da die Ausgangsvektoren jedoch linear abhängig sind, erzeugen diese nur einen zwei-dimensionalen Vektorraum. Somit kann der dritte Vektor nicht in die dritte Dimension hineingehen. Folglich ergibt sich \(\enbrace*{0, 0, 0}^T\). Daraus folgt auch die Bedingung, dass alle Ausgangsvektoren für das Gram-Schmidt-Verfahren linear unabhängig sein müssen.
+
+    \section*{Aufgabe 7. (\(\varepsilon\)-\(N\)-Kriterium)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Geben Sie die Definition der Konvergenz einer Folge durch das \(\varepsilon\)-\(N\)-Kriterium an.
+            \item Seien \(\left(a_n\right)_{n \ge 1}\) und \(\left(b_n\right)_{n \ge 1}\) zwei konvergente reelle Folgen mit den entsprechenden Grenzwerten \(\lim_{n \to \infty}a_n = a \in \mathbb{R}\) und \(\lim_{n \to \infty}b_n = b \in \mathbb{R}\). Sei \(\lambda \in \mathbb{R}\). Zeigen Sie anhand des \(\varepsilon\)-\(N\)-Kriteriums, dass die Folge \(\left(c_n\right)_{n \ge 1}\) mit \(c_n = \lambda\left(a_n + b_n\right)\) für \(n \to \infty\) gegen den Grenzwert \(\lambda\left(a + b\right)\) konvergiert.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Eine reelle Folge \(\enbrace*{a_n}_{n \ge 1}\) heißt konvergent, wenn ein \(a \in \RR\) existiert, so dass zu jedem \(\varepsilon > 0\) ein \(N = N\enbrace*{\varepsilon} \in \NN\) existiert mit der Eigenschaft
+        \[\absolute*{a_n - a} < \varepsilon \quad \text{für alle }n \ge N.\]
+        Man nennt \(a\) Limes oder Grenzwert der Folge \(\enbrace*{a_n}_{n \ge 1}\) und schreibt \(\lim_{n \to \infty}a_n = a\) oder \(a_n \xrightarrow{n \to \infty} a\). Man sagt auch, dass \(\enbrace*{a_n}_{n \ge 1}\) gegen \(a\) konvergiert. Eine Folge die nicht konvergent ist, heißt divergent.
+        \item Sei \(\varepsilon > 0\) beliebig. Dann exisitieren \(N_1, N_2 \in \NN\) für die gilt
+        \[\absolute*{a_n - a} < \frac{\varepsilon}{2}\ \forall{n \ge N_1} \quad \text{und} \quad \absolute*{b_n - b} < \frac{\varepsilon}{2}\ \forall{n \ge N_2}.\]
+        Wählen wir nun \(N = \max\penbrace*{N_1, N_2}\) und \(n \ge N\) beliebig. Daraus folgt
+        \[\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} = \absolute*{\enbrace*{a_n - a} + \enbrace*{b_n - b}} \le \absolute*{a_n - a} + \absolute*{b_n - b} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon,\]
+        wobei wir beim Schritt \(\le\) die aus der Vorlesung bekannte Dreiecksungleichung genutzt haben. Sei nun noch \(\lambda \in \RR\). Wir wollen zeigen, dass \(\lambda\enbrace*{a_n + b_n}\) gegen \(\lambda\enbrace*{a + b}\) konvergiert, d.h. wir müssen zeigen, dass \(\absolute*{\lambda\enbrace*{a_n + b_n} - \lambda\enbrace*{a + b}} < \varepsilon\) für alle \(n \ge N\) (\(N = N\enbrace*{\varepsilon} \in \NN\)) gilt:
+        \begin{align*}
+            \absolute*{\lambda\enbrace*{a_n + b_n} - \lambda\enbrace*{a + b}} < \varepsilon &\iff \absolute*{\lambda\enbrace*{\enbrace*{a_n + b_n} - \enbrace*{a + b}}} < \varepsilon\\
+            &\iff \absolute*{\lambda} \cdot \absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} < \varepsilon
+        \end{align*}
+        Sei nun zunächst \(\lambda \ne 0\) (den Fall sehen wir uns danach an). Dann können wir weiter umformen zu \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} < \frac{\varepsilon}{\absolute*{\lambda}}\). Da \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}}\) gegen \(0\) konvergiert, gibt es ein \(N \in \NN\), so dass \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} < \frac{\varepsilon}{\absolute*{\lambda}}\) für alle \(n \ge N\) ist. Für den Fall \(\lambda = 0\) ist \(\lambda\enbrace*{a_n + b_n} = 0 \cdot \enbrace*{a_n + b_n} = 0\), also auch \(\lim_{n \to \infty}\lambda\enbrace*{a_n + b_n} = \lim_{n \to \infty}0 = 0\). Insgesamt konvergiert also die Folge \(\enbrace*{c_n}_{n \ge 1}\) gegen den Grenzwert \(\lambda\enbrace*{a + b}\).
+    \end{enumerate}
+  \end{document}

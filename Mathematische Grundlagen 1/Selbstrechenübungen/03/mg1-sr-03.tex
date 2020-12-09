@@ -1,0 +1,222 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{booktabs}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\FF}{\mathbb{F}}
+
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Selbstrechenübung 3}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (zwei-elementiger Körper)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Prüfen Sie nach, dass \(\FF_2 = \penbrace*{0, 1}\), ausgestattet mit der Addition \begin{tabular}{c|c|c}
+                \(+\) & \(0\) & \(1\)\\
+                \hline
+                \(0\) & \(0\) & \(1\)\\
+                \hline
+                \(1\) & \(1\) & \(0\)
+            \end{tabular} und Multiplikation \begin{tabular}{c|c|c}
+                \(\cdot\) & \(0\) & \(1\)\\
+                \hline
+                \(0\) & \(0\) & \(0\)\\
+                \hline
+                \(1\) & \(0\) & \(1\)
+            \end{tabular} ein Körper ist.
+            \item Wir interpretieren \(0\) als falsch und \(1\) als wahr. Welchen logischen Operationen entsprechen dann \(+\) und \(\cdot\)?
+        \end{enumerate}
+
+        \textbf{Hinweis:} \quad \emph{Sie müssen zeigen, dass \(\KK\) mit obiger Addition und Multiplikation die Körperaxiome erfüllt; das heißt es sind erfüllt:
+        \begin{enumerate}[label=(A\arabic*)]
+            \item \(a + \enbrace*{b + c} = \enbrace*{a + b} + c\).
+            \item Es gibt in \(\KK\) ein neutrales Element der Addition \(n\), so dass \(a + n = a\) für alle \(a \in \KK\).
+            \item Zu jedem \(a \in \KK\) existiert ein additiv inverses Element \(\enbrace*{-a} \in \KK\) mit \(a + \enbrace*{-a} = n\).
+            \item \(a + b = b + a\).
+            \item \(\enbrace*{a \cdot b} \cdot c = a \cdot \enbrace*{b \cdot c}\).
+            \item Es gibt in \(\KK\) ein neutrales Element der Multiplikation \(e \ne n\), so dass \(a \cdot e = a\) für alle \(a \in \KK\).
+            \item Zu jedem \(a \ne n\) aus \(\KK\) existiert ein multiplikativ inverses Element \(a^{-1} \in \KK\) mit \(a \cdot a^{-1} = e\).
+            \item \(a \cdot b = b \cdot a\).
+            \item \(a \cdot \enbrace*{b + c} = a \cdot b + a \cdot c\).
+        \end{enumerate}}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir überprüfen die einzelnen Körperaxiome. Es gilt
+        \begin{center}
+            \begin{tabular}{ccccccccc}
+                \toprule
+                \(a\) & \(b\) & \(c\) & \(a + \enbrace*{b + c}\) & \(\enbrace*{a + b} + c\) & \(\enbrace*{a \cdot b} \cdot c\) & \(a \cdot \enbrace*{b \cdot c}\) & \(a \cdot \enbrace*{b + c}\) & \(a \cdot b + a \cdot c\)\\
+                \midrule
+                \(0\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\)\\
+                \(0\) & \(0\) & \(1\) & \(1\) & \(1\) & \(0\) & \(0\) & \(0\) & \(0\)\\
+                \(0\) & \(1\) & \(0\) & \(1\) & \(1\) & \(0\) & \(0\) & \(0\) & \(0\)\\
+                \(0\) & \(1\) & \(1\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\)\\
+                \(1\) & \(0\) & \(0\) & \(1\) & \(1\) & \(0\) & \(0\) & \(0\) & \(0\)\\
+                \(1\) & \(0\) & \(1\) & \(0\) & \(0\) & \(0\) & \(0\) & \(1\) & \(1\)\\
+                \(1\) & \(1\) & \(0\) & \(0\) & \(0\) & \(0\) & \(0\) & \(1\) & \(1\)\\
+                \(1\) & \(1\) & \(1\) & \(1\) & \(1\) & \(1\) & \(1\) & \(0\) & \(0\)\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \begin{enumerate}[label=(A\arabic*)]
+            \item Nach obiger Wahrheitstabelle ist das Axiom erfüllt.
+            \item Es ist \(n = 0\), da \(0 + n = 0 + 0 = 0\) und \(1 + n = 1 + 0 = 1\).
+            \item Es ist \(-a = a\), da \(0 + \enbrace*{-0} = 0 + 0 = 0\) und \(1 + \enbrace*{-1} = 1 + 1 = 0\).
+            \item Folgt direkt aus der Symmetrie der Tabelle für \(+\).
+            \item Nach obiger Wahrheitstabelle ist das Axiom erfüllt.
+            \item Es ist \(e = 1\), da \(0 \cdot e = 0 \cdot 1 = 0\) und \(1 \cdot e = 1 \cdot 1 = 1\).
+            \item Es ist \(a^{-1} = a\), da \(1 \cdot 1^{-1} = 1 \cdot 1 = 1 = e\).
+            \item Folgt direkt aus der Symmetrie der Tabelle für \(\cdot\).
+            \item Nach obiger Wahrheitstabelle ist das Axiom erfüllt.
+        \end{enumerate}
+        \item Es gilt
+        \[a \cdot b \iff a \land b\]
+        und
+        \[a + b \iff \enbrace*{a \lor b} \land \lnot\enbrace*{a \land b} \iff \enbrace*{a \lor b} \land \enbrace*{\lnot{a} \lor \lnot{b}}.\]
+    \end{enumerate}
+
+    \section*{Aufgabe 2. (Menge reeller Zahlen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Bestimmen Sie das Maximum, Minimum, Infimum und Supremum der folgenden Mengen:
+            \[M_2 = \penbrace*{x^2 - 3 : x \in \enbrace*{-2, 4}}.\]
+            \item Bestimmen Sie die Menge aller \(x \in \RR\), für die gilt:
+            \[x^2 - 1 \le 0 \quad \lor \quad \ln\enbrace*{x} < 1.\]
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Sei \(f\enbrace*{x} = x^2 - 3\). Dann gilt
+        \[\inf\enbrace*{M_2} = -3 \quad \text{und} \quad \sup\enbrace*{M_2} = 13.\]
+        Es ist kein Minimum bzw. Maximum, wegen \(f\enbrace*{-2} \not\in M_2\) und \(f\enbrace*{4} \not\in M_2\).
+        \item Aus der ersten Bedingung folgt
+        \begin{align*}
+            x^2 - 1 \le 0 \iff x^2 \le 1 \iff \absolute*{x} \le 1 \iff x \in \benbrace*{-1, 1}.
+        \end{align*}
+        Da der natürliche Logarithmus \(\ln\) nur für \(x > 0\) definiert ist, gilt
+        \[\ln\enbrace*{x} < 1 \iff \enbrace*{x > 0} \land x < e \iff x \in \enbrace*{0, e}.\]
+        Die Gesamtlösungsmenge lautet also
+        \[\LL = \left[-1, e\right).\]
+    \end{enumerate}
+
+    \section*{Aufgabe 3. (Dichtheit und Mächtigkeit der irrationalen Zahlen)}
+
+    \begin{problem}
+        Seien \(\QQ\) die Menge der rationalen Zahlen, \(\RR\) die Menge der reellen Zahlen und \(\QQ^C\) die Menge der irrationalen Zahlen. In der Vorlesung haben wir gezeigt, dass \(\QQ\) dicht in \(\RR\) ist. Weiterhin haben wir gezeigt, dass die Menge der rationalen Zahlen \(\QQ\) abzählbar ist mit \(\absolute*{\QQ} = \mathcal{N}_0\). Die Menge der reellen Zahlen \(\RR\) ist hingegen nicht abzählbar. Das Ziel dieser Aufgabe ist, ähnliche Resultate für die Menge der irrationalen Zahlen \(\mathbb{Q}^C\) zu erarbeiten.
+        \begin{enumerate}
+            \item Zeigen Sie, dass der Verbund von zwei disjunkten abzählbaren Mengen wieder abzählbar ist. Zeigen Sie damit, dass die Menge der irrationalen Zahlen \(\QQ^C\) nicht abzählbar ist.
+            \item Sei \(x, y \in \RR\) mit \(x < y\). Nutzen Sie die archimedische Eigenschaft der reellen Zahlen und die Dichtheit der rationalen Zahlen und zeigen Sie, dass ein \(n \in \NN\) und ein \(r \in \QQ\) existieren, sodass
+            \[x < r + \frac{\sqrt{2}}{n} < y.\]
+            Zeigen Sie damit, dass die Menge der irrationalen Zahlen \(\QQ^C\) dicht in \(\RR\) ist. Im Rahmen dieser Aufgabe wird das Element \(0\) als Element der Menge der natürlichen Zahlen \(\NN\) betrachtet. Die Definition variiert von Buch zu Buch und von Vorlesung zu Vorlesung.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Seien \(A, B\) zwei disjunkte abzählbare Mengen. Per Definition der abzählbaren Mengen existieren bijektive Funktionen \(f: A \to \NN\) und \(g: B \to \NN\). Sei \(C = A \cup B\). Definiere die Funktion \(h: C \to \NN\) wie folgt
+        \[h\enbrace*{x} = \begin{cases}
+            2f\enbrace*{x} & \text{falls }x \in A,\\
+            2g\enbrace*{x} + 1 & \text{falls }x \in B.
+        \end{cases}\]
+        Nun beweisen wir, dass \(h\) eine injektive Funktion ist. Seien \(x, y \in C\), so dass \(f\enbrace*{x} = f\enbrace*{y}\). Dann gilt entweder \(x \in A\) oder \(x \in B\) und ebenfalls \(y \in A\) oder \(y \in B\). Nun führen wir eine Fallunterscheidung durch:
+        \begin{itemize}
+            \item Nehme \(x \in A\) und \(y \in B\) an. Dann gilt
+            \[2g\enbrace*{y} + 1 = h\enbrace*{y} = h\enbrace*{x} = 2f\enbrace*{x}.\]
+            Per Definition sind \(g\enbrace*{y}\) und \(f\enbrace*{x}\) natürliche Zahlen. \(h\enbrace*{y} = 2g\enbrace*{y} + 1\) ist eine ungerade Zahl und \(h\enbrace*{x} = 2f\enbrace*{x}\) ist eine gerade Zahl. Dies führt zum Widerspruch, da per Konstruktion \(h\enbrace*{x} = h\enbrace*{y}\) gilt.
+            \item Nehme \(x \in B\) und \(y \in A\) an. Dann gilt
+            \[2f\enbrace*{y} = h\enbrace*{y} = h\enbrace*{x} = 2g\enbrace*{x} + 1.\]
+            \(h\enbrace*{y} = 2f\enbrace*{y}\) ist eine gerade Zahl und \(h\enbrace*{x} = 2g\enbrace*{x} + 1\) ist eine ungerade Zahl. Da \(h\enbrace*{x} = h\enbrace*{y}\) gelten soll, führt dieser Fall wieder zu einem Widerspruch.
+            \item Nehme \(x \in A\) und \(y \in A\) an. In diesem Fall gilt
+            \[2f\enbrace*{y} = h\enbrace*{y} = h\enbrace*{x} = 2f\enbrace*{x}.\]
+            \(f\) ist per Konstruktion injektiv. Daraus folgt \(x = y\).
+            \item Nehme \(x \in B\) und \(y \in B\) an. In diesem Fall gilt
+            \[2g\enbrace*{y} + 1 = h\enbrace*{y} = h\enbrace*{x} = 2g\enbrace*{x} + 1.\]
+            Da \(g\) per Konstruktion injektiv ist, folgt \(x = y\).
+        \end{itemize}
+        Somit ist \(h\) eine injektive Funktion. Als nächstes wird die Surjektivität von \(h\) bewiesen. Sei \(y \in \NN\). Es muss gezeigt werden, dass ein \(x \in C\) existiert, sodass \(h\enbrace*{x} = y\). Betrachte zwei Fälle:
+        \begin{itemize}
+            \item Nehme an, dass \(y\) ungerade ist. In diesem Fall existiert eine natürliche Zahl \(p \in \NN\), sodass \(y = 2p + 1\) gilt. Da die Funktion \(g: B \to \NN\) per Konstruktion bijektiv ist, folgt, dass ein \(x \in B\) existiert, sodass \(g\enbrace*{x} = p\). Dies impliziert
+            \[h\enbrace*{x} = 2g\enbrace*{x} + 1 = 2p + 1 = y.\]
+            \item Nehme an, dass \(y\) gerade ist. In diesem Fall existiert eine natürliche Zahl \(q \in \NN\), sodass \(y = 2q\) gilt. Da die Funktion \(f: A \to \NN\) per Konstruktion bijektiv ist, folgt, dass ein \(x \in A\) existiert, sodass \(f\enbrace*{x} = q\). Dies impliziert
+            \[h\enbrace*{x} = 2f\enbrace*{x} + 1 = 2q = y.\]
+        \end{itemize}
+        Damit ist \(h\) eine surjektive Funktion. Somit haben wir gezeigt, dass eine bijektive Funktion \(h: C \to \NN\) existiert. \(C\) ist daher eine abzählbare Menge.
+
+        Nun muss noch gezeigt werden, dass \(\QQ^C\) nicht abzählbar ist. Nehme an, dass \(\QQ^C\) abzählbar sei. In diesem Fall ist \(\RR = \QQ \cup \QQ^C\) der Verbund von zwei abzählbaren Mengen. Daher muss \(\RR\) abzählbar sein. Da wir aus der Vorlesung wissen, dass \(\RR\) nicht abzählbar ist, führt die Annahme zu einem Widerspruch. Daher ist \(\QQ^C\) nicht abzählbar.
+        \item Seien \(x, y \in \RR\) mit \(x < y\). Aufgrund der Dichtheit der rationalen Zahlen folgt, dass eine rationale Zahl \(r\) mit der Eigenschaft \(r \in \enbrace*{x, y}\) existiert. Die Eigenschaft \(r < y\) führt zur Ungleichung \(\frac{y - r}{\sqrt{2}} > 0\). Aufgrund der archimedische Eigenschaft der reellen Zahlen existiert eine natürliche Zahl \(n \in \NN\), sodass gilt
+        \[\frac{1}{n} < \frac{y - r}{\sqrt{2}}.\]
+        Daher folgt
+        \[r + \frac{\sqrt{2}}{n} < y.\]
+        Damit und mit der Nutzung von \(x < r\) folgt
+        \begin{equation}\label{eq:1}
+            x < r + \frac{\sqrt{2}}{n} < y.
+        \end{equation}
+        Es verbleibt noch der Beweis, dass die Menge der irrationalen Zahlen \(\QQ^C\) dicht in \(\RR\) ist. Daher müssen wir zeigen, dass für zwei beliebige reelle Zahlen \(x, y\) eine irrationale Zahl \(q \in \enbrace*{x, y}\) existiert. Im Folgenden beweisen wir, dass \(r + \frac{\sqrt{2}}{n}\) in Ungleichung \eqref{eq:1} eine solche irrationale Zahl ist. \(\frac{\sqrt{2}}{n}\) ist eine irrationale Zahl. Dies folgt aus der irrationalen Zahl irrational. Daher ist \(r + \frac{\sqrt{2}}{n}\) eine irrationale Zahl. Der Beweis ist somit komplett.
+    \end{enumerate}
+
+    \section*{Aufgabe 4. (Normen)}
+
+    \begin{problem}
+        Bestimmen Sie, ob die folgenden Funktionen \(f: \RR^2 \to \RR_0^+\), \(\RR_0^+ := \left[0, \infty\right)\) eine Norm auf \(\RR^2\) ist.
+        \begin{enumerate}
+            \item \(f\enbrace*{x_1, x_2} = 2\absolute*{x_1} + 3\absolute*{x_2}\)
+            \item \(f\enbrace*{x_1, x_2} = \absolute*{x_1} + \frac{\absolute*{x_2}}{1 + \absolute*{x_2^2}}\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item
+        \begin{enumerate}[label=(N\arabic*)]
+            \item Es gilt für \(\enbrace*{x_1, x_2} \in \RR^2\)
+            \begin{align*}
+                f\enbrace*{x_1, x_2} = 2\absolute*{x_1} + 3\absolute*{x_2} = 0 &\iff 2\absolute*{x_1} = -3\absolute*{x_2}\\
+                &\iff 2\absolute*{x_1} = 0\text{ und }-3\absolute*{x_2} = 0\\
+                &\iff x_1 = 0\text{ und }x_2 = 0.
+            \end{align*}
+            \item Sei \(\alpha \in \RR\). Dann gilt für \(\enbrace*{x_1, x_2} \in \RR^2\)
+            \begin{align*}
+                f\enbrace*{\alpha\enbrace*{x_1, x_2}} &= f\enbrace*{\alpha{x_1}, \alpha{x_2}} = 2\absolute*{\alpha{x_1}} + 3\absolute*{\alpha{x_2}}\\
+                &= \absolute*{\alpha} \cdot 2\absolute*{x_1} + \absolute*{\alpha} \cdot 3\absolute*{x_2} = \absolute*{\alpha} \cdot \enbrace*{2\absolute*{x_1} + 3\absolute*{x_2}}\\
+                &= \absolute*{\alpha} \cdot f\enbrace*{x_1, x_2}.
+            \end{align*}
+            \item Für \(\enbrace*{x_1, x_2}, \enbrace*{y_1, y_2} \in \RR^2\) gilt
+            \begin{align*}
+                f\enbrace*{\enbrace*{x_1, x_2} + \enbrace*{y_1, y_2}} &= f\enbrace*{x_1 + y_1, x_2 + y_2} = 2\absolute*{x_1 + y_1} + 3\absolute*{x_2 + y_2}\\
+                &\le 2\absolute*{x_1} + 2\absolute*{y_1} + 3\absolute*{x_2} + 3\absolute*{y_2}\\
+                &= 2\absolute*{x_1} + 3\absolute*{x_2} + 2\absolute*{y_1} + 3\absolute*{y_2}\\
+                &= f\enbrace*{x_1, x_2} + f\enbrace*{y_1, y_2}.
+            \end{align*}
+        \end{enumerate}
+        \item Die Bedingung (N2) ist nicht erfüllt und somit ist \(f\) keine Norm. Sei \(\alpha \in \RR\) und \(\enbrace*{x_1, x_2} \in \RR^2\). Dann gilt
+        \begin{align*}
+            f\enbrace*{\alpha \cdot \enbrace*{x_1, x_2}} &= f\enbrace*{\alpha{x_1}, \alpha{x_2}} = \absolute*{\alpha{x_1}} + \frac{\absolute*{\alpha{x_2}}}{1 + \absolute*{\alpha{x_2^2}}}\\
+            &= \absolute*{\alpha}\absolute*{x_1} + \absolute*{\alpha} \cdot \frac{\absolute*{x_2}}{1 + \alpha \cdot \absolute*{x_2^2}} = \absolute*{\alpha} \cdot \underbrace{\enbrace*{\absolute*{x_1} + \frac{\absolute*{x_2}}{1 + \alpha \cdot \absolute*{x_2^2}}}}_{\ne f\enbrace*{x_1, x2}\text{, falls }\absolute*{\alpha} \ne 1}.
+        \end{align*}
+    \end{enumerate}
+
+\end{document}
