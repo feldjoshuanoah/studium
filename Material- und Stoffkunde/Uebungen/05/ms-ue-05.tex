@@ -1,0 +1,71 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+
+\DeclareSIUnit{\calorie}{cal}
+
+\title{Übung 4}
+\author{Joshua Noah Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Newtonsches Gesetz des Abkühlens)}
+
+    \begin{problem}
+        Eine zylindrische Tasse mit Höhe \(12\,\si{cm}\) und Durchmesser \(10\,\si{cm}\) ist randvoll mit Kaffee bei einer Temperatur von \(90\si{\degreeCelsius}\). Um eine Trinktemperatur von \(60\si{\degreeCelsius}\) zu erreichen wird die Tasse in einer Umgebung mit einer Temperatur von \(20\si{\degreeCelsius}\) abgestellt. Nach \(5\,\si{\minute}\) hat der Kaffee eine Temperatur von \(70\si{\degreeCelsius}\).
+        \begin{enumerate}
+            \item Berechnen Sie die Kühlrate \(k_0\) nach dem Newtonschen Gesetz des Abkühlens.
+            \item Bestimmen Sie die Zeit, nach der der Kaffee die gewünschte Temperatur hat.
+            \item Nehmen Sie an, die Kühlrate ließe sich durch Anpusten der Tasse mit eine Strömungsgeschwindigkeit \(v\) nach dem Ansatz
+            \[k = k_0\enbrace*{1 + \frac{v}{1\,\si{\metre\per{\second}}}}\]
+            erhöhen. Welche Strömungsgeschwindigkeit muss erreicht werden, damit der Kaffee bereits nach \(5\,\si{\minute}\) die gewünschte Temperatur hat?
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 2. (Revision: Erwärmung von Brokkoli)}
+
+    \begin{problem}
+        Im Betrieb produziert ein Computerprozessor eine Wärmeleistung von \(35\,\si{\watt}\). Die Oberfläche des Prozessors beträgt \(16\,\si{\centi\meter\squared}\). Im Folgenden soll die Prozessortemperatur berechnet werden, die sich einstellt, wenn keine Kühllösung zum Einsatz kommt.
+        \begin{enumerate}
+            \item Berechnen Sie die Prozessortemperatur, wenn die Umgebungstemperatur \(20\si{\degreeCelsius}\) beträgt und der Wärmeübergang zwischen der Prozessoroberfläche und Luft durch einen Wärmeübergangskoeffizienten von \(8\,\si{\watt\per{\meter\squared\kelvin}}\) gegeben ist. Vernachlässigen Sie dabei den Einfluss von Wärmestrahlung.
+            \item Berechnen Sie die Prozessortemperatur unter der ausschließlichen Betrachtung von Wärmestrahlung und einem Emissionsgrad \(\varepsilon = 0,9\) der Prozessoroberfläche. Vernachlässigen Sie den Einfluss von eingehender Wärmestrahlung.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 3. (Wärmekapazität von Gasen)}
+
+    \begin{problem}
+        Um die Temperatur von Computerprozessoren im Betrieb gering zu halten (unter \(80\si{\degreeCelsius}\)) wird häufig passive Luftkühlung eingesetzt. Dabei wird ein Kühlkörper mit großer Oberfläche in Form von Kühlrippen auf den Prozessor aufgesetzt um die effektive Kühloberfläche zu erhöhen. Im Folgenden wird ein Kupferkühlkörper der Masse \(1\,\si{\kilogram}\) betrachtet. Die Umgebungstemperatur beträgt \(20\si{\degreeCelsius}\). Nehmen Sie an, dass die Wärmeleistung in Kupfer ausreichend schnell abläuft und dass die Prozessortemperatur näherungsweise der Oberflächentemperatur des Kühlkörpers entspricht. Gehen Sie wie in Aufgabe 2 von einem Wärmeübergangskoeffizienten von \(8\,\si{\watt\per{\meter\squared\kelvin}}\) aus.
+        \begin{enumerate}
+            \item Berechnen Sie für den Prozessor aus Aufgabe 2 die benötigte Kühlkörperoberfläche damit eine Temperatur von \(80\si{\degreeCelsius}\) nicht überschritten wird.
+            \item Berechnen Sie die Kühlrate des Kühlkörpers nach dem Newtonschen Gesetz des Abkühlens, die das Abkühlen nach dem Betrieb beschreibt.
+            \item Wie lange dauert es bis der Kühlkörper nach dem Betrieb bei \(80\si{\degreeCelsius}\) auf \(40\si{\degreeCelsius}\) abgekühlt ist?
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+\end{document}
