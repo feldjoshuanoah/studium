@@ -1,0 +1,8 @@
+Wir erwarten bei jeder Ausgabe den Wert 1. Dies ist nicht erfüllt für
+die Ausgabe der Funktion f(i1, i2) = 0. Dies liegt daran, dass sowohl
+T1 als auch T2 in diesem Fall den Typ int haben. Deshalb wird hier
+Integer-Arithmetik angewendet. Hier wird, falls das Ergebnis
+eigentlich eine Kommazahl ist, einfach immer abgerundet, d.h. in
+unserem Fall gilt
+    f(2, 3) = (2 / 3) * (3 / 2) = 0 * 1 = 0,
+denn 2 / 3 = 0,666... und 3 / 2 = 1,333...

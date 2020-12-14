@@ -1,0 +1,41 @@
+Bei der Binärdarstellung von Dezimalzahlen nutzen wir das Zweierkomplement. Hier unterscheidet
+man am höchstwertigen Bit, ob die Zahl negativ (dann ist das Bit 1) oder positiv (dann ist das
+Bit 0) ist. Positive Zahlen werden in der Zweierkomplementdarstellung mit einer führenden 0
+versehen und ansonsten nicht verändert. D.h. für 42 rechnen wir
+
+    42 : 64 = 0 Rest 42
+    42 : 32 = 1 Rest 10
+    10 : 16 = 0 Rest 10
+    10 :  8 = 1 Rest  2
+     2 :  4 = 0 Rest  2
+     2 :  2 = 1 Rest  0
+     0 :  1 = 0 Rest  0
+
+Die Binärzahl ergibt sich nun durch ablesen der Divisionsergebnisse ohne Rest von oben nach
+unten mit einer zusätzlichen 0 vorne für das Vorzeichenbit
+
+    42 = (00101010)_2
+
+Für negative Zahlen müssen folgende Schritte durchgeführt werden, um die Zweierkomplementdar-
+stellung zu erhalten:
+ 1. Vorzeichen ignorieren und ins BInärsystem umrechnen
+ 2. Alle Bits invertieren, d.h. 0 -> 1 und 1 -> 0
+ 3. Eins hinzuaddieren
+Wir berechnen also zunächst die Binärdarstellung von 6 genau wie oben für 42
+
+    6 : 128 = 0 Rest 6
+    6 :  64 = 0 Rest 6
+    6 :  32 = 0 Rest 6
+    6 :  16 = 0 Rest 6
+    6 :   8 = 0 Rest 6
+    6 :   4 = 1 Rest 2
+    2 :   2 = 1 Rest 0
+    0 :   1 = 0 Rest 0
+
+Folglich erhalten wir 6 = (00000110)_2. Dies Invertieren wir nun und erhalten
+
+    Not(00000110)_2 = (11111001)_2.
+
+Hier addieren wir nun zuletzt noch Eins hinzu und erhalten
+
+    (11111001)_2 + (00000001)_2 = (11111010)_2 = -6.

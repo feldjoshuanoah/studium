@@ -1,0 +1,35 @@
+g++ -E hello.cpp: Stoppt nach dem Präprozessorlauf. Die Ausgabe ist in der Form
+		von vorverarbeitetem Quelltext. Diese wird an die Standard-Ausgabe
+		(i.d.R. die Konsole) gesendet.
+g++ -c hello.cpp: Übersetzt den Quelltext aus hello.cpp aber linkt nicht. Das
+		Ergebnis ist eine Object-Datei mit dem Namen hello.o.
+g++ hello.o: Linkt die Object-Datei in eine ausführbare Datei. Das Ergebnis ist
+		eine Datei a.out, die mit ./a.out ausgeführt werden kann.
+g++ -o hello hello.cpp: Kompiliert die Datei hello.cpp. Die Option -o weist den
+		Compiler an, die startfähige Datei hello zu nennen. Das Programm kann
+		nun mit ./hello gestartet werden.
+g++ -Wall -Werror hello.cpp: Kompiliert die Datei hello.cpp. Das Ergebnis ist
+		wieder die ausführbare Datei a.out. Die Option -Wall weist den Compiler
+		an, alle auftretenden Warnungen anzuzeigen. Die Option -Werror weist den
+		Compiler dann wiederum an, alle Warnungen als Fehler zu behandeln.
+
+
+Die folgenden Schritte sind nötig um eine ausführbare Datei zu erhalten:
+ 1. Zunächst muss die Datei erstellt werden, die den Quellcode enthalten soll.
+	Dies ist möglich mithilfe des Befehls "touch hello.cpp"
+ 2. Die Quellcode-Datei muss bearbeitet werden. Sie muss mindestens die folgende
+	Zeile enthalten, damit aus ihr ein ausführbares Programm werden kann:
+		int main() {}
+	Wir können die Datei beispielsweise mit VI bearbeiten. Dies machen wir mit
+	dem Befehl "vi hello.cpp".
+ 3. Nachdem die Änderungen gespeichert wurden, können wir die Datei kompilieren.
+	Dazu muss auf dem System ein Compiler installiert sein. Wir verwenden g++.
+	Wenn wir den Befehl "g++ hello.cpp" ausführen, wird - sofern in unserem Code
+	keine syntaktischen Fehler sind - eine ausführbare Datei a.out erstellt, die
+	mithilfe des Befehls "./a.out" ausgeführt werden kann. Der Prozess der
+	Kompilierung kann durch verschiedenste Flags (einige davon sind oben
+	aufgeführt) noch erweitert oder verändert werden. Ein schönes Ergebnis
+	erhalten wir beispielsweise bei der Verwendung des Befehls
+		g++ -Wall -Werror -o hello.exe hello.cpp
+	Dieser Befehl liefert eine ausführbare Datei hello.exe, die ganz analog mit
+	"./hello.exe" ausgeführt werden kann.
