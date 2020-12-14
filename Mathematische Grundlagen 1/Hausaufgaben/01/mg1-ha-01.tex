@@ -28,28 +28,37 @@
     \begin{problem}
         Beweisen Sie die Regeln von de Morgan für beliebige Mengen \(M, N, P\):
         \begin{enumerate}
-            \item \(M \setminus \enbrace*{N \cap P} = \enbrace*{M \setminus N} \cup \enbrace*{M \setminus P}\),
-            \item \(M \setminus \enbrace*{N \cup P} = \enbrace*{M \setminus N} \cap \enbrace*{M \setminus P}\).
+            \item \(M \setminus \enbrace*{N \cap P} = \enbrace*{M \setminus N}
+            \cup \enbrace*{M \setminus P}\),
+            \item \(M \setminus \enbrace*{N \cup P} = \enbrace*{M \setminus N}
+            \cap \enbrace*{M \setminus P}\).
         \end{enumerate}
 
-        \textbf{Hinweis:} \quad \emph{Zeigen Sie die Gleichheit durch gegenseitige Inklusion \(\enbrace*{A = B} :\iff \enbrace*{A \subset B \land B \subset A}\). Achten Sie in Ihrer lösung auf korrekte und saubere Notation.}
+        \textbf{Hinweis:} \quad \emph{Zeigen Sie die Gleichheit durch
+        gegenseitige Inklusion \(\enbrace*{A = B} :\iff \enbrace*{A \subset B
+        \land B \subset A}\). Achten Sie in Ihrer lösung auf korrekte und
+        saubere Notation.}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
         \item Sei \(x \in M \setminus \enbrace*{N \cap P}\) beliebig. Dann gilt
         \begin{align*}
-            x \in M \setminus \enbrace*{N \cap P} &\iff x \in M \land x \not\in N \cap P\\
+            x \in M \setminus \enbrace*{N \cap P} &\iff x \in M \land x \not\in
+            N \cap P\\
             &\iff x \in M \land \enbrace*{x \not\in N \lor x \not\in P}\\
-            &\iff \enbrace*{x \in M \land x \not\in N} \lor \enbrace*{x \in M \land x \not\in P}\\
+            &\iff \enbrace*{x \in M \land x \not\in N} \lor \enbrace*{x \in M
+            \land x \not\in P}\\
             &\iff x \in M \setminus N \lor x \in M \setminus P\\
             &\iff x \in \enbrace*{M \setminus N} \cup \enbrace*{M \setminus P}.
         \end{align*}
         \item Sei \(x \in M \setminus \enbrace*{N \cup P}\) beliebig. Dann gilt
         \begin{align*}
-            x \in M \setminus \enbrace*{N \cup P} &\iff x \in M \land x \not\in N \cup P\\
+            x \in M \setminus \enbrace*{N \cup P} &\iff x \in M \land x \not\in
+            N \cup P\\
             &\iff x \in M \land \enbrace*{x \not\in N \land x \not\in P}\\
-            &\iff \enbrace*{x \in M \land x \not\in N} \land \enbrace*{x \in M \land x \not\in P}\\
+            &\iff \enbrace*{x \in M \land x \not\in N} \land \enbrace*{x \in M
+            \land x \not\in P}\\
             &\iff x \in M \setminus N \land x \in M \setminus P\\
             &\iff x \in \enbrace*{M \setminus N} \cap \enbrace*{M \setminus P}.
         \end{align*}
@@ -58,38 +67,54 @@
     \section*{Aufgabe 2. (Abbildungen)}
 
     \begin{problem}
-        Die Aussagenlogik bildet die Grundlage der Digitalelektronik: Es lassen sich beliebig komplizierte Schaltungen mit einer einzigen Art von Bauelement, dem sogenannten NAND-Gatter (NAND \(=\) not and), realisieren. Das NAND \(\uparrow\) ist definiert durch
+        Die Aussagenlogik bildet die Grundlage der Digitalelektronik: Es lassen
+        sich beliebig komplizierte Schaltungen mit einer einzigen Art von
+        Bauelement, dem sogenannten NAND-Gatter (NAND \(=\) not and),
+        realisieren. Das NAND \(\uparrow\) ist definiert durch
         \[\enbrace*{A \uparrow B} :\iff \lnot\enbrace*{A \land B}.\]
-        Drücken Sie folgende aussagenlogische Formeln durch äquivalente NANDs aus und begründen Sie Ihre Antwort:
+        Drücken Sie folgende aussagenlogische Formeln durch äquivalente NANDs
+        aus und begründen Sie Ihre Antwort:
         \begin{enumerate}
             \item \({\lnot}A\),
             \item \(A \lor B\),
             \item \(A \land B\).
         \end{enumerate}
 
-        \textbf{Hinweis:} \quad Verwenden Sie nur \(\uparrow\) und keinen der anderen logischen Operatoren (\(\lor, \land, \lnot\)).
+        \textbf{Hinweis:} \quad Verwenden Sie nur \(\uparrow\) und keinen der
+        anderen logischen Operatoren (\(\lor, \land, \lnot\)).
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item Es gilt \(\lnot{A} \iff \lnot\enbrace*{A \land A} \iff A \uparrow A\).
-        \item Wir starten mit \(A \uparrow B \iff \lnot\enbrace*{A \land B}\). Hier können wir die De-morganschen Regeln für Aussagen anwenden und erhalten \(\lnot{A} \lor \lnot{B}\). Die Negation haben wir bereits in Teilaufgabe a) gezeigt und wir erhalten somit \(\enbrace*{A \uparrow A} \uparrow \enbrace*{B \uparrow B}\).
-        \item Es gilt \(A \uparrow B \iff \lnot\enbrace*{A \land B}\). Wir wollen diese Aussage nun negieren. Dies haben wir schon in Teilaufgabe a) gezeigt und erhalten somit \(\enbrace*{A \uparrow B} \uparrow \enbrace*{A \uparrow B}\).
+        \item Es gilt \(\lnot{A} \iff \lnot\enbrace*{A \land A} \iff A \uparrow
+        A\).
+        \item Wir starten mit \(A \uparrow B \iff \lnot\enbrace*{A \land B}\).
+        Hier können wir die De-morganschen Regeln für Aussagen anwenden und
+        erhalten \(\lnot{A} \lor \lnot{B}\). Die Negation haben wir bereits in
+        Teilaufgabe a) gezeigt und wir erhalten somit \(\enbrace*{A \uparrow A}
+        \uparrow \enbrace*{B \uparrow B}\).
+        \item Es gilt \(A \uparrow B \iff \lnot\enbrace*{A \land B}\). Wir
+        wollen diese Aussage nun negieren. Dies haben wir schon in Teilaufgabe
+        a) gezeigt und erhalten somit \(\enbrace*{A \uparrow B} \uparrow \enbrace*{A \uparrow B}\).
     \end{enumerate}
 
     \section*{Aufgabe 3. (Relationen)}
 
     \begin{problem}
-        Untersuchen Sie die folgenden Relationen auf Reflexivität, Symmetrie, Transitivität, Antisymmetrie und Totalität. Hier bezeichne \(\NN = \penbrace*{1, 2, 3, \ldots}\) die Menge der natürlichen Zahlen.
+        Untersuchen Sie die folgenden Relationen auf Reflexivität, Symmetrie,
+        Transitivität, Antisymmetrie und Totalität. Hier bezeichne \(\NN =
+        \penbrace*{1, 2, 3, \ldots}\) die Menge der natürlichen Zahlen.
         \begin{enumerate}
             \item \(=\) auf \(\NN\),
             \item \(\ne\) auf \(\NN\),
             \item \(\le\) auf \(\NN\),
             \item \(<\) auf \(\NN\),
-            \item \(|\) auf \(\NN\) (Teilbarkeit: \(a | b \iff \exists{n \in \NN}: an = b\)),
+            \item \(|\) auf \(\NN\) (Teilbarkeit: \(a | b \iff \exists{n \in
+            \NN}: an = b\)),
             \item \(\subseteq\) auf \(\pot\enbrace*{\penbrace*{1, 2}}\).
         \end{enumerate}
-        Entscheiden Sie jeweils, ob es sich um eine Äquivalenzrelation und/oder eine (Total-) Ordnung handelt.
+        Entscheiden Sie jeweils, ob es sich um eine Äquivalenzrelation und/oder
+        eine (Total-) Ordnung handelt.
     \end{problem}
 
     \subsection*{Lösung}
@@ -97,78 +122,128 @@
         \item\ \\
         \begin{itemize}
     		\item Reflexivität: \({\forall}x \in \NN: x = x\). (ja)
-    		\item Symmetrie: Seien \(x, y \in \NN\) mit \(x = y \implies y = x\). (ja)
-    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x = y\) und \(y = z\) \(\implies\) \(x = z\). (ja)
-    		\item Antisymmetrie: Seien \(x, y \in \NN\) mit \(x = y\) und \(y = x\) \(\implies\) \(x = y\). (ja)
-    		\item Totalität: Sei \(x = 1\) und \(y = 2\), dann gilt weder \(x = y\) noch \(y = x\). (nein)
+    		\item Symmetrie: Seien \(x, y \in \NN\) mit \(x = y \implies y =
+            x\). (ja)
+    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x = y\) und
+            \(y = z\) \(\implies\) \(x = z\). (ja)
+    		\item Antisymmetrie: Seien \(x, y \in \NN\) mit \(x = y\) und \(y =
+            x\) \(\implies\) \(x = y\). (ja)
+    		\item Totalität: Sei \(x = 1\) und \(y = 2\), dann gilt weder \(x =
+            y\) noch \(y = x\). (nein)
     	\end{itemize}
-    	Die Relation ist eine Äquivalenzrelation und eine Ordnung aber keine Totalordnung.
+    	Die Relation ist eine Äquivalenzrelation und eine Ordnung aber keine
+        Totalordnung.
         \item\ \\
         \begin{itemize}
-    		\item Reflexivität: Sei \(x = 2 \in \NN\), dann gilt \(x \ne x\) nicht. (nein)
-    		\item Symmetrie: Seien \(x, y \in \NN\) mit \(x \ne y\) \(\implies\) \(y \ne x\). (ja)
-    		\item Transitivität: Sei \(x = 1, y = 2\) und \(z = 1\), dann gilt \(x \ne y\) und \(y \ne z\) aber nicht \(x \ne z\). (nein)
-    		\item Antisymmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x \ne y\) und \(y \ne x\). (nein)
-    		\item Totalität: Sei \(x = 1\) und \(y = 1\), dann gilt weder \(x \ne y\) noch \(y \ne x\). (nein)
+    		\item Reflexivität: Sei \(x = 2 \in \NN\), dann gilt \(x \ne x\)
+            nicht. (nein)
+    		\item Symmetrie: Seien \(x, y \in \NN\) mit \(x \ne y\)
+            \(\implies\) \(y \ne x\). (ja)
+    		\item Transitivität: Sei \(x = 1, y = 2\) und \(z = 1\), dann gilt
+            \(x \ne y\) und \(y \ne z\) aber nicht \(x \ne z\). (nein)
+    		\item Antisymmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x \ne
+            y\) und \(y \ne x\). (nein)
+    		\item Totalität: Sei \(x = 1\) und \(y = 1\), dann gilt weder \(x
+            \ne y\) noch \(y \ne x\). (nein)
     	\end{itemize}
-    	Die Relation ist weder eine Äquivalenzrelation noch eine Ordnung, also folglich auch keine Totalordnung.
+    	Die Relation ist weder eine Äquivalenzrelation noch eine Ordnung, also
+        folglich auch keine Totalordnung.
         \item\ \\
         \begin{itemize}
     		\item Reflexivität: \({\forall}x \in \NN: x \le x\). (ja)
-    		\item Symmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x \le y\) aber \(y > a\). (nein)
-    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x \le y\) und \(y \le z\) \(\implies\) \(x \le z\). (ja)
-    		\item Antisymmetrie: Seien \(x, y \in \NN\) mit \(x \le y\) und \(y \le x\) \(\implies\) \(x = y\). (ja)
-    		\item Totalität: Seien \(x, y \in \NN\), dann gilt \(x \le y\) oder \(y \le x\). (ja)
+    		\item Symmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x \le y\)
+            aber \(y > a\). (nein)
+    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x \le y\) und
+            \(y \le z\) \(\implies\) \(x \le z\). (ja)
+    		\item Antisymmetrie: Seien \(x, y \in \NN\) mit \(x \le y\) und \(y
+            \le x\) \(\implies\) \(x = y\). (ja)
+    		\item Totalität: Seien \(x, y \in \NN\), dann gilt \(x \le y\) oder
+            \(y \le x\). (ja)
     	\end{itemize}
-    	Die Relation ist keine Äquivalenzrelation aber eine Totalordnung also folglich auch eine Ordnung.
+    	Die Relation ist keine Äquivalenzrelation aber eine Totalordnung also
+        folglich auch eine Ordnung.
         \item\ \\
         \begin{itemize}
     		\item Reflexivität: Sei \(x = 1\), dann gilt nicht \(x < x\). (nein)
-    		\item Symmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x < y\) aber nicht \(y < x\). (nein)
-    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x < y\) und \(y < z\) \(\implies\) \(x < z\). (ja)
-    		\item Antisymmetrie: Für \(x, y \in \NN\) kann nicht gleichzeitig \(x < y\) und \(y < x\) gelten. Da die Voraussetzung nicht gilt ist die Aussage immer wahr. (ja)
-    		\item Totalität: Sei \(x = 1\) und \(y = 1\), dann gilt weder \(x < y\) noch \(y < x\). (nein)
+    		\item Symmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x < y\)
+            aber nicht \(y < x\). (nein)
+    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x < y\) und
+            \(y < z\) \(\implies\) \(x < z\). (ja)
+    		\item Antisymmetrie: Für \(x, y \in \NN\) kann nicht gleichzeitig
+            \(x < y\) und \(y < x\) gelten. Da die Voraussetzung nicht gilt ist
+            die Aussage immer wahr. (ja)
+    		\item Totalität: Sei \(x = 1\) und \(y = 1\), dann gilt weder \(x <
+            y\) noch \(y < x\). (nein)
     	\end{itemize}
-    	Die Relation ist weder eine Äquivalenzrelation noch eine Ordnung, also folglich auch keine Totalordnung.
+    	Die Relation ist weder eine Äquivalenzrelation noch eine Ordnung, also
+        folglich auch keine Totalordnung.
         \item\ \\
         \begin{itemize}
     		\item Reflexivität: \({\forall}x \in \NN: x | x\). (ja)
-    		\item Symmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x | y\) aber nicht \(y | x\). (nein)
-    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x | y\) und \(y | z\), dann existieren \(m, n \in \NN\) für die gilt \(x \cdot m = y\) und \(y \cdot n = z\). Also ist \(z = y \cdot n = \enbrace*{x \cdot m} \cdot n = x \cdot mn\). Da \(mn \in \NN\), gilt \(x | z\). (ja)
-    		\item Antisymmetrie: Seien \(x, y \in \NN\) mit \(x | y\) und \(y | x\), dann existieren \(m, n \in \NN\) für die gilt \(x \cdot m = y\) und \(y \cdot n = x\). Damit gilt \(x = y \cdot n = \enbrace*{x \cdot m} \cdot n\). Hieraus folgt, dass \(m = n = 1\) gelten muss, da \(m, n \in \NN\). Setzen wir ein erhalten wir direkt \(x = y\). (ja)
-    		\item Totalität: Sei \(x = 2\) und \(y = 3\), dann gilt weder \(x | y\) noch \(y | x\). (nein)
+    		\item Symmetrie: Sei \(x = 1\) und \(y = 2\), dann gilt \(x | y\)
+            aber nicht \(y | x\). (nein)
+    		\item Transitivität: Seien \(x, y, z \in \NN\) mit \(x | y\) und
+            \(y | z\), dann existieren \(m, n \in \NN\) für die gilt \(x \cdot
+            m = y\) und \(y \cdot n = z\). Also ist \(z = y \cdot n =
+            \enbrace*{x \cdot m} \cdot n = x \cdot mn\). Da \(mn \in \NN\),
+            gilt \(x | z\). (ja)
+    		\item Antisymmetrie: Seien \(x, y \in \NN\) mit \(x | y\) und \(y |
+            x\), dann existieren \(m, n \in \NN\) für die gilt \(x \cdot m =
+            y\) und \(y \cdot n = x\). Damit gilt \(x = y \cdot n = \enbrace*{x
+            \cdot m} \cdot n\). Hieraus folgt, dass \(m = n = 1\) gelten muss,
+            da \(m, n \in \NN\). Setzen wir ein erhalten wir direkt \(x = y\).
+            (ja)
+    		\item Totalität: Sei \(x = 2\) und \(y = 3\), dann gilt weder \(x |
+            y\) noch \(y | x\). (nein)
     	\end{itemize}
-    	Die Relation ist keine Äquivalenzrelation. Die Relation ist eine Ordnung aber keine Totalordnung.
+    	Die Relation ist keine Äquivalenzrelation. Die Relation ist eine
+        Ordnung aber keine Totalordnung.
         \item\ \\
         \begin{itemize}
-    		\item Reflexivität: \({\forall}M \in \pot\enbrace*{\penbrace*{1, 2}}: M \subseteq M\). (ja)
-    		\item Symmetrie: Es gilt \(\emptyset \subseteq \penbrace*{1}\) aber \(\penbrace*{1} \not\subseteq \emptyset\). (nein)
-    		\item Transitivität: Seien \(M, N, O \in \pot\enbrace*{\penbrace*{1, 2}}\) für die gilt \(M \subseteq N\) und \(N \subseteq O\), dann folgt direkt \(M \subseteq O\). (ja)
-    		\item Antisymmetrie: Seien \(M, N \in \pot\enbrace*{\penbrace*{1, 2}}\) für die gilt \(M \subseteq N\) und \(N \subseteq M\), dann folgt \(M = N\). (ja)
-    		\item Totalität: Für \(\{1\}, \{2\} \in \pot\enbrace*{\penbrace*{1, 2}}\) gilt weder \(\penbrace*{1} \subseteq \penbrace*{2}\) noch \(\penbrace*{2} \subseteq \penbrace*{1}\). (nein)
+            \item Reflexivität: \({\forall}M \in \pot\enbrace*{\penbrace*{1,
+            2}}: M \subseteq M\). (ja)
+    		\item Symmetrie: Es gilt \(\emptyset \subseteq \penbrace*{1}\) aber
+            \(\penbrace*{1} \not\subseteq \emptyset\). (nein)
+    		\item Transitivität: Seien \(M, N, O \in
+            \pot\enbrace*{\penbrace*{1, 2}}\) für die gilt \(M \subseteq N\)
+            und \(N \subseteq O\), dann folgt direkt \(M \subseteq O\). (ja)
+    		\item Antisymmetrie: Seien \(M, N \in \pot\enbrace*{\penbrace*{1,
+            2}}\) für die gilt \(M \subseteq N\) und \(N \subseteq M\), dann
+            folgt \(M = N\). (ja)
+    		\item Totalität: Für \(\{1\}, \{2\} \in \pot\enbrace*{\penbrace*{1,
+            2}}\) gilt weder \(\penbrace*{1} \subseteq \penbrace*{2}\) noch
+            \(\penbrace*{2} \subseteq \penbrace*{1}\). (nein)
     	\end{itemize}
-    	Die Relation ist keine Äquivalenzrelation. Die Relation ist eine Ordnung aber keine Totalordnung.
+    	Die Relation ist keine Äquivalenzrelation. Die Relation ist eine
+        Ordnung aber keine Totalordnung.
     \end{enumerate}
 
     \section*{Aufgabe 4. (Äquivalenzrelation)}
 
     \begin{problem}
         \begin{enumerate}
-            \item Sei \(M = \penbrace*{\frac{m}{n}: m, n \in \ZZ, n \ne 0}\) die Menge aller Brüche. Zeigen Sie, dass durch
+            \item Sei \(M = \penbrace*{\frac{m}{n}: m, n \in \ZZ, n \ne 0}\)
+            die Menge aller Brüche. Zeigen Sie, dass durch
             \[\frac{a}{b} \sim \frac{c}{d} \iff bc = ad\]
             eine Äquivalenzrelation auf \(M\) definiert ist.
-            \item Beschreiben Sie möglichst genau die Menge aller Äquivalenzklassen, in die \(M\) bezüglich \(\sim\) zerfällt.
+            \item Beschreiben Sie möglichst genau die Menge aller
+            Äquivalenzklassen, in die \(M\) bezüglich \(\sim\) zerfällt.
         \end{enumerate}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item Wir müssen zeigen, dass die Relation reflexiv, symmetrisch und transitiv ist.
+        \item Wir müssen zeigen, dass die Relation reflexiv, symmetrisch und
+        transitiv ist.
         \begin{itemize}
-    		\item Reflexivität: \({\forall}x = \frac{m}{n} \in M: x \sim x \iff nm = mn\).
-    		\item Symmetrie: Seien \(x = \frac{a}{b}, y = \frac{c}{d} \in M\). Dann gilt
+    		\item Reflexivität: \({\forall}x = \frac{m}{n} \in M: x \sim x \iff
+            nm = mn\).
+    		\item Symmetrie: Seien \(x = \frac{a}{b}, y = \frac{c}{d} \in M\).
+            Dann gilt
     		\[x \sim y \iff bc = ad \iff da = cb \iff y \sim x.\]
-    		\item Transitivität: Seien \(x = \frac{a}{b}, y = \frac{c}{d}, z = \frac{e}{f} \in M\) für die gilt \(x \sim y\) und \(y \sim z\). Dann gilt
+    		\item Transitivität: Seien \(x = \frac{a}{b}, y = \frac{c}{d}, z =
+            \frac{e}{f} \in M\) für die gilt \(x \sim y\) und \(y \sim z\).
+            Dann gilt
     		\begin{align*}
     			x \sim y \land y \sim z &\iff bc = ad \land de = cf\\
     			&\iff c = \frac{ad}{b} \land de = cf\\
@@ -177,8 +252,13 @@
     			&\iff be = af \iff x \sim z
     		\end{align*}
     	\end{itemize}
-    	Da \(\sim\) reflexiv, symmetrisch und transitiv ist, handelt es sich um eine Äquivalenzrelation auf \(M\).
-        \item \(M\) zerfällt bezüglich \(\sim\) in eine Menge von Äquivalenzklassen. Jede Äquivalenzklasse wird durch einen Bruch, der sich nicht weiter kürzen lässt repräsentiert. Sei \(A_M\) die Menge aller Äquivalenzklassen, dann ist
-    	\[A_M = \penbrace*{\left.\benbrace*{\frac{m}{n}}_\sim\ \right|\ m, n \in \mathbb{Z}, n \ne 0 \land \text{ggT}\enbrace*{m, n} = 1}.\]
+    	Da \(\sim\) reflexiv, symmetrisch und transitiv ist, handelt es sich um
+        eine Äquivalenzrelation auf \(M\).
+        \item \(M\) zerfällt bezüglich \(\sim\) in eine Menge von
+        Äquivalenzklassen. Jede Äquivalenzklasse wird durch einen Bruch, der
+        sich nicht weiter kürzen lässt repräsentiert. Sei \(A_M\) die Menge
+        aller Äquivalenzklassen, dann ist
+    	\[A_M = \penbrace*{\left.\benbrace*{\frac{m}{n}}_\sim\ \right|\ m, n
+        \in \mathbb{Z}, n \ne 0 \land \text{ggT}\enbrace*{m, n} = 1}.\]
     \end{enumerate}
-  \end{document}
+\end{document}

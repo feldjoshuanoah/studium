@@ -26,9 +26,11 @@
     \section*{Aufgabe 1. (Konvergenz von Folgen)}
 
     \begin{problem}
-        Untersuchen Sie das Grenzwertverhalten folgender Folgen für \(n \to \infty\) und begründen Sie Ihre Antwort:
+        Untersuchen Sie das Grenzwertverhalten folgender Folgen für \(n \to
+        \infty\) und begründen Sie Ihre Antwort:
         \begin{enumerate}
-            \item \(a_n := \frac{\enbrace*{2n + x}^4}{xn^4 - 5n^3 + 6}\), für \(x = 0\) und \(x \ne 0\)
+            \item \(a_n := \frac{\enbrace*{2n + x}^4}{xn^4 - 5n^3 + 6}\), für
+            \(x = 0\) und \(x \ne 0\)
             \item \(b_n := \enbrace*{\frac{2n}{2n - 2}}^n\)
         \end{enumerate}
     \end{problem}
@@ -36,17 +38,29 @@
     \subsection*{Lösung}
     \begin{enumerate}
         \item Wir formulieren zunächst die Folgenglieder um:
-        \[a_n = \frac{\enbrace*{2n + x}^4}{xn^4 - 5n^3 + 6} = \frac{2n^4 \cdot \enbrace*{1 + \frac{x}{2n}}}{n^4 \cdot \enbrace*{x - \frac{5}{n} + \frac{6}{n^4}}} = \frac{16\enbrace*{1 + \frac{1}{2n}}^4}{x - \frac{5}{n} + \frac{6}{n^4}}.\]
+        \[a_n = \frac{\enbrace*{2n + x}^4}{xn^4 - 5n^3 + 6} = \frac{2n^4 \cdot
+        \enbrace*{1 + \frac{x}{2n}}}{n^4 \cdot \enbrace*{x - \frac{5}{n} +
+        \frac{6}{n^4}}} = \frac{16\enbrace*{1 + \frac{1}{2n}}^4}{x -
+        \frac{5}{n} + \frac{6}{n^4}}.\]
         Für \(x = 0\) divergiert die Folge:
         \(\lim_{n \to \infty}a_n = -\infty.\)
-        Für alle anderen \(x \in \RR \setminus \penbrace*{0}\) gilt \(\lim_{n \to \infty}a_n = \frac{16}{x}\), denn
-        \[\lim_{n \to \infty}\enbrace*{1 + \frac{x}{2n}}^4 = 1 \quad \text{und} \quad \lim_{n \to \infty}\enbrace*{x - \frac{5}{n} + \frac{6}{n^4}} = x\]
+        Für alle anderen \(x \in \RR \setminus \penbrace*{0}\) gilt \(\lim_{n
+        \to \infty}a_n = \frac{16}{x}\), denn
+        \[\lim_{n \to \infty}\enbrace*{1 + \frac{x}{2n}}^4 = 1 \quad \text{und}
+        \quad \lim_{n \to \infty}\enbrace*{x - \frac{5}{n} + \frac{6}{n^4}} =
+        x\]
         \item Bringt man den Ausdruck auf die Form
-        \[b_n = \enbrace*{\frac{2n}{2n - 2}}^n = \enbrace*{\frac{n}{n - 1}}^n = \enbrace*{\frac{n + 1 - 1}{n - 1}}^n = \enbrace*{1 + \frac{1}{n - 1}}^n,\]
+        \[b_n = \enbrace*{\frac{2n}{2n - 2}}^n = \enbrace*{\frac{n}{n - 1}}^n =
+        \enbrace*{\frac{n + 1 - 1}{n - 1}}^n = \enbrace*{1 + \frac{1}{n -
+        1}}^n,\]
         so ergibt sich
         \begin{align*}
-            \lim_{n \to \infty}b_n &= \lim_{n \to \infty}\enbrace*{1 + \frac{1}{n - 1}}^n = \lim_{n \to \infty}\enbrace*{1 + \frac{1}{n}}^{n + 1}\\
-            &= \lim_{n \to \infty}\enbrace*{1 + \frac{1}{n}}^n \cdot \enbrace*{1 + \frac{1}{n}} = \lim_{n \to \infty}\enbrace*{1 + \frac{1}{n}}^n = e.
+            \lim_{n \to \infty}b_n &= \lim_{n \to \infty}\enbrace*{1 +
+            \frac{1}{n - 1}}^n = \lim_{n \to \infty}\enbrace*{1 +
+            \frac{1}{n}}^{n + 1}\\
+            &= \lim_{n \to \infty}\enbrace*{1 + \frac{1}{n}}^n \cdot
+            \enbrace*{1 + \frac{1}{n}} = \lim_{n \to \infty}\enbrace*{1 +
+            \frac{1}{n}}^n = e.
         \end{align*}
     \end{enumerate}
 
@@ -54,36 +68,82 @@
 
     \begin{problem}
         \begin{enumerate}
-            \item Geben Sie die Definition der Konvergenz einer Folge durch das \(\varepsilon\)-\(N\)-Kriterium an.
-            \item Seien \(\enbrace*{a_n}_{n \ge 1}\) und \(\enbrace*{b_n}_{n \ge 1}\) zwei konvergente reelle Folgen mit den entsprechenden Grenzwerten \(\lim_{n \to \infty}a_n = a \in \RR\) und \(\lim_{n \to \infty}b_n = b \in \RR\). Sei \(\lambda \in \RR\). Zeigen Sie anhand des \(\varepsilon\)-\(N\)-Kriteriums, dass die Folge \(\enbrace*{c_n}_{n \ge 1}\) mit \(c_n = \lambda\enbrace*{a_n + b_n}\) für \(n \to \infty\) gegen den Grenzwert \(\lambda\enbrace*{a + b}\) konvergiert.
+            \item Geben Sie die Definition der Konvergenz einer Folge durch das
+            \(\varepsilon\)-\(N\)-Kriterium an.
+            \item Seien \(\enbrace*{a_n}_{n \ge 1}\) und \(\enbrace*{b_n}_{n
+            \ge 1}\) zwei konvergente reelle Folgen mit den entsprechenden
+            Grenzwerten \(\lim_{n \to \infty}a_n = a \in \RR\) und \(\lim_{n
+            \to \infty}b_n = b \in \RR\). Sei \(\lambda \in \RR\). Zeigen Sie
+            anhand des \(\varepsilon\)-\(N\)-Kriteriums, dass die Folge
+            \(\enbrace*{c_n}_{n \ge 1}\) mit \(c_n = \lambda\enbrace*{a_n +
+            b_n}\) für \(n \to \infty\) gegen den Grenzwert
+            \(\lambda\enbrace*{a + b}\) konvergiert.
         \end{enumerate}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item Eine reelle Folge \(\enbrace*{a_n}_{n \ge 1}\) heißt konvergent, wenn ein \(a \in \RR\) existiert, so dass zu jedem \(\varepsilon > 0\) ein \(N = N\enbrace*{\varepsilon} \in \NN\) existiert mit der Eigenschaft
+        \item Eine reelle Folge \(\enbrace*{a_n}_{n \ge 1}\) heißt konvergent,
+        wenn ein \(a \in \RR\) existiert, so dass zu jedem \(\varepsilon > 0\)
+        ein \(N = N\enbrace*{\varepsilon} \in \NN\) existiert mit der
+        Eigenschaft
         \[\absolute*{a_n - a} < \varepsilon \quad \text{für alle }n \ge N.\]
-        Man nennt \(a\) Limes oder Grenzwert der Folge \(\enbrace*{a_n}_{n \ge 1}\) und schreibt \(\lim_{n \to \infty}a_n = a\) oder \(a_n \xrightarrow{n \to \infty} a\). Man sagt auch, dass \(\enbrace*{a_n}_{n \ge 1}\) gegen \(a\) konvergiert. Eine Folge die nicht konvergent ist, heißt divergent.
-        \item Sei \(\varepsilon > 0\) beliebig. Dann exisitieren \(N_1, N_2 \in \NN\) für die gilt
-        \[\absolute*{a_n - a} < \frac{\varepsilon}{2}\ \forall{n \ge N_1} \quad \text{und} \quad \absolute*{b_n - b} < \frac{\varepsilon}{2}\ \forall{n \ge N_2}.\]
-        Wählen wir nun \(N = \max\penbrace*{N_1, N_2}\) und \(n \ge N\) beliebig. Daraus folgt
-        \[\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} = \absolute*{\enbrace*{a_n - a} + \enbrace*{b_n - b}} \le \absolute*{a_n - a} + \absolute*{b_n - b} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon,\]
-        wobei wir beim Schritt \(\le\) die aus der Vorlesung bekannte Dreiecksungleichung genutzt haben. Sei nun noch \(\lambda \in \RR\). Wir wollen zeigen, dass \(\lambda\enbrace*{a_n + b_n}\) gegen \(\lambda\enbrace*{a + b}\) konvergiert, d.h. wir müssen zeigen, dass \(\absolute*{\lambda\enbrace*{a_n + b_n} - \lambda\enbrace*{a + b}} < \varepsilon\) für alle \(n \ge N\) (\(N = N\enbrace*{\varepsilon} \in \NN\)) gilt:
+        Man nennt \(a\) Limes oder Grenzwert der Folge \(\enbrace*{a_n}_{n \ge
+        1}\) und schreibt \(\lim_{n \to \infty}a_n = a\) oder \(a_n
+        \xrightarrow{n \to \infty} a\). Man sagt auch, dass \(\enbrace*{a_n}_{n
+        \ge 1}\) gegen \(a\) konvergiert. Eine Folge die nicht konvergent ist,
+        heißt divergent.
+        \item Sei \(\varepsilon > 0\) beliebig. Dann exisitieren \(N_1, N_2 \in
+        \NN\) für die gilt
+        \[\absolute*{a_n - a} < \frac{\varepsilon}{2}\ \forall{n \ge N_1} \quad
+        \text{und} \quad \absolute*{b_n - b} < \frac{\varepsilon}{2}\ \forall{n
+        \ge N_2}.\]
+        Wählen wir nun \(N = \max\penbrace*{N_1, N_2}\) und \(n \ge N\)
+        beliebig. Daraus folgt
+        \[\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} =
+        \absolute*{\enbrace*{a_n - a} + \enbrace*{b_n - b}} \le \absolute*{a_n
+        - a} + \absolute*{b_n - b} < \frac{\varepsilon}{2} +
+        \frac{\varepsilon}{2} = \varepsilon,\]
+        wobei wir beim Schritt \(\le\) die aus der Vorlesung bekannte
+        Dreiecksungleichung genutzt haben. Sei nun noch \(\lambda \in \RR\).
+        Wir wollen zeigen, dass \(\lambda\enbrace*{a_n + b_n}\) gegen
+        \(\lambda\enbrace*{a + b}\) konvergiert, d.h. wir müssen zeigen, dass
+        \(\absolute*{\lambda\enbrace*{a_n + b_n} - \lambda\enbrace*{a + b}} <
+        \varepsilon\) für alle \(n \ge N\) (\(N = N\enbrace*{\varepsilon} \in
+        \NN\)) gilt:
         \begin{align*}
-            \absolute*{\lambda\enbrace*{a_n + b_n} - \lambda\enbrace*{a + b}} < \varepsilon &\iff \absolute*{\lambda\enbrace*{\enbrace*{a_n + b_n} - \enbrace*{a + b}}} < \varepsilon\\
-            &\iff \absolute*{\lambda} \cdot \absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} < \varepsilon
+            \absolute*{\lambda\enbrace*{a_n + b_n} - \lambda\enbrace*{a + b}} <
+            \varepsilon &\iff \absolute*{\lambda\enbrace*{\enbrace*{a_n + b_n}
+            - \enbrace*{a + b}}} < \varepsilon\\
+            &\iff \absolute*{\lambda} \cdot \absolute*{\enbrace*{a_n + b_n} -
+            \enbrace*{a + b}} < \varepsilon
         \end{align*}
-        Sei nun zunächst \(\lambda \ne 0\) (den Fall sehen wir uns danach an). Dann können wir weiter umformen zu \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} < \frac{\varepsilon}{\absolute*{\lambda}}\). Da \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}}\) gegen \(0\) konvergiert, gibt es ein \(N \in \NN\), so dass \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} < \frac{\varepsilon}{\absolute*{\lambda}}\) für alle \(n \ge N\) ist. Für den Fall \(\lambda = 0\) ist \(\lambda\enbrace*{a_n + b_n} = 0 \cdot \enbrace*{a_n + b_n} = 0\), also auch \(\lim_{n \to \infty}\lambda\enbrace*{a_n + b_n} = \lim_{n \to \infty}0 = 0\). Insgesamt konvergiert also die Folge \(\enbrace*{c_n}_{n \ge 1}\) gegen den Grenzwert \(\lambda\enbrace*{a + b}\).
+        Sei nun zunächst \(\lambda \ne 0\) (den Fall sehen wir uns danach an).
+        Dann können wir weiter umformen zu \(\absolute*{\enbrace*{a_n + b_n} -
+        \enbrace*{a + b}} < \frac{\varepsilon}{\absolute*{\lambda}}\). Da
+        \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}}\) gegen \(0\)
+        konvergiert, gibt es ein \(N \in \NN\), so dass
+        \(\absolute*{\enbrace*{a_n + b_n} - \enbrace*{a + b}} <
+        \frac{\varepsilon}{\absolute*{\lambda}}\) für alle \(n \ge N\) ist. Für
+        den Fall \(\lambda = 0\) ist \(\lambda\enbrace*{a_n + b_n} = 0 \cdot
+        \enbrace*{a_n + b_n} = 0\), also auch \(\lim_{n \to
+        \infty}\lambda\enbrace*{a_n + b_n} = \lim_{n \to \infty}0 = 0\).
+        Insgesamt konvergiert also die Folge \(\enbrace*{c_n}_{n \ge 1}\) gegen
+        den Grenzwert \(\lambda\enbrace*{a + b}\).
     \end{enumerate}
 
     \section*{Aufgabe 3. (Lineare Anhängigkeit)}
 
     \begin{problem}
         Seien \(a, b \in \RR\) und \(v_1, v_2, v_3 \in \RR^4\) mit
-        \[v_1 = \begin{pmatrix}1\\1\\0\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}0\\-1\\2\\0\end{pmatrix}, \quad v_3 = \begin{pmatrix}1\\0\\2a\\b\end{pmatrix}\]
+        \[v_1 = \begin{pmatrix}1\\1\\0\\0\end{pmatrix}, \quad v_2 =
+        \begin{pmatrix}0\\-1\\2\\0\end{pmatrix}, \quad v_3 =
+        \begin{pmatrix}1\\0\\2a\\b\end{pmatrix}\]
         \begin{enumerate}
-          \item Zeigen Sie, dass für \(b \ne 0\) die Vektoren \(v_1, v_2, v_3\) immer linear unabhängig sind.
-          \item Finden Sie für \(b = 0\) ein \(a \in \RR\), so dass \(v_1, v_2, v_3\) linear abhängig sind.
+            \item Zeigen Sie, dass für \(b \ne 0\) die Vektoren \(v_1, v_2,
+            v_3\) immer linear unabhängig sind.
+            \item Finden Sie für \(b = 0\) ein \(a \in \RR\), so dass \(v_1,
+            v_2, v_3\) linear abhängig sind.
         \end{enumerate}
     \end{problem}
 
@@ -92,38 +152,91 @@
     \section*{Aufgabe 4. (Vorbereitung zur Gram-Schmidt Orthogonalisierung)}
 
     \begin{problem}
-        Wir betrachten den Vektorraum \(V = \RR^3\) mit euklidischem Skalarprodukt \(\dotproduct{\cdot}{\cdot}\) und induzierter Norm \(\norm*{\cdot} = \sqrt{\dotproduct{\cdot}{\cdot}}\). Gegeben seien außerdem die drei Vektoren
-        \[v_1 = \begin{pmatrix}3\\4\\0\end{pmatrix}, \quad v_2 = \begin{pmatrix}1\\2\\2\end{pmatrix}, \quad v_3 = \begin{pmatrix}-2\\0\\2\end{pmatrix}\]
+        Wir betrachten den Vektorraum \(V = \RR^3\) mit euklidischem
+        Skalarprodukt \(\dotproduct{\cdot}{\cdot}\) und induzierter Norm
+        \(\norm*{\cdot} = \sqrt{\dotproduct{\cdot}{\cdot}}\). Gegeben seien
+        außerdem die drei Vektoren
+        \[v_1 = \begin{pmatrix}3\\4\\0\end{pmatrix}, \quad v_2 =
+        \begin{pmatrix}1\\2\\2\end{pmatrix}, \quad v_3 = \begin{pmatrix}
+        -2\\0\\2\end{pmatrix}\]
         \begin{enumerate}
-            \item Berechnen Sie zuerst die Projektion \(\tilde{v_2}\) von \(v_2\) auf \(v_1\). Berechnen Sie nun die zu \(v_1\) orthogonale Komponente von \(v_2\) und bezeichnen Sie diese als \(u_2\). Überprüfen Sie anschließend, ob \(u_2\) tatsächlich orthogonal zu \(v_1\) ist.
-            \item Berechnen Sie die Projektion von \(v_3\) auf die Vektoren \(v_1\), \(v_2\) sowie \(u_2\). Berechnen Sie nun die zu \(v_1\) und \(u_2\) orthogonale Komponente von \(v_3\) und bezeichnen Sie diese als \(u_3\). Überprüfen Sie wiederum, ob \(u_3\) tatsächlich orthogonal zu \(v_1\) und \(u_2\) ist.
+            \item Berechnen Sie zuerst die Projektion \(\tilde{v_2}\) von
+            \(v_2\) auf \(v_1\). Berechnen Sie nun die zu \(v_1\) orthogonale
+            Komponente von \(v_2\) und bezeichnen Sie diese als \(u_2\).
+            Überprüfen Sie anschließend, ob \(u_2\) tatsächlich orthogonal zu
+            \(v_1\) ist.
+            \item Berechnen Sie die Projektion von \(v_3\) auf die Vektoren
+            \(v_1\), \(v_2\) sowie \(u_2\). Berechnen Sie nun die zu \(v_1\)
+            und \(u_2\) orthogonale Komponente von \(v_3\) und bezeichnen Sie
+            diese als \(u_3\). Überprüfen Sie wiederum, ob \(u_3\) tatsächlich
+            orthogonal zu \(v_1\) und \(u_2\) ist.
         \end{enumerate}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
         \item Bestimme zunächst die Projektion von \(v_2\) auf \(v_1\):
-        \[\tilde{v_2} = \frac{\dotproduct{v_1}{v_2}}{\dotproduct{v_1}{v_1}}v_1 = \frac{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}{\begin{pmatrix}1\\2\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}{\begin{pmatrix}3\\4\\0\end{pmatrix}}} \cdot \begin{pmatrix}3\\4\\0\end{pmatrix} = \frac{11}{25} \cdot \begin{pmatrix}3\\4\\0\end{pmatrix}.\]
-        Die orthogonale Komponente \(u_2\) ist gegeben durch die Differenz von \(v_2\) und \(\tilde{v_2}\):
-        \[u_2 = v_2 - \tilde{v_2} = \begin{pmatrix}1\\2\\2\end{pmatrix} - \frac{11}{25} \cdot \begin{pmatrix}3\\4\\0\end{pmatrix} = \frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}.\]
+        \[\tilde{v_2} = \frac{\dotproduct{v_1}{v_2}}{\dotproduct{v_1}{v_1}}v_1
+        = \frac{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}{
+        \begin{pmatrix}1\\2\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}3\\4\\0
+        \end{pmatrix}}{\begin{pmatrix}3\\4\\0\end{pmatrix}}} \cdot
+        \begin{pmatrix}3\\4\\0\end{pmatrix} = \frac{11}{25} \cdot
+        \begin{pmatrix}3\\4\\0\end{pmatrix}.\]
+        Die orthogonale Komponente \(u_2\) ist gegeben durch die Differenz von
+        \(v_2\) und \(\tilde{v_2}\):
+        \[u_2 = v_2 - \tilde{v_2} = \begin{pmatrix}1\\2\\2\end{pmatrix} -
+        \frac{11}{25} \cdot \begin{pmatrix}3\\4\\0\end{pmatrix} = \frac{1}{25}
+        \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}.\]
         Durch Nachrechnen sehen wir, dass
-        \[\dotproduct{u_2}{v_1} = \dotproduct{\frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}}{\begin{pmatrix}3\\4\\0\end{pmatrix}} = \frac{1}{25}\enbrace*{-24 + 24 + 0} = 0.\]
+        \[\dotproduct{u_2}{v_1} = \dotproduct{\frac{1}{25} \cdot
+        \begin{pmatrix}-8\\6\\50\end{pmatrix}}{\begin{pmatrix}3\\4\\0
+        \end{pmatrix}} = \frac{1}{25}\enbrace*{-24 + 24 + 0} = 0.\]
         Somit ist \(u_2\) orthogonal zu \(v_1\).
         \item Projektion von \(v_3\) auf \(v_1\):
-        \[\tilde{v_3} = \frac{\dotproduct{v_1}{v_3}}{\dotproduct{v_1}{v_1}}v_1 = \frac{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}{\begin{pmatrix}-2\\0\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}{\begin{pmatrix}3\\4\\0\end{pmatrix}}} \cdot \begin{pmatrix}3\\4\\0\end{pmatrix} = \frac{1}{25} \cdot \begin{pmatrix}-18\\-24\\0\end{pmatrix}.\]
+        \[\tilde{v_3} = \frac{\dotproduct{v_1}{v_3}}{\dotproduct{v_1}{v_1}}v_1 =
+        \frac{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}{\begin{pmatrix}
+        -2\\0\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}3\\4\\0\end{pmatrix}}
+        {\begin{pmatrix}3\\4\\0\end{pmatrix}}} \cdot
+        \begin{pmatrix}3\\4\\0\end{pmatrix} = \frac{1}{25} \cdot
+        \begin{pmatrix}-18\\-24\\0\end{pmatrix}.\]
         Projektion von \(v_3\) auf \(v_2\):
-        \[\hat{v_3} = \frac{\dotproduct{v_2}{v_3}}{\dotproduct{v_2}{v_2}}v_2 = \frac{\dotproduct{\begin{pmatrix}1\\2\\2\end{pmatrix}}{\begin{pmatrix}-2\\0\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}1\\2\\2\end{pmatrix}}{\begin{pmatrix}1\\2\\2\end{pmatrix}}} \cdot \begin{pmatrix}1\\2\\2\end{pmatrix} = \frac{1}{9} \cdot \begin{pmatrix}2\\4\\4\end{pmatrix}.\]
+        \[\hat{v_3} = \frac{\dotproduct{v_2}{v_3}}{\dotproduct{v_2}{v_2}}v_2 =
+        \frac{\dotproduct{\begin{pmatrix}1\\2\\2\end{pmatrix}}{\begin{pmatrix}-2
+        \\0\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}1\\2\\2\end{pmatrix}}{
+        \begin{pmatrix}1\\2\\2\end{pmatrix}}} \cdot
+        \begin{pmatrix}1\\2\\2\end{pmatrix} = \frac{1}{9} \cdot
+        \begin{pmatrix}2\\4\\4\end{pmatrix}.\]
         Projektion von \(v_3\) auf \(u_2\):
         \begin{align*}
-            \tilde{u_2} = \frac{\dotproduct{u_2}{v_3}}{\dotproduct{u_2}{u_2}}u_2 &= \frac{\dotproduct{\frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}}{\begin{pmatrix}-2\\0\\2\end{pmatrix}}}{\dotproduct{\frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}}{\frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}}} \cdot \frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}\\
-            &= \frac{\dotproduct{\begin{pmatrix}-8\\6\\50\end{pmatrix}}{\begin{pmatrix}-2\\0\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}-8\\6\\50\end{pmatrix}}{\begin{pmatrix}-8\\6\\50\end{pmatrix}}} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix} = \frac{29}{325} \cdot \begin{pmatrix}-4\\3\\25\end{pmatrix}.
+            \tilde{u_2} =
+            \frac{\dotproduct{u_2}{v_3}}{\dotproduct{u_2}{u_2}}u_2 &=
+            \frac{\dotproduct{\frac{1}{25} \cdot \begin{pmatrix}8\\6\\50
+            \end{pmatrix}}{\begin{pmatrix}-2\\0\\2\end{pmatrix}}}{\dotproduct{
+            \frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}}{
+            \frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}}} \cdot
+            \frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}\\
+            &= \frac{\dotproduct{\begin{pmatrix}
+            -8\\6\\50\end{pmatrix}}{\begin{pmatrix}
+            -2\\0\\2\end{pmatrix}}}{\dotproduct{\begin{pmatrix}
+            -8\\6\\50\end{pmatrix}}{\begin{pmatrix}-8\\6\\50\end{pmatrix}}}
+            \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix} = \frac{29}{325} \cdot
+            \begin{pmatrix}-4\\3\\25\end{pmatrix}.
         \end{align*}
         Orthogonale Komponente \(u_3\):
-        \[u_3 = v_3 - \tilde{u_2} - \tilde{v_3} = \begin{pmatrix}-2\\0\\2\end{pmatrix} - \frac{29}{325} \cdot \begin{pmatrix}-4\\3\\25\end{pmatrix} - \frac{1}{25} \cdot \begin{pmatrix}-18\\-24\\0\end{pmatrix} = \frac{1}{13} \cdot \begin{pmatrix}-12\\9\\-3\end{pmatrix}.\]
+        \[u_3 = v_3 - \tilde{u_2} - \tilde{v_3} = \begin{pmatrix}
+        -2\\0\\2\end{pmatrix} - \frac{29}{325} \cdot \begin{pmatrix}
+        -4\\3\\25\end{pmatrix} - \frac{1}{25} \cdot \begin{pmatrix}-18\\
+        -24\\0\end{pmatrix} = \frac{1}{13} \cdot \begin{pmatrix}-12\\9\\
+        -3\end{pmatrix}.\]
         Nachrechnen zeigt, dass \(u_3\) orthogonal zu \(v_1\) und \(u_2\) ist:
         \begin{align*}
-            \dotproduct{u_2}{v_1} &= \dotproduct{\frac{1}{13} \cdot \begin{pmatrix}-12\\9\\-3\end{pmatrix}}{\frac{1}{25} \cdot \begin{pmatrix}-8\\6\\50\end{pmatrix}} = \frac{1}{13} \cdot \frac{1}{25} \cdot \enbrace*{96 + 54 - 150} = 0,\\
-            \dotproduct{u_3}{v_1} &= \dotproduct{\frac{1}{13} \cdot \begin{pmatrix}-12\\9\\-3\end{pmatrix}}{\begin{pmatrix}3\\4\\0\end{pmatrix}} = \frac{1}{13}\enbrace*{-36 + 36 + 0} = 0.
+            \dotproduct{u_2}{v_1} &= \dotproduct{\frac{1}{13} \cdot
+            \begin{pmatrix}-12\\9\\-3\end{pmatrix}}{\frac{1}{25} \cdot 
+            \begin{pmatrix}-8\\6\\50\end{pmatrix}} = \frac{1}{13} \cdot
+            \frac{1}{25} \cdot \enbrace*{96 + 54 - 150} = 0,\\
+            \dotproduct{u_3}{v_1} &= \dotproduct{\frac{1}{13} \cdot
+            \begin{pmatrix}-12\\9\\-3\end{pmatrix}}{\begin{pmatrix}3\\4\\0
+            \end{pmatrix}} = \frac{1}{13}\enbrace*{-36 + 36 + 0} = 0.
         \end{align*}
     \end{enumerate}
 \end{document}

@@ -32,7 +32,8 @@
 
     \begin{problem}
         \begin{enumerate}
-            \item Bestimmen Sie das Maximum, Minimum, Infimum und Supremum der folgenden Menge:
+            \item Bestimmen Sie das Maximum, Minimum, Infimum und Supremum der
+            folgenden Menge:
             \[M_1 = \penbrace*{\frac{1}{n} + \frac{1}{m} : n, m \in \NN}.\]
             \item Bestimmen Sie die Menge aller \(x \in \RR\), für die gilt:
             \[\frac{x - 5}{x + 5} > 0 \land \absolute*{15x - 2} \ge 30\]
@@ -41,79 +42,138 @@
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item Ein Bruch \(\frac{1}{k}\) mit \(k \in \NN\) ist streng monoton fallend, d.h. am Beginn des Definitionsberechs ist das Maximum zu finden. Daraus folgt
+        \item Ein Bruch \(\frac{1}{k}\) mit \(k \in \NN\) ist streng monoton
+        fallend, d.h. am Beginn des Definitionsberechs ist das Maximum zu
+        finden. Daraus folgt
         \[\frac{1}{n} + \frac{1}{m} \le \frac{1}{1} + \frac{1}{1} = 2.\]
-        Da \(2 \in M_1\) gilt \(\max{M_1} = \sup{M_1} = 2\). Des Weiteren gilt \(\lim_{k \to \infty}\frac{1}{k} = 0\) mit \(k \in \NN\), also auch
+        Da \(2 \in M_1\) gilt \(\max{M_1} = \sup{M_1} = 2\). Des Weiteren gilt
+        \(\lim_{k \to \infty}\frac{1}{k} = 0\) mit \(k \in \NN\), also auch
         \[\lim_{n, m \to \infty}\enbrace*{\frac{1}{n} + \frac{1}{m}} = 0.\]
-        Wir wissen jedoch, dass \(0 \not\in M_1\), denn sonst müsste \(\frac{1}{m}\) das additive Inverse von \(\frac{1}{n}\) sein, was aber einen Widerspruch darstellt, da dazu \(m = -n\) gelten müsste, jedoch liegen die negativen Zahlen nicht in \(\NN\). Folglich gilt \(\inf{M_1} = 0\), aber es existiert kein Minimum.
-        \item Um die erste Ungleichung zu lösen bestimmen wir zunächst die Nullstellen der Terme \(x - 5\) und \(x + 5\). Offensichtlich sind die Nullstellen hier \(x = 5\) und \(x = -5\). Damit erhalten wir die folgenden möglichen Lösungsintervalle:
-        \[\LL_1 = \enbrace*{-\infty, -5}, \quad \LL_2 = \enbrace*{-5, 5} \quad \text{und} \quad \LL_3 = \enbrace*{5, \infty}.\]
-        Durch Einsetzen von Werten überprüfen wir, welche Intervalle zur Lösung gehören.
+        Wir wissen jedoch, dass \(0 \not\in M_1\), denn sonst müsste
+        \(\frac{1}{m}\) das additive Inverse von \(\frac{1}{n}\) sein, was aber
+        einen Widerspruch darstellt, da dazu \(m = -n\) gelten müsste, jedoch
+        liegen die negativen Zahlen nicht in \(\NN\). Folglich gilt \(\inf{M_1}
+        = 0\), aber es existiert kein Minimum.
+        \item Um die erste Ungleichung zu lösen bestimmen wir zunächst die
+        Nullstellen der Terme \(x - 5\) und \(x + 5\). Offensichtlich sind die
+        Nullstellen hier \(x = 5\) und \(x = -5\). Damit erhalten wir die
+        folgenden möglichen Lösungsintervalle:
+        \[\LL_1 = \enbrace*{-\infty, -5}, \quad \LL_2 = \enbrace*{-5, 5} \quad
+        \text{und} \quad \LL_3 = \enbrace*{5, \infty}.\]
+        Durch Einsetzen von Werten überprüfen wir, welche Intervalle zur Lösung
+        gehören.
         \begin{align*}
-            -6 \in \LL_1: \quad &\frac{\enbrace*{-6} - 5}{-6 + 5} = \frac{-11}{-1} = 11 > 0\\
+            -6 \in \LL_1: \quad &\frac{\enbrace*{-6} - 5}{-6 + 5} = \frac{-11}{-
+            1} = 11 > 0\\
             0 \in \LL_2: \quad &\frac{0 - 5}{0 + 5} = -\frac{5}{5} = -1 \le 0\\
             6 \in \LL_3: \quad &\frac{6 - 5}{6 + 5} = \frac{1}{11} > 0
         \end{align*}
         Zusammenfassend gilt also
-        \[\LL_A = \LL_1 \cup \LL_3 = \penbrace*{\left.x \in \RR\ \right|\ x < -5 \lor x > 5}.\]
-        Wir wollen nun noch die Menge aller \(x \in \RR\) bestimmen, für die \(\absolute*{15x - 2} \ge 30\). Es gilt
+        \[\LL_A = \LL_1 \cup \LL_3 = \penbrace*{\left.x \in \RR\ \right|\ x < -
+        5 \lor x > 5}.\]
+        Wir wollen nun noch die Menge aller \(x \in \RR\) bestimmen, für die
+        \(\absolute*{15x - 2} \ge 30\). Es gilt
         \begin{align*}
             \absolute*{15x - 2} \ge 30 &\iff \enbrace*{15x - 2}^2 \ge 900\\
             &\iff 225x^2 - 60x + 4 \ge 900\\
             &\iff x^2 - \frac{4}{15}x - \frac{896}{225} \ge 0
         \end{align*}
-        Wir wollen nun die Nullstellen der quadratischen Gleichung \(x^2 - \frac{4}{15}x - \frac{896}{225} = 0\) finden. Diese sind:
+        Wir wollen nun die Nullstellen der quadratischen Gleichung \(x^2 -
+        \frac{4}{15}x - \frac{896}{225} = 0\) finden. Diese sind:
         \begin{align*}
             &x^2 - \frac{4}{15}x - \frac{896}{225} = 0\\
-            \iff&x = \frac{2}{15} \pm \sqrt{\frac{4}{225} + \frac{896}{225}} = \frac{2}{15} \pm 2\\
+            \iff&x = \frac{2}{15} \pm \sqrt{\frac{4}{225} + \frac{896}{225}} =
+            \frac{2}{15} \pm 2\\
             \iff&x = \frac{32}{15} \lor x = -\frac{28}{15}
         \end{align*}
-        Damit haben wir nun die möglichen Lösungsintervalle der quadratischen Ungleichung \(x^2 - \frac{4}{15}x - \frac{896}{225} \ge 0\) gefunden. Diese sind
-        \[\LL_1 = \left(-\infty, -\frac{28}{15}\right], \quad \LL_2 = \benbrace*{-\frac{28}{15}, \frac{32}{15}} \quad \text{und} \quad \LL_3 = \left[\frac{32}{15}, \infty\right)\]
-        Durch Einsetzen von Werten überprüfen wir, welche Intervalle zur Lösung gehören.
+        Damit haben wir nun die möglichen Lösungsintervalle der quadratischen
+        Ungleichung \(x^2 - \frac{4}{15}x - \frac{896}{225} \ge 0\) gefunden.
+        Diese sind
+        \[\LL_1 = \left(-\infty, -\frac{28}{15}\right], \quad \LL_2 =
+        \benbrace*{-\frac{28}{15}, \frac{32}{15}} \quad \text{und} \quad \LL_3
+        = \left[\frac{32}{15}, \infty\right)\]
+        Durch Einsetzen von Werten überprüfen wir, welche Intervalle zur Lösung
+        gehören.
         \begin{align*}
-            -2 \in \LL_1: \quad &\enbrace*{-2}^2 - \frac{4}{15} \cdot \enbrace*{-2} - \frac{896}{225} = \frac{124}{225} \ge 0\\
-            0 \in \LL_2: \quad &0^2 - \frac{4}{15} \cdot 0 - \frac{896}{225} = -\frac{896}{225} < 0\\
-            3 \in \LL_3: \quad &3^2 - \frac{4}{15} \cdot 3 - \frac{896}{225} = \frac{949}{225} \ge 0
+            -2 \in \LL_1: \quad &\enbrace*{-2}^2 - \frac{4}{15} \cdot
+            \enbrace*{-2} - \frac{896}{225} = \frac{124}{225} \ge 0\\
+            0 \in \LL_2: \quad &0^2 - \frac{4}{15} \cdot 0 - \frac{896}{225} = -
+            \frac{896}{225} < 0\\
+            3 \in \LL_3: \quad &3^2 - \frac{4}{15} \cdot 3 - \frac{896}{225} =
+            \frac{949}{225} \ge 0
         \end{align*}
         Zusammenfassend gilt also
-        \[\LL_B = \LL_1 \cup \LL_3 = \penbrace*{x \in \RR\ \left|\ x \le -\frac{28}{15} \lor x \ge \frac{32}{15}\right.}.\]
-        Für die Menge aller \(x \in \RR\) für die beide Ungleichungen gelten, ergibt sich
-        \[\LL = \LL_A \cap \LL_B = \LL_A = \penbrace*{\left.x \in \RR\ \right|\ x < -5 \lor x > 5}.\]
+        \[\LL_B = \LL_1 \cup \LL_3 = \penbrace*{x \in \RR\ \left|\ x \le -
+        \frac{28}{15} \lor x \ge \frac{32}{15}\right.}.\]
+        Für die Menge aller \(x \in \RR\) für die beide Ungleichungen gelten,
+        ergibt sich
+        \[\LL = \LL_A \cap \LL_B = \LL_A = \penbrace*{\left.x \in \RR\ \right|\
+        x < -5 \lor x > 5}.\]
     \end{enumerate}
 
     \section*{Aufgabe 2. (Supremum, Infimum, Maximum, Minimum)}
 
     \begin{problem}
-        Bestimmen Sie Supremum und Infimum der folgenden Mengen. In welchen Fällen handelt es sich um ein Maximum bzw. Minimum? Begründen Sie, warum es sich jeweils um ein Supremum/Infimum/Maximum/Minimum handelt.
+        Bestimmen Sie Supremum und Infimum der folgenden Mengen. In welchen
+        Fällen handelt es sich um ein Maximum bzw. Minimum? Begründen Sie,
+        warum es sich jeweils um ein Supremum/Infimum/Maximum/Minimum handelt.
         \begin{enumerate}
-            \item \(M_1 = \left[a, b\right)\), \(M_2 = \left(a, b\right]\) für \(a, b \in \RR´, a < b\),
-            \item \(M_3 = \penbrace*{x \in \RR : x = \frac{1}{z}\text{ für }z \in \ZZ \setminus \penbrace*{0}}\),
-            \item \(M_4 = \penbrace*{x \in \RR : x \ge 0\text{ und }x\enbrace*{x - 1}\enbrace*{x - 2} < 0}\).
+            \item \(M_1 = \left[a, b\right)\), \(M_2 = \left(a, b\right]\) für
+            \(a, b \in \RR´, a < b\),
+            \item \(M_3 = \penbrace*{x \in \RR : x = \frac{1}{z}\text{ für }z
+            \in \ZZ \setminus \penbrace*{0}}\),
+            \item \(M_4 = \penbrace*{x \in \RR : x \ge 0\text{ und
+            }x\enbrace*{x - 1}\enbrace*{x - 2} < 0}\).
         \end{enumerate}
 
-        \textbf{Hinweis:} \quad \emph{Für eine Teilmenge \(A \subset \RR\) mit \(\sup\enbrace*{A} \in A\) heißt \(s := \sup\enbrace*{A}\) auch das Maximum von \(A\). Also \(s = \max\enbrace*{A}\). Falls \(\sup\enbrace*{A} \not\in A\), so hat die Menge kein Maximum. Analog folgt \(t := \inf\enbrace*{A} \in A \implies t = \min\enbrace*{A}\) und falls \(\inf{A} \not\in A\), dann hat die Menge kein Minimum.}
+        \textbf{Hinweis:} \quad \emph{Für eine Teilmenge \(A \subset \RR\) mit
+        \(\sup\enbrace*{A} \in A\) heißt \(s := \sup\enbrace*{A}\) auch das
+        Maximum von \(A\). Also \(s = \max\enbrace*{A}\). Falls
+        \(\sup\enbrace*{A} \not\in A\), so hat die Menge kein Maximum. Analog
+        folgt \(t := \inf\enbrace*{A} \in A \implies t = \min\enbrace*{A}\) und
+        falls \(\inf{A} \not\in A\), dann hat die Menge kein Minimum.}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item \(b\) ist nach der Definition des Intervalls eine obere Schranke von \(M_1\). Da jedoch \(b \not\in M_1\) müssen wir noch zeigen, dass \(b\) wirklich die kleinste obere Schranke von \(M_1\) ist. Dies zeigen wir mithilfe eines Widerspruchs. Angenommen, es existiert ein \(b' = \sup{M_1}\) mit \(b' < b\). Da für alle \(0 < x < b - a\) gilt \(b - x \in M_1\), also
+        \item \(b\) ist nach der Definition des Intervalls eine obere Schranke
+        von \(M_1\). Da jedoch \(b \not\in M_1\) müssen wir noch zeigen, dass
+        \(b\) wirklich die kleinste obere Schranke von \(M_1\) ist. Dies zeigen
+        wir mithilfe eines Widerspruchs. Angenommen, es existiert ein \(b' =
+        \sup{M_1}\) mit \(b' < b\). Da für alle \(0 < x < b - a\) gilt \(b - x
+        \in M_1\), also
         \[b' \in M_1 \land b' = \sup{M_1} \implies b' = \max{M_1}.\]
-        Daraus folgt aber auch \(b' + \frac{b - b'}{2} \in \left[a, b\right)\). Somit kann \(b'\) nicht Maximum von \(M_1\) sein, womit wir einen Widerspruch erreicht haben. \(a\) ist offensichtlich die größte untere Schranke, da sie in \(M_1\) enthalten ist. Insgesamt also
+        Daraus folgt aber auch \(b' + \frac{b - b'}{2} \in \left[a, b\right)\).
+        Somit kann \(b'\) nicht Maximum von \(M_1\) sein, womit wir einen
+        Widerspruch erreicht haben. \(a\) ist offensichtlich die größte untere
+        Schranke, da sie in \(M_1\) enthalten ist. Insgesamt also
         \[\sup{M_1} = b \quad \text{und} \quad \inf{M_1} = \min{M_1} = a.\]
-        Für \(M_2\) ist das Verhalten gespiegelt, d.h. es exisitiert ein Infimum mit \(\inf{M_2} = a\) aber kein Minimum, da \(a \not\in M_2\). \(b\) ist offensichtlich die größte obere Schranke, da sie in \(M_2\) enthalten ist. Insgesamt also
+        Für \(M_2\) ist das Verhalten gespiegelt, d.h. es exisitiert ein
+        Infimum mit \(\inf{M_2} = a\) aber kein Minimum, da \(a \not\in M_2\).
+        \(b\) ist offensichtlich die größte obere Schranke, da sie in \(M_2\)
+        enthalten ist. Insgesamt also
         \[\sup{M_2} = \max{M_2} = b \quad \text{und} \quad \inf{M_2} = a.\]
-        \item Für alle \(x \in M_3, x = \frac{1}{z}\) mit \(z \in \ZZ \setminus \penbrace*{0}\) muss gelten \(\absolute*{x} \le 1\). Daraus folgt sofort
-        \[\sup{M_3} = \max{M_3} = 1 \quad \text{und} \quad \inf{M_3} = \min{M_3} = -1.\]
-        \item Wir formen die beiden Bedingungen für die \(x \in M_4\) gleichzeitig um:
+        \item Für alle \(x \in M_3, x = \frac{1}{z}\) mit \(z \in \ZZ \setminus
+        \penbrace*{0}\) muss gelten \(\absolute*{x} \le 1\). Daraus folgt sofort
+        \[\sup{M_3} = \max{M_3} = 1 \quad \text{und} \quad \inf{M_3} =
+        \min{M_3} = -1.\]
+        \item Wir formen die beiden Bedingungen für die \(x \in M_4\)
+        gleichzeitig um:
         \begin{align*}
-            x \ge 0 \land x\enbrace*{x - 1}\enbrace*{x - 2} < 0 &\iff x > 0 \land \enbrace*{x - 1}\enbrace*{x - 2} < 0\\
-            &\iff x > 0 \land \enbrace*{\enbrace*{x - 1} > 0 \land \enbrace*{x - 2} < 0} \lor \enbrace*{\enbrace*{x - 1} < 0 \land \enbrace*{x - 2} > 0}\\
-            & \iff x > 0 \land \enbrace*{\enbrace*{x > 1 \land x < 2} \lor \enbrace*{x < 1 \land x > 2}}\\
+            x \ge 0 \land x\enbrace*{x - 1}\enbrace*{x - 2} < 0 &\iff x > 0
+            \land \enbrace*{x - 1}\enbrace*{x - 2} < 0\\
+            &\iff x > 0 \land \enbrace*{\enbrace*{x - 1} > 0 \land \enbrace*{x
+            - 2} < 0} \lor \enbrace*{\enbrace*{x - 1} < 0 \land \enbrace*{x -
+            2} > 0}\\
+            & \iff x > 0 \land \enbrace*{\enbrace*{x > 1 \land x < 2} \lor
+            \enbrace*{x < 1 \land x > 2}}\\
             & \iff x > 0 \land \enbrace*{x > 1 \land x < 2}\\
             & \iff x \in \enbrace*{1, 2}.
         \end{align*}
-        Es gilt also \(\sup{M_4} = 2\) und \(\inf{M_4} = 1\). Minimum und Maximum exisitieren beide nicht, da das Intervall für \(x \in M_4\) in beide Richtungen offen ist und somit \(\sup{M_4}, \inf{M_4} \not\in M_4\).
+        Es gilt also \(\sup{M_4} = 2\) und \(\inf{M_4} = 1\). Minimum und
+        Maximum exisitieren beide nicht, da das Intervall für \(x \in M_4\) in
+        beide Richtungen offen ist und somit \(\sup{M_4}, \inf{M_4} \not\in
+        M_4\).
     \end{enumerate}
 
     \section*{Aufgabe 3. (Reelle Zahlen)}
@@ -121,28 +181,47 @@
     \begin{problem}
         Seien \(a, b \in \RR\) und \(a < b\):
         \begin{enumerate}
-            \item Sei \(w\) eine positive irrationale Zahl. Zeigen Sie, dass es eine rationale Zahl \(r \in \QQ\) gibt, so dass \(a < wr < b\) gilt.
-            \item Zeigen Sie, dass \(wr\) auch eine irrationale Zahl ist. Daher existiert zwischen zwei verschiedenen reellen Zahlen immer auch eine irrationale Zahl.
-            \item Sei \(\alpha = \sup\enbrace*{A} < \infty\) und \(\varepsilon > 0\). Zeigen Sie, dass eine Zahl \(x \in A\) existiert, so dass \(\alpha - \varepsilon < x\) gilt.
+            \item Sei \(w\) eine positive irrationale Zahl. Zeigen Sie, dass es
+            eine rationale Zahl \(r \in \QQ\) gibt, so dass \(a < wr < b\) gilt.
+            \item Zeigen Sie, dass \(wr\) auch eine irrationale Zahl ist. Daher
+            existiert zwischen zwei verschiedenen reellen Zahlen immer auch
+            eine irrationale Zahl.
+            \item Sei \(\alpha = \sup\enbrace*{A} < \infty\) und \(\varepsilon
+            > 0\). Zeigen Sie, dass eine Zahl \(x \in A\) existiert, so dass
+            \(\alpha - \varepsilon < x\) gilt.
         \end{enumerate}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item Aus der Dichtheit der rationalen Zahlen, welche bereits in der Vorlesung bewiesen wurde, folgt, dass es ein \(r \in \QQ\) gibt, für dass gilt
+        \item Aus der Dichtheit der rationalen Zahlen, welche bereits in der
+        Vorlesung bewiesen wurde, folgt, dass es ein \(r \in \QQ\) gibt, für
+        dass gilt
         \[\frac{a}{w} < r < \frac{b}{w},\]
-        denn offensichtlich sind \(\frac{a}{w}, \frac{b}{w} \in \RR\). Multiplizieren wir alles mit \(w\) erhalten wir, da \(w\) positiv ist, direkt
+        denn offensichtlich sind \(\frac{a}{w}, \frac{b}{w} \in \RR\).
+        Multiplizieren wir alles mit \(w\) erhalten wir, da \(w\) positiv ist,
+        direkt
         \[a < wr < b,\] was zu zeigen war.
-        \item Wir zeigen diese Aussage mithilfe eines Widerspruchs. Angenommen es gelte \(wr \in \QQ\). Dann gilt
+        \item Wir zeigen diese Aussage mithilfe eines Widerspruchs. Angenommen
+        es gelte \(wr \in \QQ\). Dann gilt
         \[w \cdot \frac{m}{n} = \frac{x}{y} \iff w = \frac{xm}{yn}.\]
-        Hiernach muss \(w\) eine rationale Zahl sein, was den Widerspruch darstellt. Folglich ist \(wr \in \RR \setminus \QQ\). Somit ist bewiesen, dass zwischen zwei reellen Zahlen auch immer eine irrationale Zahl existiert.
-        \item Aus \(\alpha = \sup{A}\) folgt, dass \(\alpha\) die kleinste obere Schranke der Menge \(A\) ist. Somit gilt für eine reelle Zahl \(\varepsilon > 0\) immer \(\alpha - \epsilon < \alpha\). Daraus folgt, dass \( \alpha - \epsilon\) keine kleinste obere Schranke der Menge \(A\) sein kann, woraus wir folgern können, dass ein \(x \in A\) existiert, für das \(\alpha - \epsilon < x\) gilt.
+        Hiernach muss \(w\) eine rationale Zahl sein, was den Widerspruch
+        darstellt. Folglich ist \(wr \in \RR \setminus \QQ\). Somit ist
+        bewiesen, dass zwischen zwei reellen Zahlen auch immer eine irrationale
+        Zahl existiert.
+        \item Aus \(\alpha = \sup{A}\) folgt, dass \(\alpha\) die kleinste
+        obere Schranke der Menge \(A\) ist. Somit gilt für eine reelle Zahl
+        \(\varepsilon > 0\) immer \(\alpha - \epsilon < \alpha\). Daraus folgt,
+        dass \( \alpha - \epsilon\) keine kleinste obere Schranke der Menge
+        \(A\) sein kann, woraus wir folgern können, dass ein \(x \in A\)
+        existiert, für das \(\alpha - \epsilon < x\) gilt.
     \end{enumerate}
 
     \section*{Aufgabe 4. (Bernoulli-Ungleichung)}
 
     \begin{problem}
-        Beweisen Sie die \emph{Bernoulli-Ungleichung}: Für alle \(x \in \RR\) mit \(x > -1\) und für alle \(n \in \NN\) gilt:
+        Beweisen Sie die \emph{Bernoulli-Ungleichung}: Für alle \(x \in \RR\)
+        mit \(x > -1\) und für alle \(n \in \NN\) gilt:
         \[\enbrace*{1 + x}^n \ge 1 + nx.\]
     \end{problem}
 
@@ -150,16 +229,20 @@
     \begin{itemize}
         \item Induktionsverankerung: (\(n = 1\))
         \[\enbrace*{1 + x}^1 = 1 + x \ge 1 + x.\]
-        \item Induktionsvoraussetzung: Die Aussage gelte für alle \(x \in \RR\) mit \(x > -1\) und ein \(n \in \NN\).
+        \item Induktionsvoraussetzung: Die Aussage gelte für alle \(x \in \RR\)
+        mit \(x > -1\) und ein \(n \in \NN\).
         \item Induktionsschritt: (\(n \to \enbrace*{n + 1}\))
         \begin{align*}
-            \enbrace*{1 + x}^{n + 1} &= \enbrace*{1 + x}^n \cdot \enbrace*{1 + x}\\
-            &\underbrace{\ge}_\text{I.V.} \enbrace*{1 + nx} \cdot \enbrace*{1 + x}\\
+            \enbrace*{1 + x}^{n + 1} &= \enbrace*{1 + x}^n \cdot \enbrace*{1 +
+            x}\\
+            &\underbrace{\ge}_\text{I.V.} \enbrace*{1 + nx} \cdot \enbrace*{1 +
+            x}\\
             &= 1 + x + nx + nx^2\\
             &\ge 1 + x + nx = 1 + \enbrace*{n + 1}x.
         \end{align*}
     \end{itemize}
-    Nach dem Prinzip der vollständigen Induktion gilt die Behauptung für alle \(x \in \RR\) mit \(x > -1\) und für alle \(n \in \NN\).
+    Nach dem Prinzip der vollständigen Induktion gilt die Behauptung für alle
+    \(x \in \RR\) mit \(x > -1\) und für alle \(n \in \NN\).
 
     \section*{Aufgabe 5. (Ungleichung)}
 
@@ -168,36 +251,61 @@
         \[2xy \le x^2 + y^2.\]
     \end{problem}
 
-    \subsection*{Lösung} Seien \(x, y \in \RR\). Offensichtlich gilt \(0 \le \enbrace*{x - y}^2 = x^2 - 2xy + y^2\). Addieren wir auf jeder Seite \(2xy\), so erhalten wir \(2xy \le x^2 + y^2\).
+    \subsection*{Lösung} Seien \(x, y \in \RR\). Offensichtlich gilt \(0 \le
+    \enbrace*{x - y}^2 = x^2 - 2xy + y^2\). Addieren wir auf jeder Seite
+    \(2xy\), so erhalten wir \(2xy \le x^2 + y^2\).
 
     \section*{Aufgabe 6. (Cauchy-Schwarz-Ungleichung)}
 
     \begin{problem}
-        Sei \(V\) ein Vektorraum und \(\dotproduct{\cdot}{\cdot}\) ein Skalarprodukt auf \(V\). Zeigen Sie, dass das Skalarprodukt die Cauchy-Schwarz-Ungleichung
-        \[\absolute*{\dotproduct{x}{y}} \le \norm*{x} \cdot \norm*{y} \quad {\forall}x, y \in V\]
-        erfüllt. Hierbei ist \(\norm*{\cdot}\) die durch \(\dotproduct{\cdot}{\cdot}\) \emph{induzierte Norm}, d.h. \(\norm*{x} := \sqrt{\dotproduct{x}{x}}\).
+        Sei \(V\) ein Vektorraum und \(\dotproduct{\cdot}{\cdot}\) ein
+        Skalarprodukt auf \(V\). Zeigen Sie, dass das Skalarprodukt die Cauchy-
+        Schwarz-Ungleichung
+        \[\absolute*{\dotproduct{x}{y}} \le \norm*{x} \cdot \norm*{y} \quad
+        {\forall}x, y \in V\]
+        erfüllt. Hierbei ist \(\norm*{\cdot}\) die durch
+        \(\dotproduct{\cdot}{\cdot}\) \emph{induzierte Norm}, d.h. \(\norm*{x}
+        := \sqrt{\dotproduct{x}{x}}\).
 
-        \textbf{Hinweis:} \quad \emph{Berechnen Sie \(\dotproduct{x + \lambda \cdot y}{x + \lambda \cdot y}\) und wählen Sie anschließend \(\lambda \in \RR\) geeignet.}
+        \textbf{Hinweis:} \quad \emph{Berechnen Sie \(\dotproduct{x + \lambda
+        \cdot y}{x + \lambda \cdot y}\) und wählen Sie anschließend \(\lambda
+        \in \RR\) geeignet.}
     \end{problem}
 
-    \subsection*{Lösung} Für den Fall \(x = y = 0\) Ist die Ungleichung trivial, denn dann gilt
+    \subsection*{Lösung} Für den Fall \(x = y = 0\) Ist die Ungleichung
+    trivial, denn dann gilt
     \[\absolute*{\dotproduct{0}{0}} = 0 \le 0 = \norm*{0} \cdot \norm*{0}.\]
-    Seien \(x, y \in V\) und \(\lambda \in \RR\). Wir nehmen zunächst an, es gilt \(y \ne 0\). Wir betrachten den Ausdruck
+    Seien \(x, y \in V\) und \(\lambda \in \RR\). Wir nehmen zunächst an, es
+    gilt \(y \ne 0\). Wir betrachten den Ausdruck
     \begin{align*}
-        \dotproduct{x + \lambda \cdot y}{x + \lambda \cdot y} &= \dotproduct{x}{x} + \dotproduct{\lambda{y}}{x} + \dotproduct{x}{\lambda{y}} + \dotproduct{\lambda{y}}{\lambda{y}}\\
-        &= \dotproduct{x}{x} + 2\dotproduct{x}{\lambda{y}} + \dotproduct{\lambda{y}}{\lambda{y}}\\
-        &= \dotproduct{x}{x} + 2\lambda\dotproduct{x}{y} + \lambda^2\dotproduct{y}{y}\\
+        \dotproduct{x + \lambda \cdot y}{x + \lambda \cdot y} &=
+        \dotproduct{x}{x} + \dotproduct{\lambda{y}}{x} +
+        \dotproduct{x}{\lambda{y}} + \dotproduct{\lambda{y}}{\lambda{y}}\\
+        &= \dotproduct{x}{x} + 2\dotproduct{x}{\lambda{y}} +
+        \dotproduct{\lambda{y}}{\lambda{y}}\\
+        &= \dotproduct{x}{x} + 2\lambda\dotproduct{x}{y} +
+        \lambda^2\dotproduct{y}{y}\\
         &= a + 2\lambda{b} + \lambda^2c
     \end{align*}
-    mit \(a = \dotproduct{x}{x}\), \(b = \dotproduct{x}{y}\) und \(c = \dotproduct{y}{y}\). Es gilt \(a + 2\lambda{b} + \lambda^2c \ge 0\). Wir wählen \(\lambda = -\frac{\absolute*{b}}{c}\) und setzen dies ein
+    mit \(a = \dotproduct{x}{x}\), \(b = \dotproduct{x}{y}\) und \(c =
+    \dotproduct{y}{y}\). Es gilt \(a + 2\lambda{b} + \lambda^2c \ge 0\). Wir
+    wählen \(\lambda = -\frac{\absolute*{b}}{c}\) und setzen dies ein
     \begin{align*}
-        a - 2\frac{\absolute*{b}}{c}b + \enbrace*{-\frac{\absolute*{b}}{c}}^2c &\ge 0\\
+        a - 2\frac{\absolute*{b}}{c}b + \enbrace*{-\frac{\absolute*{b}}{c}}^2c
+        &\ge 0\\
         a - 2\frac{\absolute*{b}^2}{c} + \frac{\absolute*{b}^2}{c^2}c &\ge 0\\
         a - 2\frac{\absolute*{b}^2}{c} + \frac{\absolute*{b}^2}{c} &\ge 0\\
         a - \frac{\absolute*{b}^2}{c} &\ge 0
     \end{align*}
-    Hieraus können wir nun durch Multiplikation mit \(c\) folgern, dass \(ax - \absolute*{b}^2 \ge 0\) beziehungsweise durch umformen \(\absolute*{b}^2 \le ac\). Wir setzen nun unsere ursprünglichen Werte für \(a, b, c\) ein und erhalten
-    \[\absolute*{\dotproduct{x}{y}}^2 \le \dotproduct{x}{x} \cdot \dotproduct{y}{y} = \norm*{x} \cdot \norm*{y}.\]
-    Nehmen wir also nun es sei \(y = 0\) und \(x\) beliebig. Dann folgt, dass \(c = 0\) und somit auch \(\norm*{y} = 0\). Außerdem gilt auch \(\dotproduct{x}{y} = 0\). Folglich gilt die Ungleichung auch in diesem Fall:
+    Hieraus können wir nun durch Multiplikation mit \(c\) folgern, dass \(ax -
+    \absolute*{b}^2 \ge 0\) beziehungsweise durch umformen \(\absolute*{b}^2
+    \le ac\). Wir setzen nun unsere ursprünglichen Werte für \(a, b, c\) ein
+    und erhalten
+    \[\absolute*{\dotproduct{x}{y}}^2 \le \dotproduct{x}{x} \cdot
+    \dotproduct{y}{y} = \norm*{x} \cdot \norm*{y}.\]
+    Nehmen wir also nun es sei \(y = 0\) und \(x\) beliebig. Dann folgt, dass
+    \(c = 0\) und somit auch \(\norm*{y} = 0\). Außerdem gilt auch
+    \(\dotproduct{x}{y} = 0\). Folglich gilt die Ungleichung auch in diesem
+    Fall:
     \[\absolute*{0}^2 = 0 \le 0 = \norm*{x} \cdot 0.\]
 \end{document}

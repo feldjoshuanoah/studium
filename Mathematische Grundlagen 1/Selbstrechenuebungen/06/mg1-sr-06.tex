@@ -33,7 +33,8 @@
 
     \begin{problem}
         Beweisen Sie die Konvergenz der folgenden Reihe:
-        \[\sum_{n = 1}^\infty{a_n}, \quad \text{mit }a_n = \frac{3^n}{5^n + 1}.\]
+        \[\sum_{n = 1}^\infty{a_n}, \quad \text{mit }a_n = \frac{3^n}{5^n +
+        1}.\]
         Gehen Sie dabei wie folgt vor:
         \begin{enumerate}
             \item Betrachten Sie die Folge der Partialsummen.
@@ -47,7 +48,9 @@
     \section*{Aufgabe 2. (Konvergenz von Reihen)}
 
     \begin{problem}
-        Wir approximieren ein rechtwinkliges Dreieck mit Kathetenlänge \(1\) in jedem Schritt durch weitere Hinzunahme von (kleineren) Quadraten, siehe Skizze:
+        Wir approximieren ein rechtwinkliges Dreieck mit Kathetenlänge \(1\) in
+        jedem Schritt durch weitere Hinzunahme von (kleineren) Quadraten, siehe
+        Skizze:
         \begin{center}
             \begin{tikzpicture}[scale=.6]
                 \foreach \n in {0,1,...,3}{
@@ -72,7 +75,8 @@
                 \draw node at (20.5,-0.75) {\(n = 2\)};
             \end{tikzpicture}
         \end{center}
-        Zeigen Sie, dass die zu den Flächeninhalten der Quadrate gehörende Reihe gegen den Flächeninhalt des Dreiecks konvergiert.
+        Zeigen Sie, dass die zu den Flächeninhalten der Quadrate gehörende
+        Reihe gegen den Flächeninhalt des Dreiecks konvergiert.
     \end{problem}
 
     \subsection*{Lösung}
@@ -80,11 +84,13 @@
     \section*{Aufgabe 3. (Bestapproximation)}
 
     \begin{problem}
-        Sei \(V = \RR^3\) und \(U = \vecspan\penbrace*{e_1, e_2} \subset V\), wobei \(e_i\) der \(i\)-te Einheitsvektor ist.
+        Sei \(V = \RR^3\) und \(U = \vecspan\penbrace*{e_1, e_2} \subset V\),
+        wobei \(e_i\) der \(i\)-te Einheitsvektor ist.
         \begin{enumerate}
             \item Für welchen Vektor \(v_0\) gilt
             \[\norm*{v_0 - v_1}_2 \le \norm*{v - v_1}_2 \quad \forall{v \in U}\]
-            mit \(v = \begin{pmatrix}1\\2\\3\end{pmatrix}\)? Begründen Sie Ihre Antwort.
+            mit \(v = \begin{pmatrix}1\\2\\3\end{pmatrix}\)? Begründen Sie Ihre
+            Antwort.
             \item Wie groß ist die Norm \(\norm*{v_0 - v_1}_2\)?
         \end{enumerate}
     \end{problem}
@@ -94,13 +100,21 @@
     \section*{Aufgabe 4. (Bestapproximation)}
 
     \begin{problem}
-        Sei \(V = C\enbrace*{\benbrace*{0, 1}}\) der Vektorraum der stetigen, reellwertigen Funktion auf \(\benbrace*{0, 1}\), ausgestattet mit dem Skalarprodukt
-        \[\dotproduct*{f}{g} = \int_0^1f\enbrace*{x}g\enbrace*{x}\dd{x} \quad \text{für alle }f, g \in V.\]
+        Sei \(V = C\enbrace*{\benbrace*{0, 1}}\) der Vektorraum der stetigen,
+        reellwertigen Funktion auf \(\benbrace*{0, 1}\), ausgestattet mit dem
+        Skalarprodukt
+        \[\dotproduct*{f}{g} = \int_0^1f\enbrace*{x}g\enbrace*{x}\dd{x} \quad
+        \text{für alle }f, g \in V.\]
         Bestimmen Sie die Bestapproximation \(u^* \in U\) des Unterraums
         \[U = \vecspan\penbrace*{1, x, x^2}\]
-        an die Funktion \(f \in V\) mit \(f\enbrace*{x} = x^2 - \frac{1}{3}\). Bevor Sie rechnen: Welche Genauigkeit der Bestapproximation erwarten Sie hier?
+        an die Funktion \(f \in V\) mit \(f\enbrace*{x} = x^2 - \frac{1}{3}\).
+        Bevor Sie rechnen: Welche Genauigkeit der Bestapproximation erwarten
+        Sie hier?
 
-        \textbf{Hinweis:} \quad \emph{Eine Orthonormalbasis von \(U\) ist gegeben durch
-        \[u_0\enbrace*{x} = 1, \quad u_1\enbrace*{x} = 2\sqrt{3}\enbrace*{x - \frac{1}{2}}, \quad u_2\enbrace*{x} = 6\sqrt{5}\enbrace*{x^2 - x + \frac{1}{6}}.\]}
+        \textbf{Hinweis:} \quad \emph{Eine Orthonormalbasis von \(U\) ist
+        gegeben durch
+        \[u_0\enbrace*{x} = 1, \quad u_1\enbrace*{x} = 2\sqrt{3}\enbrace*{x -
+        \frac{1}{2}}, \quad u_2\enbrace*{x} = 6\sqrt{5}\enbrace*{x^2 - x +
+        \frac{1}{6}}.\]}
     \end{problem}
 \end{document}

@@ -29,47 +29,73 @@
     \begin{problem}
         Die Zahl \(39\) hat die interessante Eigenschaft, dass
         \[39 = 3 \cdot 9 + 3 + 9\]
-        gilt. Zeigen Sie, dass eine solche Darstellung für alle natürlichen Zahlen größer als \(9\) gilt, deren Dezimaldarstellung auf \(9\) endet. Analysieren Sie Ihren Beweis. Haben Sie eine Folgerung oder eine Äquivalenz gezeigt? Wie müssen Sie Ihren Beweis gegebenenfalls erweitern um die Äquivalenz zu zeigen?
+        gilt. Zeigen Sie, dass eine solche Darstellung für alle natürlichen
+        Zahlen größer als \(9\) gilt, deren Dezimaldarstellung auf \(9\) endet.
+        Analysieren Sie Ihren Beweis. Haben Sie eine Folgerung oder eine
+        Äquivalenz gezeigt? Wie müssen Sie Ihren Beweis gegebenenfalls
+        erweitern um die Äquivalenz zu zeigen?
     \end{problem}
 
-    \subsection*{Lösung} Jede natürliche Zahl, insbesondere alle Zahlen \(\ge 9\), kann geschrieben werden als
+    \subsection*{Lösung} Jede natürliche Zahl, insbesondere alle Zahlen \(\ge
+    9\), kann geschrieben werden als
     \[10a + b, \quad a, b \in \NN.\]
     Für die Zahlen, die mit \(9\) enden, soll entsprechend gelten
     \[10a + 9 = 9a + a + 9 \iff 10a = 10a\]
-    und das ist immer wahr.  Wir haben hier gezeigt, dann jede Zahl, die auf \(9\) endet, diese Darstellung hat. Um auch die andere Richtung zu zeigen beginnen wir mit
+    und das ist immer wahr.  Wir haben hier gezeigt, dann jede Zahl, die auf
+    \(9\) endet, diese Darstellung hat. Um auch die andere Richtung zu zeigen
+    beginnen wir mit
     \[10a + b = ab + a + b \iff 10a = ab + a \iff 10 = b + 1 \iff 9 = b\]
     Für \(a = 0\) erhalten wir die Zahlen \(1, \ldots, 9\), d.h. für diese gilt
     \[10 \cdot 0 + b = 0 \cdot b + 0 + b.\]
-    Deshalb waren sie in der Aufgabenstellung ausgenommen. Damit sind \(\implies\) und \(\impliedby\) und somit auch die Äquivalenz gezeigt.
+    Deshalb waren sie in der Aufgabenstellung ausgenommen. Damit sind
+    \(\implies\) und \(\impliedby\) und somit auch die Äquivalenz gezeigt.
 
     \section*{Aufgabe 2. (Abbildungen)}
 
     \begin{problem}
-        Wir betrachten die Funktion \(f: X \to Y\), \(X, y \subset \RR\) mit Funktionsvorschrift \(f\enbrace*{x} = \frac{1}{x + 1}\).
+        Wir betrachten die Funktion \(f: X \to Y\), \(X, y \subset \RR\) mit
+        Funktionsvorschrift \(f\enbrace*{x} = \frac{1}{x + 1}\).
         \begin{enumerate}
-            \item Geben Sei die größte Menge \(X \subset \RR\) an, sodass \(f\enbrace*{x}\), \(x \in X\), eine reelle Zahl ist. Diese Menge nennen wir den maximalen Definitionsbereich. Der maximale Wertebereich \(Y \subset \RR\) ist dann gegeben durch \(Y = f\enbrace*{X}\). Begründen Sie Ihre Wahl.
-            \item Für welchen Definitions-/Bildbereich ist \(f\) invertierbar? Bestimmen Sie die Umkehrabbildung \(f^{-1}\).
+            \item Geben Sei die größte Menge \(X \subset \RR\) an, sodass
+            \(f\enbrace*{x}\), \(x \in X\), eine reelle Zahl ist. Diese Menge
+            nennen wir den maximalen Definitionsbereich. Der maximale
+            Wertebereich \(Y \subset \RR\) ist dann gegeben durch \(Y =
+            f\enbrace*{X}\). Begründen Sie Ihre Wahl.
+            \item Für welchen Definitions-/Bildbereich ist \(f\) invertierbar?
+            Bestimmen Sie die Umkehrabbildung \(f^{-1}\).
             \item Skizzieren Sie \(f\) und \(f^{-1}\). Was fällt Ihnen auf?
         \end{enumerate}
     \end{problem}
 
     \subsection*{Lösung}
     \begin{enumerate}
-        \item Der Wert \(\frac{1}{-1 + 1}\) ist nicht definiert. Folglich ergibt sich für den maximalen Definitionsbereich
+        \item Der Wert \(\frac{1}{-1 + 1}\) ist nicht definiert. Folglich
+        ergibt sich für den maximalen Definitionsbereich
         \[X = \RR \setminus \penbrace*{-1}.\]
-        Es gilt \(\lim_{x \to -1^+}f\enbrace*{x} = \infty\), \(\lim_{x \to -1^-}f\enbrace*{x} = -\infty\) und \(\lim_{x \to \infty}f\enbrace*{x} = 0\), aber \(0 = \frac{1}{x + 1} \iff 0 = 1\ \lightning\). Also ergibt sich für den maximalen Wertebereich
+        Es gilt \(\lim_{x \to -1^+}f\enbrace*{x} = \infty\), \(\lim_{x \to -1^-}
+        f\enbrace*{x} = -\infty\) und \(\lim_{x \to \infty}f\enbrace*{x} = 0\),
+        aber \(0 = \frac{1}{x + 1} \iff 0 = 1\ \lightning\). Also ergibt sich
+        für den maximalen Wertebereich
         \[Y = \RR \setminus \penbrace*{0}.\]
-        \item \(f: \RR \setminus \penbrace*{-1} \to \RR \setminus \penbrace*{0}\) ist bijektiv und somit invertierbar.
+        \item \(f: \RR \setminus \penbrace*{-1} \to \RR \setminus
+        \penbrace*{0}\) ist bijektiv und somit invertierbar.
         \begin{itemize}
-            \item Injektivität: Seien \(x_1, x_2 \in \RR \setminus \penbrace*{-1}\). Dann gilt
-            \[\frac{1}{x_1 + 1} = \frac{1}{x_2 + 1} \iff x_2 + 1 = x_1 + 1 \iff x_1 = x_2.\]
+            \item Injektivität: Seien \(x_1, x_2 \in \RR \setminus
+            \penbrace*{-1}\). Dann gilt
+            \[\frac{1}{x_1 + 1} = \frac{1}{x_2 + 1} \iff x_2 + 1 = x_1 + 1 \iff
+            x_1 = x_2.\]
             \item Surjektivität: \emph{siehe oben}
         \end{itemize}
-        Für die Umkehrfunktion lösen wir die Funktionsgleichung \(f\enbrace*{x} = y\) nach \(x\) auf:
-        \[y = \frac{1}{x + 1} \iff x + 1 = \frac{1}{y} \iff x = \frac{1}{y} - 1,\]
+        Für die Umkehrfunktion lösen wir die Funktionsgleichung \(f\enbrace*{x}
+        = y\) nach \(x\) auf:
+        \[y = \frac{1}{x + 1} \iff x + 1 = \frac{1}{y} \iff x = \frac{1}{y} -
+        1,\]
         also gilt
-        \[f^{-1}: \RR \setminus \penbrace*{0} \to \RR \setminus \penbrace*{-1}, y \mapsto f^{-1}\enbrace*{y} = \frac{1}{y} - 1.\]
-        \item Es fällt auf, dass die Graphen von \(f\) und \(f^{-1}\) sich als Spiegelungen des jeweils anderen Graphen an der Winkelhalbierenden \(y = x\) ergeben.
+        \[f^{-1}: \RR \setminus \penbrace*{0} \to \RR \setminus \penbrace*{-1},
+        y \mapsto f^{-1}\enbrace*{y} = \frac{1}{y} - 1.\]
+        \item Es fällt auf, dass die Graphen von \(f\) und \(f^{-1}\) sich als
+        Spiegelungen des jeweils anderen Graphen an der Winkelhalbierenden \(y
+        = x\) ergeben.
         \begin{center}
             \begin{tikzpicture}[scale=.75]
                 \begin{scope}[thick,font=\scriptsize]
@@ -89,7 +115,6 @@
                     \draw[domain=-5:-0.25, smooth, variable=\x, dashed] plot ({\x}, {(1/\x) - 1});
                     \draw[domain=0.168:5, smooth, variable=\x, dashed] plot ({\x}, {(1/\x) - 1});
                     \draw node at (3.6,-1.2) {\(f^{-1}\enbrace*{x}\)};
-                    %\draw[domain=-1.1:4.5, smooth, variable=\y, red]  plot ({\y*\y}, {\y});
                 \end{scope}
             \end{tikzpicture}
         \end{center}
@@ -98,11 +123,13 @@
     \section*{Aufgabe 3. (Abbildungen)}
 
     \begin{problem}
-        Geben Sie Abbildungen mit den folgenden Eigenschaften an und begründen Sie Ihre Wahl.
+        Geben Sie Abbildungen mit den folgenden Eigenschaften an und begründen
+        Sie Ihre Wahl.
         \begin{enumerate}
             \item \(f_1: \RR \to \RR\) ist injektiv, aber nicht surjektiv.
             \item \(f_2: \RR \to \RR\) ist surjektiv, aber nicht injektiv.
-            \item \(f_2: \RR \to \benbrace*{-1, 1}\) ist surjektiv, aber nicht injektiv.
+            \item \(f_2: \RR \to \benbrace*{-1, 1}\) ist surjektiv, aber nicht
+            injektiv.
             \item \(f_2: \benbrace*{-1, 1} \to \benbrace*{1, 10}\) ist bijektiv.
         \end{enumerate}
     \end{problem}
@@ -111,27 +138,47 @@
     \begin{enumerate}
         \item z.B. \(f_1\enbrace*{x} = \arctan\enbrace*{x}\), denn
         \begin{itemize}
-            \item Injektivität: Sei \(f_1\enbrace*{x} = f_1\enbrace*{y}\) und \(x \ne y\). Es gilt \(\arctan\enbrace*{x} \ne \arctan\enbrace*{y}\), da der Arkustangens streng monoton steigend ist.
-            \item Surjektivität: Da der Wertebereich \(W_{f_1} = \enbrace*{-\frac{\pi}{2}, \frac{\pi}{2}}\) eine echte Teilmenge des Bildbereichs \(\RR\) ist, ist \(f_1\) nicht surjektiv (Wertebereich \(\ne\) Bildbereich).
+            \item Injektivität: Sei \(f_1\enbrace*{x} = f_1\enbrace*{y}\) und
+            \(x \ne y\). Es gilt \(\arctan\enbrace*{x} \ne
+            \arctan\enbrace*{y}\), da der Arkustangens streng monoton steigend
+            ist.
+            \item Surjektivität: Da der Wertebereich \(W_{f_1} = \enbrace*{-
+            \frac{\pi}{2}, \frac{\pi}{2}}\) eine echte Teilmenge des
+            Bildbereichs \(\RR\) ist, ist \(f_1\) nicht surjektiv (Wertebereich
+            \(\ne\) Bildbereich).
         \end{itemize}
-        \item z.B. \(f_2\enbrace*{x} = x\enbrace*{x - 1}\enbrace*{x + 1} = x^3 - x\), denn
+        \item z.B. \(f_2\enbrace*{x} = x\enbrace*{x - 1}\enbrace*{x + 1} = x^3
+        - x\), denn
         \begin{itemize}
-            \item Injektivität: Seien \(x = -1, y = 1 \in \RR\), dann gilt \(f_2\enbrace*{x} = 0 = f_2\enbrace*{y}\) aber \(x \ne y\).
-            \item Surjektivität: Für alle \(y \in \RR\) existiert mindestens ein \(x \in \RR\) mit \(f_2\enbrace*{x} = y\). (\(f_2\enbrace*{x}\) geht gegen plus Unendlich für \(x\) gegen plus Unendlich und \(f_2\enbrace*{x}\) geht gegen minus Unendlich für \(x\) gegen minus Unendlich.)
+            \item Injektivität: Seien \(x = -1, y = 1 \in \RR\), dann gilt
+            \(f_2\enbrace*{x} = 0 = f_2\enbrace*{y}\) aber \(x \ne y\).
+            \item Surjektivität: Für alle \(y \in \RR\) existiert mindestens
+            ein \(x \in \RR\) mit \(f_2\enbrace*{x} = y\). (\(f_2\enbrace*{x}\)
+            geht gegen plus Unendlich für \(x\) gegen plus Unendlich und
+            \(f_2\enbrace*{x}\) geht gegen minus Unendlich für \(x\) gegen
+            minus Unendlich.)
         \end{itemize}
         \item z.B. \(f_3\enbrace*{x} = \sin\enbrace*{x}\), denn
         \begin{itemize}
-            \item Injektivität: Seien \(x = 0, y = 2\pi \in \RR\), dann gilt \(\sin\enbrace*{x} = \sin\enbrace*{y}\) aber \(x \ne y\).
-            \item Surjektivität: Da jeder Wert in \(\benbrace*{-1, 1}\) mindestens einmal (sogar unendlich oft) angenommen wird, ist \(f_3\) surjektiv.
+            \item Injektivität: Seien \(x = 0, y = 2\pi \in \RR\), dann gilt
+            \(\sin\enbrace*{x} = \sin\enbrace*{y}\) aber \(x \ne y\).
+            \item Surjektivität: Da jeder Wert in \(\benbrace*{-1, 1}\)
+            mindestens einmal (sogar unendlich oft) angenommen wird, ist
+            \(f_3\) surjektiv.
         \end{itemize}
-        \item z.B. \(f_4\enbrace*{x} = \frac{9}{2}x + \frac{11}{2}\). Diese Funktion kann wie folgt konstruiert werden. konstruiere \(f_4\enbrace*{x} = ax + b\) (Geradengleichung) mit \(a, b \in \RR\), die durch die Punkte \(\enbrace*{-1, 1}\) und \(\enbrace*{1, 10}\) geht:
-        \[a = \frac{10 - 1}{1 - \enbrace*{-1}} = \frac{9}{2} \quad \text{und} \quad b = 1 + \frac{9}{2} = \frac{11}{2}.\]
+        \item z.B. \(f_4\enbrace*{x} = \frac{9}{2}x + \frac{11}{2}\). Diese
+        Funktion kann wie folgt konstruiert werden. konstruiere
+        \(f_4\enbrace*{x} = ax + b\) (Geradengleichung) mit \(a, b \in \RR\),
+        die durch die Punkte \(\enbrace*{-1, 1}\) und \(\enbrace*{1, 10}\) geht:
+        \[a = \frac{10 - 1}{1 - \enbrace*{-1}} = \frac{9}{2} \quad \text{und}
+        \quad b = 1 + \frac{9}{2} = \frac{11}{2}.\]
     \end{enumerate}
 
     \section*{Aufgabe 4. (Vollständige Induktion)}
 
     \begin{problem}
-        Zeigen Sie per vollständiger Induktion, dass für alle \(n \in \NN\) gilt:
+        Zeigen Sie per vollständiger Induktion, dass für alle \(n \in \NN\)
+        gilt:
         \[133\text{ ist Teiler von }11^{n + 1} + 12^{2n - 1}.\]
     \end{problem}
 
@@ -140,15 +187,21 @@
         \item Induktionsverankerung: (\(n = 1\))
         \[11^{1 + 1} + 12^{2 \cdot 1 - 1} = 121 + 12 = 133.\]
         Offensichtlich ist \(133\) ein Teiler von \(133\).
-        \item Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges aber festes \(n \in \NN\).
+        \item Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges
+        aber festes \(n \in \NN\).
         \item Induktionsschritt: (\(n \to n + 1\))
         \begin{align*}
-            11^{\enbrace*{n + 1} + 1} + 12^{2\enbrace*{n + 1} - 1} &= 11^{n + 2} + 12^{2n + 1}\\
+            11^{\enbrace*{n + 1} + 1} + 12^{2\enbrace*{n + 1} - 1} &= 11^{n +
+            2} + 12^{2n + 1}\\
             &= 11 \cdot 11^{n + 1} + 12^2 \cdot 12^{2n - 1}\\
             &= 11 \cdot 11^{n + 1} + \enbrace*{133 + 11} \cdot 12^{2n - 1}\\
-            &= 11 \cdot \enbrace*{11^{n + 1} + 12^{2n - 1}} + 133 \cdot 12^{2n - 1}
+            &= 11 \cdot \enbrace*{11^{n + 1} + 12^{2n - 1}} + 133 \cdot 12^{2n
+            - 1}
         \end{align*}
-        und nach Induktionsvoraussetzung ist \(133\) ein Teiler von \(11^{n + 1} + 12^{2n - 1}\) und damit teilt \(133\) beide Summanden, also auch die Summe.
+        und nach Induktionsvoraussetzung ist \(133\) ein Teiler von \(11^{n +
+        1} + 12^{2n - 1}\) und damit teilt \(133\) beide Summanden, also auch
+        die Summe.
     \end{itemize}
-    Nach dem Prinzip der vollständigen Induktion gilt die Aussage für alle \(n \in \NN\).
+    Nach dem Prinzip der vollständigen Induktion gilt die Aussage für alle \(n
+    \in \NN\).
 \end{document}

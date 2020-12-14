@@ -33,35 +33,61 @@
     \section*{Aufgabe 1. (Konvergenz von Folgen)}
 
     \begin{problem}
-        Sei \(a_n = \frac{8n^2 - 5}{4n^2 + 7}\). Zeigen Sie, dass die Folge monoton und beschränkt ist. Hieraus folgt die Konvergenz. Bestimmen Sie den Grenzwert und beweisen Sie, dass die Folge \(\enbrace*{a_n}_{n \in \NN}\) diesen Grenzwert hat mittels direkter Anwendung der Definition des Grenzwertes.
+        Sei \(a_n = \frac{8n^2 - 5}{4n^2 + 7}\). Zeigen Sie, dass die Folge
+        monoton und beschränkt ist. Hieraus folgt die Konvergenz. Bestimmen Sie
+        den Grenzwert und beweisen Sie, dass die Folge \(\enbrace*{a_n}_{n \in
+        \NN}\) diesen Grenzwert hat mittels direkter Anwendung der Definition
+        des Grenzwertes.
     \end{problem}
 
-    \subsection*{Lösung} Wir wollen zunächst zeigen, dass \(a_{n + 1} \ge a_n\) für alle \(n \in \NN\) gilt, denn dann ist die Folge monoton wachsend. Es gilt
+    \subsection*{Lösung} Wir wollen zunächst zeigen, dass \(a_{n + 1} \ge a_n\)
+    für alle \(n \in \NN\) gilt, denn dann ist die Folge monoton wachsend. Es
+    gilt
     \begin{align*}
-        &\frac{8\enbrace*{n + 1}^2 + 5}{4\enbrace*{n + 1}^2 + 7} \ge \frac{8n^2 + 5}{4n^2 + 7}\\ \iff &\enbrace*{8\enbrace*{n + 1}^2 - 5}\enbrace*{4n^2 + 7} \ge \enbrace*{8n^2 + 5}\enbrace*{4\enbrace*{n  1}^2 + 7}\\
-        \iff &32\enbrace*{n + 1}^2n^2 - 20n^2 + 56\enbrace*{n + 1}^2 - 35 \ge 32\enbrace*{n + 1}^2n^2 - 20\enbrace*{n + 1}^2 + 56n^2 - 35\\
+        &\frac{8\enbrace*{n + 1}^2 + 5}{4\enbrace*{n + 1}^2 + 7} \ge \frac{8n^2
+        + 5}{4n^2 + 7}\\ \iff &\enbrace*{8\enbrace*{n + 1}^2 - 5}\enbrace*{4n^2
+        + 7} \ge \enbrace*{8n^2 + 5}\enbrace*{4\enbrace*{n  1}^2 + 7}\\
+        \iff &32\enbrace*{n + 1}^2n^2 - 20n^2 + 56\enbrace*{n + 1}^2 - 35 \ge
+        32\enbrace*{n + 1}^2n^2 - 20\enbrace*{n + 1}^2 + 56n^2 - 35\\
         \iff &56\enbrace*{n + 1}^2 - 20n^2 \ge 56n^2 - 20\enbrace*{n + 1}^2\\
         \iff &56\enbrace*{2n + 1} \ge -20\enbrace*{2n + 1}
     \end{align*}
-    Dies ist offensichtlich wahr für alle \(n \in \NN\), denn \(56 > -20\). Nun wollen wir noch die Beschränktheit zeigen. Da die Folge monoton wächst, müssen wir die Beschränktheit nach oben zeigen. Sei \(a_n \le x\) für ein \(x \in \NN\) und für alle \(n \in \NN\). Dann gilt
-    \[\frac{8n^2 - 5}{4n^2 + 7} \le x \iff 8n^2 - 5 \le x \cdot \enbrace*{4n^2 + 7} \iff \enbrace*{8 - 4x} \cdot n^2 \le 7x + 5.\]
-    Diese Ungleichung ist beispielsweise für \(x = 2\) erfüllt, denn dann lautet die Ungleichung \(0 \le 5\) was für alle \(n \in \NN\) gilt. Folglich ist \(x\) eine obere Schranke für \(\enbrace*{a_n}_{n \in \NN}\) und die Folge ist beschränkt. Für den Grenzwert gilt
-    \[\lim_{n \to \infty}\frac{8n^2 - 5}{4n^2 + 7} = \lim_{n \to \infty}\frac{8 - \frac{5}{n^2}}{4 + \frac{7}{n^2}} = \frac{8 - \lim_{n \to \infty}\frac{5}{n^2}}{4 + \lim_{n \to \infty}\frac{7}{n^2}} = \frac{8}{4} = 2.\]
-    Wir wollen nun mithilfe der Definition des Grenzwertes zeigen, dass \(2\) tatsächlich der Grenzwert der Folge ist. Sei \(\varepsilon > 0\) beliebig. Dann gilt
+    Dies ist offensichtlich wahr für alle \(n \in \NN\), denn \(56 > -20\). Nun
+    wollen wir noch die Beschränktheit zeigen. Da die Folge monoton wächst,
+    müssen wir die Beschränktheit nach oben zeigen. Sei \(a_n \le x\) für ein
+    \(x \in \NN\) und für alle \(n \in \NN\). Dann gilt
+    \[\frac{8n^2 - 5}{4n^2 + 7} \le x \iff 8n^2 - 5 \le x \cdot \enbrace*{4n^2
+    + 7} \iff \enbrace*{8 - 4x} \cdot n^2 \le 7x + 5.\]
+    Diese Ungleichung ist beispielsweise für \(x = 2\) erfüllt, denn dann
+    lautet die Ungleichung \(0 \le 5\) was für alle \(n \in \NN\) gilt.
+    Folglich ist \(x\) eine obere Schranke für \(\enbrace*{a_n}_{n \in \NN}\)
+    und die Folge ist beschränkt. Für den Grenzwert gilt
+    \[\lim_{n \to \infty}\frac{8n^2 - 5}{4n^2 + 7} = \lim_{n \to \infty}\frac{8
+    - \frac{5}{n^2}}{4 + \frac{7}{n^2}} = \frac{8 - \lim_{n \to
+    \infty}\frac{5}{n^2}}{4 + \lim_{n \to \infty}\frac{7}{n^2}} = \frac{8}{4} =
+    2.\]
+    Wir wollen nun mithilfe der Definition des Grenzwertes zeigen, dass \(2\)
+    tatsächlich der Grenzwert der Folge ist. Sei \(\varepsilon > 0\) beliebig.
+    Dann gilt
     \begin{align*}
-        \absolute*{\frac{8n^2 - 5}{4n^2 + 7} - 2} = \absolute*{\frac{8n^2 - 5 - \enbrace*{8n^2 + 14}}{4n^2 + 7}} = \absolute*{-\frac{19}{4n^2 + 7}} \le \frac{19}{4n^2} \le \frac{20}{4n^2} \le \frac{5}{n} < \varepsilon
+        \absolute*{\frac{8n^2 - 5}{4n^2 + 7} - 2} = \absolute*{\frac{8n^2 - 5 -
+        \enbrace*{8n^2 + 14}}{4n^2 + 7}} = \absolute*{-\frac{19}{4n^2 + 7}} \le
+        \frac{19}{4n^2} \le \frac{20}{4n^2} \le \frac{5}{n} < \varepsilon
     \end{align*}
 
     \section*{Aufgabe 2. (Konvergenz von Reihen)}
 
     \begin{problem}
-        Untersuchen Sie die folgenden Reihen auf Konvergenz und bestimmen Sie gegebenenfalls den Grenzwert:
+        Untersuchen Sie die folgenden Reihen auf Konvergenz und bestimmen Sie
+        gegebenenfalls den Grenzwert:
         \begin{enumerate}
             \item \(\sum_{k = 1}^\infty\frac{\enbrace*{2i}^k + 3^{k - 1}}{5^k}\)
             \item \(\sum_{n = 1}^\infty\frac{1}{4n^2 - 1}\)
         \end{enumerate}
 
-        \textbf{Hinweis:} \emph{Bestimmen Sie zunächst \(a, b \in \RR\), so dass \(\frac{1}{4n^2 - 1} = \frac{a}{2n - 1} + \frac{b}{2n + 1}\) für alle \(n \in \NN\) gilt.}
+        \textbf{Hinweis:} \emph{Bestimmen Sie zunächst \(a, b \in \RR\), so
+        dass \(\frac{1}{4n^2 - 1} = \frac{a}{2n - 1} + \frac{b}{2n + 1}\) für
+        alle \(n \in \NN\) gilt.}
     \end{problem}
 
     \subsection*{Lösung}
@@ -70,8 +96,12 @@
 
     \begin{problem}
         Gegeben seien die Vektoren
-        \[v_1 = \frac{1}{3} \cdot \begin{pmatrix}2\\2\\1\end{pmatrix}, \quad v_2 = \frac{1}{9} \cdot \begin{pmatrix}6\\-3\\-6\end{pmatrix}, \quad v_3 = \frac{2}{9} \cdot \begin{pmatrix}-\frac{3}{2}\\3\\-3\end{pmatrix}.\]
-        Zeigen Sie, dass es sich um eine Orthonormalbasis bzgl. des euklidischen Skalarprodukts und der dazugehörigen Norm handelt.
+        \[v_1 = \frac{1}{3} \cdot \begin{pmatrix}2\\2\\1\end{pmatrix}, \quad
+        v_2 = \frac{1}{9} \cdot \begin{pmatrix}6\\-3\\-6\end{pmatrix}, \quad
+        v_3 = \frac{2}{9} \cdot \begin{pmatrix}-\frac{3}{2}\\3\\-3
+        \end{pmatrix}.\]
+        Zeigen Sie, dass es sich um eine Orthonormalbasis bzgl. des
+        euklidischen Skalarprodukts und der dazugehörigen Norm handelt.
     \end{problem}
 
     \subsection*{Lösung}
@@ -79,10 +109,16 @@
     \section*{Aufgabe 4. (Orthogonales Komplement)}
 
     \begin{problem}
-        Sei \(V = \RR^4\) mit dem (Standard-)Skalarprodukt \(\dotproduct{x}{y} := \sum_{i = 1}^4x_iy_i\) für \(x, y \in \RR^4\) gegeben. Berechnen Sie das orthogonale Komplement von
-        \[U := \vecspan\penbrace*{\begin{pmatrix}1\\2\\0\\2\end{pmatrix}, \begin{pmatrix}2\\-2\\0\\1\end{pmatrix}}.\]
+        Sei \(V = \RR^4\) mit dem (Standard-)Skalarprodukt \(\dotproduct{x}{y}
+        := \sum_{i = 1}^4x_iy_i\) für \(x, y \in \RR^4\) gegeben. Berechnen Sie
+        das orthogonale Komplement von
+        \[U := \vecspan\penbrace*{\begin{pmatrix}1\\2\\0\\2\end{pmatrix},
+        \begin{pmatrix}2\\-2\\0\\1\end{pmatrix}}.\]
 
-        \textbf{Hinweis:} \emph{Ergänzen Sie \(\begin{pmatrix}1\\2\\0\\2\end{pmatrix}, \begin{pmatrix}2\\-2\\0\\1\end{pmatrix}\) zu einer Basis des \(\RR^4\) und verwenden Sie dann das Gram-Schmidtsche Orthonormalisierungsverfahren.}
+        \textbf{Hinweis:} \emph{Ergänzen Sie
+        \(\begin{pmatrix}1\\2\\0\\2\end{pmatrix}, \begin{pmatrix}2\\-
+        2\\0\\1\end{pmatrix}\) zu einer Basis des \(\RR^4\) und verwenden Sie
+        dann das Gram-Schmidtsche Orthonormalisierungsverfahren.}
     \end{problem}
 
     \subsection*{Lösung}
@@ -91,8 +127,12 @@
 
     \begin{problem}
         Seien
-        \[v_1 = \begin{pmatrix}1\\0\\1\end{pmatrix}, \quad v_2 = \begin{pmatrix}0\\1\\1\end{pmatrix}, \quad v_3 = \begin{pmatrix}1\\0\\3\end{pmatrix}\]
-        Vektoren im \(\RR^3\) und \(U = \vecspan\penbrace*{v_1, v_2}\) ein Unterraum von \(\RR^3\). Bestimmen Sie die Bestapproximation von \(v_3\) durch ein Element \(u^* \in U\).
+        \[v_1 = \begin{pmatrix}1\\0\\1\end{pmatrix}, \quad v_2 =
+        \begin{pmatrix}0\\1\\1\end{pmatrix}, \quad v_3 =
+        \begin{pmatrix}1\\0\\3\end{pmatrix}\]
+        Vektoren im \(\RR^3\) und \(U = \vecspan\penbrace*{v_1, v_2}\) ein
+        Unterraum von \(\RR^3\). Bestimmen Sie die Bestapproximation von
+        \(v_3\) durch ein Element \(u^* \in U\).
     \end{problem}
 
     \subsection*{Lösung}
@@ -100,13 +140,18 @@
     \section*{Aufgabe 6. (Gram-Schmidtsches Orthonormalisierungsverfahren)}
 
     \begin{problem}
-        Sei \(V = C^0\enbrace*{\benbrace*{-1, 1}, \RR}\) sowie \(v_i\enbrace*{x} = x^i, i = 0, 1, 2, 3\). Verwenden Sie das Gram-Schmidtsche Orthonormalisierungsverfahren, um eine Orthonormalbasis des \(\mathcal{P}_3\) unter dem Skalarprodukt
+        Sei \(V = C^0\enbrace*{\benbrace*{-1, 1}, \RR}\) sowie
+        \(v_i\enbrace*{x} = x^i, i = 0, 1, 2, 3\). Verwenden Sie das Gram-
+        Schmidtsche Orthonormalisierungsverfahren, um eine Orthonormalbasis des
+        \(\mathcal{P}_3\) unter dem Skalarprodukt
         \[\dotproduct{f}{g} := \int_{-1}^1f\enbrace*{x}g\enbrace*{x}\dd{x}\]
         zu bestimmen.
 
-        \textbf{Hinweis:} \emph{Diese orthogonalen Polynome werden Legendre-Polynome genannt. Eine wichtige Roll spielen die Legendre-Polynome in der theoretischen Physik, insbesondere in der Elektrodynamik und in der Quantenmechanik.}
+        \textbf{Hinweis:} \emph{Diese orthogonalen Polynome werden Legendre-
+        Polynome genannt. Eine wichtige Roll spielen die Legendre-Polynome in
+        der theoretischen Physik, insbesondere in der Elektrodynamik und in der
+        Quantenmechanik.}
     \end{problem}
 
     \subsection*{Lösung}
 \end{document}
-+-
