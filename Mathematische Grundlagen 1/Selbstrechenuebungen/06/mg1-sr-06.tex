@@ -44,6 +44,26 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir definieren \(b_k = \sum_{n = 1}^ka_n\) als Folge von
+        Teilsummen.
+        \item Für \(a_n\) gilt
+        \[a_n = \frac{3^n}{5^n + 1} \le \frac{3^n}{5^n} =
+        \enbrace*{\frac{3}{5}}^n.\]
+        Somit ist
+        \[b_k \le \sum_{n = 1}^k\enbrace*{\frac{3}{5}}^n =: c_k.\]
+        \item Die geometrische Summenformel ist \(\sum_{k = 0}^nq^k =
+        \frac{1 - q^{n + 1}}{1 - q}\) für \(q \ne 1\). Das heißt
+        \[c_k = \sum_{n = 1}^k\enbrace*{\frac{3}{5}}^n =
+        \sum_{n = 0}^k\enbrace*{\frac{3}{5}}^n - \enbrace*{\frac{3}{5}}^0 =
+        \frac{1 - \enbrace*{\frac{3}{5}}^{k + 1}}{1 - \frac{3}{5}} - 1.\]
+        Da \(\enbrace*{\frac{3}{5}}^{k + 1} \to 0\) für \(k \to \infty\), gilt
+        \(c_k \frac{1}{\frac{2}{5}} - 1 = \frac{3}{2}\) für \(k \to \infty\) und
+        somit auch
+        \[b_k \to b \le \frac{3}{2} \text{, mit }b = \sum_{n = 1}^{\infty}a_n\
+        \enbrace*{k \to \infty}.\]
+        Also konvergiert die Reihe.
+    \end{enumerate}
 
     \section*{Aufgabe 2. (Konvergenz von Reihen)}
 
@@ -79,7 +99,14 @@
         Reihe gegen den Flächeninhalt des Dreiecks konvergiert.
     \end{problem}
 
-    \subsection*{Lösung}
+    \subsection*{Lösung} Es gilt für die Reihe der aufsummierten Flächeninhalte
+    der Quadrate:
+    \[A = \sum_{n = 0}^{\infty}2^n \cdot \enbrace*{\frac{1}{2^{n + 1}}}^2
+    = \sum_{n = 0}^\infty\frac{1}{2^{n + 2}} = \frac{1}{4} \cdot
+    \sum_{n = 0}^\infty\enbrace*{\frac{1}{2}}^n = \frac{1}{4} \cdot\frac{1}
+    {1 - \frac{1}{2}} = \frac{1}{4} \cdot 2 = \frac{1}{2}.\]
+    Die Summe der Flächeninhalte der Quadrate konvergiert also gegen den
+    Flächeninhalt des Dreiecks.
 
     \section*{Aufgabe 3. (Bestapproximation)}
 
@@ -96,6 +123,23 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir finden \(v_0\) als Bestapproximation von \(v_1\) durch
+        Projektion auf \(U\), d.h.
+        \begin{align*}
+            v_0 &= \dotproduct{v_1}{e_1}e_1 + \dotproduct{v_1}{e_2}e_2\\
+            &= \dotproduct{\begin{pmatrix}1\\2\\3\end{pmatrix}}{\begin{pmatrix}
+            1\\0\\0\end{pmatrix}} \cdot \begin{pmatrix}1\\0\\0\end{pmatrix} +
+            \dotproduct{\begin{pmatrix}1\\2\\3\end{pmatrix}}{\begin{pmatrix}
+            0\\1\\0\end{pmatrix}} \cdot \begin{pmatrix}0\\1\\0\end{pmatrix}\\
+            &= \begin{pmatrix}1\\0\\0\end{pmatrix} + 2 \cdot \begin{pmatrix}
+            0\\1\\0\end{pmatrix} = \begin{pmatrix}1\\2\\0\end{pmatrix}.
+        \end{align*}
+        \item Wir berechnen sofort
+        \[\norm*{v_0 - v_1}_2 = \norm*{\begin{pmatrix}1\\2\\0\end{pmatrix}
+        - \begin{pmatrix}1\\2\\3\end{pmatrix}}_2 = \norm*{\begin{pmatrix}
+        0\\0\\-3\end{pmatrix}}_2 = 3.\]
+    \end{enumerate}
 
     \section*{Aufgabe 4. (Bestapproximation)}
 
@@ -103,7 +147,7 @@
         Sei \(V = C\enbrace*{\benbrace*{0, 1}}\) der Vektorraum der stetigen,
         reellwertigen Funktion auf \(\benbrace*{0, 1}\), ausgestattet mit dem
         Skalarprodukt
-        \[\dotproduct*{f}{g} = \int_0^1f\enbrace*{x}g\enbrace*{x}\dd{x} \quad
+        \[\dotproduct{f}{g} = \int_0^1f\enbrace*{x}g\enbrace*{x}\dd{x} \quad
         \text{für alle }f, g \in V.\]
         Bestimmen Sie die Bestapproximation \(u^* \in U\) des Unterraums
         \[U = \vecspan\penbrace*{1, x, x^2}\]
@@ -117,4 +161,70 @@
         \frac{1}{2}}, \quad u_2\enbrace*{x} = 6\sqrt{5}\enbrace*{x^2 - x +
         \frac{1}{6}}.\]}
     \end{problem}
+
+    \subsection*{Lösung} Da sich die zu approximierende Funktion aus Vektoren
+    vom Unterraum \(U\) zusammensetzt, wird hier erwartet, dass die
+    Bestapproximation zum genauen Ergebnis führt. Da die Bestapproximation
+    \(u^*\) im Untervektorraum \(U\) liegt, lässt sich \(u^*\) durch eine
+    Linearkombination des Basisvektoren darstellen:
+    \[u^* = \alpha_0u_0 + \alpha_1u_1 + \alpha_2u_2.\]
+    Die Bestapproximation \(u^*\) entspricht gerade der Funktion in \(U\), die
+    zu der gegebenen Funktion \(f\) den kürzesten Abstand hat. Damit muss also
+    gelten, dass die Verbindung von \(f\) und \(u^*\) orthogonal auf dem
+    Untervektorraum \(U\) liegt. Für \(i = 0, 1, 2\):
+    \begin{align*}
+        \dotproduct{f - u^*}{u_i} = 0 &\iff \dotproduct{f}{u_i} =
+        \dotproduct{u^*}{u_i}\\
+        &\iff \dotproduct{f}{u_i} = \dotproduct{\sum_{j = 0}^2\alpha_ju_j}
+        {u_i}\\
+        &\iff \dotproduct{f}{u_i} = \sum_{j = 0}^2\alpha_j\dotproduct{u_j}
+        {u_i}\\
+        &\underbrace{\iff}_\text{orthog.} \dotproduct{f}{u_i} =
+        \alpha_i\dotproduct{u_i}{u_i}\\
+        &\underbrace{\iff}_\text{orthon.} \dotproduct{f}{u_i} = \alpha_i \cdot
+        1.
+    \end{align*}
+    Hierbei haben wir die folgenden beiden Eigenschaften genutzt:
+    \begin{itemize}
+        \item Das Skalarprodukt von orthogonalen Vektoren ist gleich \(0\); \(\dotproduct{u_i}{u_j} = 0\) für \(i \ne j\).
+        \item Das Skalarprodukt von orthonormalen Vektoren ist gleich \(1\);
+        \(\dotproduct{u_i}{u_j} = 1\) für \(i = j\).
+    \end{itemize}
+    Damit liegen drei Gleichungen \(\dotproduct{f}{u_0} = \alpha_0\),
+    \(\dotproduct{f}{u_1} = \alpha_1\) und \(\dotproduct{f}{u_2} = \alpha_2\)
+    vor, um die drei Unbekannten \(\alpha_0\), \(\alpha_1\) und \(\alpha_2\) für
+    \(u^*\) zu bestimmen:
+    \begin{align*}
+        \alpha_0 = \dotproduct{f}{u_0} &= \int_0^1\enbrace*{x^2 - \frac{1}{3}}
+        \cdot 1\dd{x} = \frac{1}{3} - \frac{1}{3} = 0,\\
+        \alpha_1 = \dotproduct{f}{u_1} &= \int_0^1\enbrace*{x^2 - \frac{1}{3}}
+        \enbrace*{2\sqrt{3}\enbrace*{x - \frac{1}{2}}}\dd{x},\\
+        &= \enbrace*{2\sqrt{3}}\int_0^1x^3 - \frac{1}{2}x^2 + \frac{1}{3}x -
+        \frac{1}{6}\dd{x}\\
+        &= \enbrace*{2\sqrt{3}}\enbrace*{\frac{1}{4} - \frac{1}{6} + \frac{1}{6}
+        - \frac{1}{6}} = \enbrace*{2\sqrt{3}} \cdot \frac{1}{12} =
+        \frac{1}{2\sqrt{3}}.\\
+        \alpha_2 = \dotproduct{f}{u_2} &= \int_0^1\enbrace*{x^2 - \frac{1}{3}}
+        \enbrace*{6\sqrt{5}\enbrace*{x^2- x + \frac{1}{6}}}\dd{x}\\
+        &= \enbrace*{6\sqrt{5}}\int_0^1x^4 - x^3 + \frac{1}{6}x^2 -
+        \frac{1}{3}x^2 + \frac{1}{3}x - \frac{1}{18}\dd{x}\\
+        &= \enbrace*{6\sqrt{5}}\enbrace*{\frac{1}{5} - \frac{1}{4} + \frac{1}{18} - \frac{1}{9} + \frac{1}{6} - \frac{1}{18}}\\
+        &= \enbrace*{6\sqrt{5}}\enbrace*{\frac{1}{5} - \frac{1}{4} - \frac{1}{9}
+        + \frac{1}{6}}\\
+        &= \enbrace*{6\sqrt{5}}\enbrace*{\frac{36}{180} - \frac{45}{180} -
+        \frac{20}{180} + \frac{30}{180}}\\
+        &= \enbrace*{6\sqrt{5}}\enbrace*{\frac{1}{\enbrace*{6\sqrt{5}}^2}}
+        = \frac{1}{6\sqrt{5}}.
+    \end{align*}
+    Damit ist
+    \begin{align*}
+        u^* &= \sum_{j = 0}^2\alpha_j \cdot u_j\enbrace*{x} = \sum_{j = 0}^2
+        \dotproduct{f}{u_j} \cdot u_j\\
+        &= \frac{1}{2\sqrt{3}} \cdot 2\sqrt{3} \cdot \enbrace*{x - \frac{1}{2}}
+        + \frac{1}{6\sqrt{5}} \cdot 6\sqrt{5} \cdot \enbrace*{x^2 - x +
+        \frac{1}{6}}\\
+        &= \enbrace*{x - \frac{1}{2}} + \enbrace*{x^2 - x + \frac{1}{6}}
+        = x^2 - \frac{1}{3}.
+    \end{align*}
+    Somit ist die Vermutung einer Bestapproximation ohne Fehler bestätigt.
 \end{document}
