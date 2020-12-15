@@ -1,0 +1,99 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+
+\newcommand{\dotproduct}[2]{\left\langle{#1, #2}\right\rangle}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+\DeclareMathOperator{\vecspan}{span}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Selbstrechenübung 7}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Konvergenz von Reihen)}
+
+    \begin{problem}
+        Untersuchen Sie folgende Reihen auf Konvergenz und absolute Konvergenz:
+        \begin{enumerate}
+            \item \(\sum_{k = 1}^\infty\frac{\enbrace*{-1}^k}{\sqrt{k}}\)
+            \item \(\sum_{k = 1}^\infty\frac{k!}{k^k}\)
+            \item \(\sum_{k = 1}^\infty\frac{k^2}{2^k}\)
+            \item \(\sum_{k = 1}^\infty\benbrace*{\begin{pmatrix}2k\\k
+            \end{pmatrix}}^{-1}\)
+        \end{enumerate}
+
+        \textbf{Hinweis:} \quad \emph{Bei b) kann verwendet werden, dass
+        \(\enbrace*{1 + \frac{1}{k}}^k\) gegen \(e\) konvergiert.}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 2. (Potenzreihe)}
+
+    \begin{problem}
+        Bestimmen Sie alle \(x \in \RR\), für welche die Potenzreihe
+        \(\sum_{k = 1}^\infty\frac{1}{k^2}x^k\) konvergiert.
+
+        Verwenden Sie für die Untersuchung einmal das Quotientenkriterium und
+        einmal das Wurzelkriterium. Erhalten Sie jeweils den gleichen
+        Konvergenzradius?
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 3. (Lineare Abbildung)}
+
+    \begin{problem}
+        Eine lineare Abbildung \(f: \RR^2 \to \RR^3\) sei gegeben durch
+        \[f\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}1\\0\\2
+        \end{pmatrix} \quad \text{und} \quad f\begin{pmatrix}1\\2\end{pmatrix}
+        = \begin{pmatrix}0\\1\\-1\end{pmatrix}.\]
+        \begin{enumerate}
+            \item Worauf wird der Vektor \(\begin{pmatrix}5\\7\end{pmatrix}\)
+            abgebildet?
+            \item Geben Sie eine Darstellung von Kern und Bild der Abbildung
+            \(f\) an und bestimmen Sie jeweils die Dimension.
+        \end{enumerate}
+        \textbf{Hinweis:} \quad \emph{Nutzen Sie die Linearität der Abbildung
+        aus.}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 4. (Lineare Abbildungen)}
+
+    \begin{problem}
+        Prüfen Sie, ob die folgenden Abbildungen \(L_i: V \to W\), \(i = 1,
+        \ldots, 4\) linear sind und bestimmen sie ggf. ihren Kern und Bild
+        sowie deren Dimensionen.
+        \begin{enumerate}
+            \item \(L_1: x \mapsto 5x - 1\), \(V = W = \RR\)
+            \item \(L_2: x \mapsto 0\), \(V = W = \RR\)
+            \item \(L_3: \enbrace*{x, y} \mapsto \enbrace*{x + y, x - y}\), \(V
+            = W = \RR^2\)
+            \item \(L_4: \enbrace*{x, y, z} \mapsto \enbrace*{z, y, 0}\), \(V =
+            W = \RR^3\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+\end{document}
