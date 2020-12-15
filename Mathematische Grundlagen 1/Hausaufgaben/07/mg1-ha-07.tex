@@ -1,0 +1,91 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\PP}{\mathcal{P}}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+
+\title{Hausaufgabenübung 7}
+\author{Joshua Feld, 406718 \quad Jeff Vogel, 407758 \quad Henrik Herrmann, 421853}
+\date{21. Dezember, 2020}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Konvergente Reihe und Potenzreihen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Untersuchen Sie die folgende Reihe auf Konvergenz und
+            bestimmen Sie gegebenenfalls den Grenzwert:
+            \[\sum_{n = 0}^\infty\frac{i^n + 7}{3^n}, \quad i\text{: komplexe
+            Einheit}.\]
+            \item Bestimmen Sie den Konvergenzradius der folgenden Potenzreihe:
+            \[\sum_{n = 0}^\infty\enbrace*{-1}^{n - 1}\frac{\enbrace*{2x}^n}
+            {n^n}.\]
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 2. (Konvergenz von Reihen)}
+
+    \begin{problem}
+        Gegeben sei die Reihe
+        \[\sum_{k = 0}^\infty\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}.\]
+        Zeigen Sie, dass man mittels des Majorantenkriteriums und mittels des
+        Wurzelkriteriums die Konvergenz der Reihe zeigen kann, jedoch nicht mit
+        Hilfe des Quotientenkriteriums. Bestimmen Sie anschließend den Wert der
+        Reihe.
+
+        \textbf{Hinweis:} \quad \emph{Es gilt für \(a > 0\): \(\sqrt[n]{a}
+        \xrightarrow{n \to \infty} 1\).}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 3. (Stetigkeit)}
+
+    \begin{problem}
+        Seien \(f: \RR_+ \to \RR\) und \(g: \RR \to \RR\) die Funktionen
+        \begin{enumerate}
+            \item \(f\enbrace*{x} = \sqrt{x}\){\quad}für alle \(x \in \RR_+\).
+            \item \(g\enbrace*{x} = \begin{cases}
+                1 & \text{für }x > 0,\\
+                0 & \text{für }x = 0,\\
+                -1 & \text{für }x < 0.
+            \end{cases}\)
+        \end{enumerate}
+        Zeigen oder widerlegen Sie die Stetigkeit der Funktionen \(f\) und \(g\)
+        im Nullpunkt.
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 4. (Lineare Abbildung)}
+
+    \begin{problem}
+        Welche der folgenden Abbildungen sind linear? Geben Sie jeweils eine
+        kurze Begründung an. Geben Sie für die linearen Abbildungen den Kern der
+        Abbildung und dessen Dimension an.
+        \begin{enumerate}
+            \item \(f_1: \RR \to \RR^3 \quad f_1\enbrace*{x} = \begin{pmatrix}
+            x + 1\\2x\\x - 3\end{pmatrix}\)
+            \item \(f_2: \RR^4 \to \RR^2 \quad f_2\enbrace*{x_1, x_2, x_3, x_4}
+            = \begin{pmatrix}x_1 + x_2\\x_1 + x_2 + x_3 + x_4\end{pmatrix}\)
+            \item \(f_3: \RR^4 \to \RR^2 \quad f_3\enbrace*{x_1, x_2, x_3, x_4}
+            = \begin{pmatrix}x_1x_2\\x_3x_4\end{pmatrix}\)
+            \item \(f_4: \PP_3 \to \PP_3 \quad f_4\enbrace*{a_0 + a_1x + a_2x^2
+            + a_3x^3} = a_1 + 2a_2x + 3a_3x^2\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+\end{document}
