@@ -16,7 +16,7 @@
 
 \DeclareOption{german}{
     \renewcommand{\CourseLang}{Kurs}
-    \renewcommand{\StudentLang}{Studenten}
+    \renewcommand{\StudentLang}{Student}
     \renewcommand{\ProfessorLang}{Professor}
 }
 
