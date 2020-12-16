@@ -17,11 +17,15 @@
 
 \usepackage{chemformula}
 \usepackage{siunitx}
+\newcommand{\sis}[1]{\,\si{#1}}
+\newcommand{\degC}{\si{\degreeCelsius}}
+
+\sisetup{per-mode=fraction,sticky-per}
 
 \DeclareSIUnit{\calorie}{cal}
 
-\title{Übung 4}
-\author{Joshua Noah Feld, 406718}
+\title{Übung 5}
+\author{Joshua Feld, 406718}
 \institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
 \class{Material- und Stoffkunde}
 \professor{Prof. Dr. Gebhardt}
@@ -46,7 +50,7 @@
             Temperatur hat.
             \item Nehmen Sie an, die Kühlrate ließe sich durch Anpusten der
             Tasse mit eine Strömungsgeschwindigkeit \(v\) nach dem Ansatz
-            \[k = k_0\enbrace*{1 + \frac{v}{1\,\si{\metre\per{\second}}}}\]
+            \[k = k_0\enbrace*{1 + \frac{v}{1\,\si{\metre\per\second}}}\]
             erhöhen. Welche Strömungsgeschwindigkeit muss erreicht werden,
             damit der Kaffee bereits nach \(5\,\si{\minute}\) die gewünschte
             Temperatur hat?
@@ -54,6 +58,36 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Gegeben sind die Umgebungstemperatur \(\Theta_a = 20\degC\), die
+        Anfangstemperatur \(\Theta_0 = 90\degC\) und die Temperatur
+        \(\Theta\enbrace*{t_1} = 70\degC\) nach \(t_1 = 5\,\si{\min}\). Mit dem
+        Newtonschen Gesetz des Abkühlens ergibt sich
+        \[T\enbrace*{t_1} = T_a + \enbrace*{T_0 - T_a}\exp\enbrace*{-k_0t_1}\]
+        und nach Umformen
+        \[k_0 = -\frac{1}{t_1}\ln\enbrace*{\frac{T\enbrace*{t_1} - T_a}{T_0 -
+        T_a}} = -\frac{1}{5\sis{\minute}}\ln\enbrace*{\frac{70\degC - 20\degC}
+        {90\degC - 20\degC}} = 0,0673\sis{\per\minute}.\]
+        \item  Gegeben sind die Umgebungstemperatur \(\Theta_a = 20\degC\), die
+        Anfangstemperatur \(\Theta_0 = 90\degC\) und die gewünschte Temperatur
+        \(\Theta\enbrace*{t_2} = 60\degC\). Mit dem Newtonschen Gesetz des
+        Abkühlens ergibt sich
+        \[T\enbrace*{t_2} = T_a + \enbrace*{T_0 - T_a}\exp\enbrace*{-k_0t_2}\]
+        und nach Umformen
+        \[t_2 = -\frac{1}{k_0}\ln\enbrace*{\frac{T\enbrace*{t_2} - T_a}{T_0 -
+        T_a}} = -\frac{1}{0,0673\sis{\per\minute}}\ln\enbrace*{\frac{60\degC -
+        20\degC}{90\degC - 20\degC}} = 8,315\sis{\minute}.\]
+        \item Gegeben sind die Umgebungstemperatur \(\Theta_a = 20\degC\), die
+        Anfangstemperatur \(\Theta_0 = 90\degC\) und die Temperatur
+        \(\Theta\enbrace*{t_3} = 60\degC\) nach \(t_3 = 5\,\si{\min}\). Analog
+        zur ersten Teilaufgabe kann die Kühlrate bestimmt werden zu
+        \[k = -\frac{1}{t_3}\ln\enbrace*{\frac{T\enbrace*{t_3} - T_a}{T_0 -
+        T_a}} = -\frac{1}{5\sis{\minute}}\ln\enbrace*{\frac{60\degC - 20\degC}
+        {90\degC - 20\degC}} = 0,1192\sis{\per\minute}.\]
+        Es folgt für die Strömungsgeschwindigkeit
+        \[v = 1\sis{\meter\per\second}\enbrace*{\frac{k}{k_0} - 1} =
+        1\sis{\meter\per\second}\enbrace*{\frac{0,1192\sis{\per\minute}}{0,0673\sis{\per\minute}} - 1} = 0,663\sis{\per\minute}.\]
+    \end{enumerate}
 
     \section*{Aufgabe 2. (Revision: Erwärmung von Brokkoli)}
 
@@ -68,7 +102,7 @@
             Umgebungstemperatur \(20\si{\degreeCelsius}\) beträgt und der
             Wärmeübergang zwischen der Prozessoroberfläche und Luft durch einen
             Wärmeübergangskoeffizienten von
-            \(8\,\si{\watt\per{\meter\squared\kelvin}}\) gegeben ist.
+            \(8\,\si{\watt\per\meter\squared\kelvin}\) gegeben ist.
             Vernachlässigen Sie dabei den Einfluss von Wärmestrahlung.
             \item Berechnen Sie die Prozessortemperatur unter der
             ausschließlichen Betrachtung von Wärmestrahlung und einem
@@ -78,6 +112,29 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Gegeben sind der Wärmestrom \(\dot{Q} = 35\sis{\watt}\), die
+        Umgebungstemperatur \(\Theta_a = 20\degC\), der
+        Wärmeübergangskoeffizient \(h = 8\sis{\watt\per\meter\squared\kelvin}\)
+        und die Prozessoroberfläche \(A = 16\sis{\centi\meter\squared}\). Da
+        ausschließlich Wärmeleistung betrachtet wird, gilt für den Wärmestrom
+        \[\dot{Q} = hA\enbrace*{\Theta - \Theta_a}.\]
+        Aufgelöst nach der Prozessortemperatur \(\Theta\) ergibt sich
+        \[T = \frac{\dot{Q}}{hA} + \Theta_a = \frac{35\sis{\watt}}{8
+        \sis{\watt\per\meter\squared\kelvin} \cdot 16
+        \sis{\centi\meter\squared}} + 20\degC = 2\,764,38\degC.\]
+        \item Gegeben sind der Wärmestrom \(\dot{Q} = 35\sis{\watt}\), die
+        Umgebungstemperatur \(\Theta_a = 20\degC\), der Emissionsgrad
+        \(\varepsilon = 0,9\) und die Prozessoroberfläche \(A = 16
+        \sis{\centi\meter\squared}\). Da ausschließlich Wärmestrahlung
+        betrachtet wird, gilt für den Wärmestrom
+        \[\dot{Q} = \varepsilon\sigma{A}T^4.\]
+        Aufgelöst nach der Prozessortemperatur \(T\) ergibt sich
+        \[T = \enbrace*{\frac{\dot{Q}}{\varepsilon\sigma{A}}}^\frac{1}{4}
+        = \enbrace*{\frac{35\sis{\watt}}{0,9 \cdot 5,67 \cdot 10^{-8}
+        \sis{\watt\per\meter\squared\kelvin\tothe{4}} \cdot 16
+        \sis{\centi\meter\squared}}}^\frac{1}{4} = 809,15\sis{\kelvin}.\]
+    \end{enumerate}
 
     \section*{Aufgabe 3. (Wärmekapazität von Gasen)}
 
@@ -92,7 +149,7 @@
         Kupfer ausreichend schnell abläuft und dass die Prozessortemperatur
         näherungsweise der Oberflächentemperatur des Kühlkörpers entspricht.
         Gehen Sie wie in Aufgabe 2 von einem Wärmeübergangskoeffizienten von
-        \(8\,\si{\watt\per{\meter\squared\kelvin}}\) aus.
+        \(8\,\si{\watt\per\meter\squared\kelvin}\) aus.
         \begin{enumerate}
             \item Berechnen Sie für den Prozessor aus Aufgabe 2 die benötigte
             Kühlkörperoberfläche damit eine Temperatur von
@@ -107,4 +164,46 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Gegeben sind der Wärmestrom \(\dot{Q} = 35\sis{\watt}\), die
+        Umgebungstemperatur \(T_a = 20\degC\), die Prozessortemperatur
+        \(T = 80\degC\) und der Wärmeübergangskoeffizient
+        \(h = 8\sis{\watt\per\meter\squared\kelvin}\). Wir erwarten, dass
+        die Wärmeübertragung aufgrund des Kühlkörpers von Wärmeleistung
+        dominiert wird und dass der Einfluss von Wärmestrahlung zu
+        vernachlässigen ist. Dann ergibt sich für den Wärmestrom
+        \[\dot{Q} = hA\enbrace*{T - T_a}\]
+        und somit für die Kühloberfläche
+        \[A = \frac{\dot{Q}}{h\enbrace*{T - T_a}} =
+        \frac{35\sis{\watt}}{8\sis{\watt\per\meter\squared\kelvin} \cdot
+        60\sis{\kelvin}} = 0,0729\sis{\meter\squared}.\]
+        \item Nach dem Newtonschen Gesetz des Abkühlens gilt
+        \begin{equation}\label{eq:1}
+            \frac{\dd{T}}{\dd{t}} = -k\enbrace*{T - T_a}.
+        \end{equation}
+        Wir nehmen an, dass der Abkühlvorgang von Wärmeleistung dominiert wird.
+        Damit gilt
+        \begin{equation}\label{eq:2}
+            \frac{\dd{Q}}{\dd{t}} = -hA\enbrace*{T - T_a}.
+        \end{equation}
+        Die Wärmekapazität von Kupfer bei \(298\sis{\kelvin}\) kann der
+        Tabelle aus dem Vorlesungsumdruch mit dem Wert
+        \[c_p = 0,383\sis{\joule\per\gram\kelvin}\]
+        entnommen werden. Nehmen wir an, dass diese konstant mit der Temperatur
+        ist, folgt für die innere Energie des Kühlkörpers
+        \[Q = c_pmT.\]
+        Somit lässt sich Gleichung \eqref{eq:2} umformen zu
+        \[\frac{\dd{T}}{\dd{t}} = -\frac{hA}{c_pm}\enbrace*{T - T_a}.\]
+        Durch Vergleich mit Gleichung \eqref{eq:1} folgt
+        \[k = \frac{hA}{mc_p} = \frac{8\sis{\watt\per\meter\squared\kelvin}
+        \cdot 0,0729\sis{\meter\squared}}{1\sis{\kilogram} \cdot 0,383
+        \sis{\joule\per\gram\kelvin}} = 0,00152\sis{\per\second}.\]
+        \item Nach dem Newtonschen Gesetz des Abkühlens ergibt sich
+        \[T\enbrace*{t} = T_a + \enbrace*{T_0 + T_a}\exp\enbrace*{-kt}\]
+        mit der Kühlrate aus der vorherigen Teilaufgabe. Durch Umformen nach der
+        Kühlzeit ergibt sich
+        \[t = -\frac{1}{k}\ln\enbrace*{\frac{T\enbrace*{t} - T_a}{T_0 - T_a}}
+        = -\frac{1}{0,00152\sis{\per\second}}\ln\enbrace*{\frac{40\degC -
+        20\degC}{80\degC - 20\degC}} = 723\sis{\second}.\]
+    \end{enumerate}
 \end{document}
