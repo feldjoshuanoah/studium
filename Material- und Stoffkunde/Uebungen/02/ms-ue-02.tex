@@ -1,0 +1,244 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+\usepackage{eurosym}
+
+\newcommand{\sis}[1]{\,\si{#1}}
+\newcommand{\degC}{\si{\degreeCelsius}}
+
+\sisetup{per-mode=fraction,sticky-per}
+
+\DeclareSIUnit{\calorie}{cal}
+\DeclareSIUnit{\atmosphere}{atm}
+
+\title{Übung 2}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Molalität)}
+
+    \begin{problem}
+        Schwefelsäure (\ch{H2SO4}) wird üblicherweise als eine
+        \(18,0\sis{\mega}\) (molare) Lösung verkauft. Die Dichte dieser
+        Lösung ist \(1,831\sis{\gram\per\milli\liter}\).
+        \begin{enumerate}
+            \item Bestimmen Sie die \emph{Molalität} dieser Lösung.
+            \item Wie viel Wasser muss man hinzufügen oder entfernen, um die
+            \emph{Molalität} auf \(9\sis{\milli}\)\ch{H2SO4} zu reduzieren?
+            \item Was ist die \emph{Molarität} der Lösung nach dem Verdünnen auf
+            \(9\sis{\milli}\)\ch{H2SO4}? Die Dichte der Lösung beträgt nun
+            \(1,809\sis{\gram\per\milli\liter}\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Gegeben sind die Dichte \(\rho_L\) und die Molarität
+        \(c_{\ch{H2SO4}}\) der Lösung mit der Definition
+        \[c_{\ch{H2SO4}} = \frac{n_{\ch{H2SO4}}}{V_L}\]
+        mit dem Volumen \(V_L\) der Lösung und der Stoffmenge \(n_{\ch{H2SO4}}\)
+        der Schwefelsäure. Gesucht ist die Molalität der Lösung definiert als
+        \begin{equation}\label{eq:1}
+            b_{\ch{H2SO4}} = \frac{n_{\ch{H2SO4}}}{m_{\ch{H2O}}},
+        \end{equation}
+        mit der Masse \(m_{\ch{H2O}}\) des Wassers. Es gelten die Beziehungen
+        \begin{equation}\label{eq:2}
+            m_{{\ch{H2O}}} = m_L - m_{\ch{H2SO4}},
+        \end{equation}
+        \begin{equation}\label{eq:3}
+            m_{\ch{H2SO4}} = n_{\ch{H2SO4}}M_{\ch{H2SO4}},
+        \end{equation}
+        \begin{equation}\label{eq:4}
+            m_L = V_L\rho_L,
+        \end{equation}
+        \begin{equation}\label{eq:5}
+            V_L = \frac{n_{\ch{H2SO4}}}{c_{\ch{H2SO4}}},
+        \end{equation}
+        mit der Masse \(m_{\ch{H2SO4}}\) und der molaren Masse
+        \(M_{\ch{H2SO4}}\) der Schwefelsäure, sowie der Masse \(m_L\) der
+        Lösung. Die molare Masse von Schwefelsäure ergibt sich aus den molaren
+        Massen der Komponenten zu
+        \begin{align*}
+            M_{\ch{H2SO4}} &= 2M_{\ch{H}} + M_{\ch{S}} + 4M_{\ch{O}}\\
+            &= 2\enbrace*{1,008\sis{\gram\per\mole}} + 32,06\sis{\gram\per\mole}
+            + 4\enbrace*{15,999\sis{\gram\per\mole}}\\
+            &= 98,07\sis{\gram\per\mole}.
+        \end{align*}
+        Durch Einsetzen von \eqref{eq:2}, \eqref{eq:3}, \eqref{eq:4} und
+        \eqref{eq:5} in \eqref{eq:1} ergibt sich
+        \begin{align*}
+            b_{\ch{H2SO4}} &= \frac{n_{\ch{H2SO4}}}{\frac{n_{\ch{H2SO4}}}
+            {c_{\ch{H2SO4}}}\rho_L - n_{\ch{H2SO4}}M_{\ch{H2SO4}}}
+            = \enbrace*{\frac{\rho_L}{c_{\ch{H2SO4}}} - M_{\ch{H2SO4}}}^{-1}\\
+            &= \enbrace*{\frac{1,831\sis{\gram\per\milli\liter}}{18\frac{
+            \si{\mole}\ch{H2SO4}}{\si{\liter}}} - 98,07\frac{\si{\gram}}
+            {\si{\mole}\ch{H2SO4}}}^{-1} = 274\sis{\milli}\ch{H2SO4}.
+        \end{align*}
+        \item Um eine Lösung mit \(9\sis{\milli}\ch{H2SO4}\) Molalität zu
+        erreichen, muss die Wassermasse \({\Delta}m_{\ch{H2O}}\) hinzugegeben
+        werden, sodass
+        \[\frac{n_{\ch{H2SO4}}}{m_{\ch{H2O}} + {\Delta}m_{\ch{H2O}}} =
+        9\sis{\milli}\ch{H2SO4}.\]
+        Es ergibt sich
+        \[\frac{{\Delta}m_{\ch{H2O}}}{n_{\ch{H2SO4}}} =
+        \frac{1}{9\sis{\milli}\ch{H2SO4}} - \frac{1}{b_{\ch{H2SO4}}}\]
+        mit \(b_{\ch{H2SO4}}\) aus dem ersten Aufgabenteil. Weiterhin folgt mit
+        der Molarität der Ausgangslösung
+        \begin{align*}
+            \frac{{\Delta}m_{\ch{H2O}}}{V_L} = \frac{{\Delta}m_{\ch{H2O}}
+            c_{\ch{H2SO4}}}{n_{\ch{H2SO4}}} &= \frac{c_{\ch{H2SO4}}}
+            {9\sis{\milli}\ch{H2SO4}} - \frac{c_{\ch{H2SO4}}}{b_{\ch{H2SO4}}}\\
+            &= \frac{18\,\frac{\si{\mole}\ch{H2SO4}}{\si{\liter}}}
+            {9\,\frac{\si{\mole}\ch{H2SO4}}{\si{\kilogram}}} -
+            \frac{18\,\frac{\si{\mole}\ch{H2SO4}}{\si{\liter}}}{274\,\frac{
+            \si{\mole}\ch{H2SO4}}{\si{\kilogram}}} = 1,93
+            \sis{\kilogram\per\liter}.
+        \end{align*}
+        Somit müssen pro Liter der \(18\) molaren Lösung \(1,93\sis{\kilogram}\)
+        Wasser hinzugefügt werden.
+        \item Im ersten Aufgabenteil wurde der Zusammenhang
+        \[b_{\ch{H2SO4}} = \enbrace*{\frac{\rho_L}{c_{\ch{H2SO4}}} -
+        M_{\ch{H2SO4}}}^{-1}\]
+        hergeleitet. Umgestellt nach der Molarität ergibt sich
+        \begin{align*}
+            c_{\ch{H2SO4}} &= \rho_L\enbrace*{\frac{1}{b_{\ch{H2SO4}}}
+            + M_{\ch{H2SO4}}}^{-1}\\
+            &= 1,809\sis{\gram\per\milli\liter}\enbrace*{
+            \frac{1}{9\,\frac{\si{\mole}\ch{H2SO4}}{\si{\kilogram}}}
+            + 98,07\,\frac{\si{\gram}}{\si{\mole}\ch{H2SO4}}}^{-1}
+            = 8,65\sis{\mega}\ch{H2SO4}.
+        \end{align*}
+    \end{enumerate}
+
+    \section*{Aufgabe 2. (Massenanteile und -verhältnisse)}
+
+    \begin{problem}
+        Zum Betrieb eines chemischen Reaktors wird Schwefelsäure in einer
+        Lösung mit Massenanteil \(\frac{m_{\ch{H2SO4}}}{m_\text{ges}} = 80\%\)
+        benötigt. Drei verschiedene Zulieferer bieten Schwefelsäure an:
+        \begin{itemize}
+            \item Zulieferer 1 bietet eine \(18\sis{\mega}\) Lösung zu einem
+            Preis von \(1,50\,\frac{\text{\euro}}{\si{\kilogram}}\) an.
+            \item Zulieferer 2 bietet eine Lösung mit einem Massenverhältnis von
+            \(\frac{m_{\ch{H2SO4}}}{m_{\ch{H2O}}} = 3\) zu einem Preis von
+            \(0,70\,\frac{\text{\euro}}{\si{\kilogram}}\) an.
+            \item Zulieferer 3 bietet eine Lösung mit einem Massenanteil
+            \(\frac{m_{\ch{H2SO4}}}{m_\text{ges}} = 90\%\) zu einem Preis von
+            \(1,90\,\frac{\text{\euro}}{\si{\kilogram}}\).
+        \end{itemize}
+    \end{problem}
+
+    \subsection*{Lösung} Wir nehmen an, dass die Kosten des Wassers zur
+    Verdünnung der Lösung vernachlässigbar gering sind. Somit sind die Kosten
+    pro Masse Schwefelsäure zu vergleichen.
+    \begin{itemize}
+        \item Zulieferer 1: Mit der Dichte \(\rho_L\) aus der ersten Aufgabe
+        ergibt sich der Massenanteil der Schwefelsäure zu
+        \[\frac{m_{\ch{H2SO4}}}{m_\text{ges}} = \frac{c_{\ch{H2SO4}}M_{\ch{H2SO4}}}{\rho_L} = \frac{\enbrace*{18\sis{\mole\per\liter}}\enbrace*{98,07
+        \sis{\gram\per\mole}}}{1,831\sis{\gram\per\milli\liter}} = 96,4\%\]
+        und somit der Preis pro Kilogramm Schwefelsäure zu
+        \[1,50\,\frac{\text{\euro}}{\si{\kilogram}} \cdot \frac{m_\text{ges}}{m_{\ch{H2SO4}}} = 1,50\,\frac{\text{\euro}}
+        {\si{\kilogram}} \cdot \frac{1}{96,4\%} = 1,56\,\frac{\text{\euro}}
+        {\si{\kilogram}\ch{H2SO4}}.\]
+        \item Zulieferer 2: Der Massenanteil der Schwefelsäure ergibt sich aus
+        dem Massenverhältnis zu
+        \[\frac{m_{\ch{H2SO4}}}{m_\text{ges}} = \frac{m_{\ch{H2SO4}}}
+        {m_{\ch{H2SO4}} + m_{\ch{H2O}}} = \frac{\frac{m_{\ch{H2SO4}}}
+        {m_{\ch{H2O}}}}{\frac{m_{\ch{H2SO4}}}{m_{\ch{H2O}}} +
+        \frac{m_{\ch{H2O}}}{m_{\ch{H2O}}}} = \frac{3}{3 + 1} = 75\%,\]
+        was nicht genügt, um den Reaktor zu betreiben.
+        \item Zulieferer 3: Der Massenanteil der Schwefelsäure ist gegeben und
+        der Preis pro Kilogramm Schwefelsäure ergibt sich zu
+        \[1,90\,\frac{\text{\euro}}{\si{\kilogram}} \cdot \frac{m_\text{ges}}
+        {m_{\ch{H2SO4}}} = 1,90\,\frac{\text{\euro}}{\si{\kilogram}} \cdot
+        \frac{1}{90\%} = 2,11\,\frac{\text{\euro}}{\si{\kilogram}\ch{H2SO4}}.\]
+    \end{itemize}
+    Somit ist das Angebot von Zulieferer 1 das günstigste.
+
+    \section*{Aufgabe 3. (Dimensionen verschiedener Größen)}
+
+    \begin{problem}
+        Was sind die Dimensionen der folgenden Größen?
+        \begin{enumerate}
+            \item Dichte \(\rho\)
+            \item Druck \(p\)
+            \item ideale Gaskonstante \(R\)
+            \item Molalität \(m\)
+            \item (molare) Konzentration \(c\)
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    Die Dimensionen der Größen sind folgende
+    \begin{enumerate}
+        \item Dichte \(\rho\): Masse pro Volumen \(\benbrace*{ML^{-3}}\).
+        \item Druck \(p\): Kraft pro Fläche \(\benbrace*{MLT^{-2}L^{-2}} =
+        \benbrace*{ML^{-1}T^{-2}}\).
+        \item ideale Gaskonstante \(R\). Druck Volumen pro Molzahl Temperatur
+        \[\benbrace*{ML^{-1}T^{-2}L^3N^{-1}\Theta^{-1}} = \benbrace*{ML^2T^{-2}
+        N^{-1}\Theta^{-1}}.\]
+        \item Molalität \(m\): Stoffmenge pro Masse \(\benbrace*{NM^{-1}}\).
+        \item (molare) Konzentration \(c\): Stoffmenge pro Volumen
+        \(\benbrace*{NL^{-3}}\).
+    \end{enumerate}
+
+    \section*{Aufgabe 4. (Bestimmung von Dimensionen)}
+
+    \begin{problem}
+        Bestimmen Sie anhand der gegebenen Gleichungen die Dimensionen der
+        gefragten Größen.
+        \begin{enumerate}
+            \item Die \emph{spezifische Wärmekapazität} \(c\) in der Gleichung
+            \[Q = cm{\Delta}T,\]
+            mit \(Q\) als Energie, \(m\) als Masse und \(\Delta{T}\) als
+            Temperaturdifferenz.
+            \item Die \emph{Viskosität} \(\eta\) einer Flüssigkeit:
+            \[\frac{F}{A} = \eta\frac{\partial{u}}{\partial{y}},\]
+            mit \(F\) als Kraft pro Fläche \(A\), \(u\) als Geschwindigkeit der
+            Flüssigkeit und \(y\) als Höhe.
+            \item Den \emph{Diffusionskoeffizienten} \(D\) eines Partikels in
+            der Stokes-Einstein-Gleichung
+            \[D = \frac{RT}{6\pi{N_A}\eta{r}}\]
+            mit \(T\) als absolute Temperatur, \(N_A\) als Avogadroskonstante,
+            \(\eta\) als Viskosität und \(r\) als Radius des Partikels.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Mit \(c = \frac{Q}{m{\Delta}T}\) und der Dimension der Energie
+        (\(\benbrace*{ML^2T^{-2}}\)) ergibt sich
+        \[c = \benbrace*{\frac{ML^2}{T^2M\Theta}} =
+        \benbrace*{\frac{L^2}{T^2\Theta}}.\]
+        \item FÜr den partiellen Differenzialausdruck gilt
+        \[\frac{\partial{u}}{\partial{y}} = \benbrace*{\frac{L}{TL}} =
+        \benbrace*{\frac{1}{T}}.\]
+        Nach Umformen der Gleichung ergibt sich
+        \[\eta = \frac{F}{A}\enbrace*{\frac{\partial{u}}{\partial{y}}}^{-1}
+        = \benbrace*{\frac{MLT}{T^2L^2}} = \benbrace*{\frac{M}{TL}}.\]
+        \item Mit der Dimension der Viskosität aus der vorherigen Aufgabe gilt
+        \[D = \frac{RT}{6\pi{N_A}\eta{r}} = \benbrace*{\frac{ML^2\Theta{N}TL}
+        {T^2N\Theta{M}L}} = \benbrace*{\frac{L^2}{T}}.\]
+    \end{enumerate}
+\end{document}

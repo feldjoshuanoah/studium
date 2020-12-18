@@ -4,10 +4,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\PP}{\mathcal{P}}
 
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
 
 \title{Hausaufgabenübung 7}
 \author{Joshua Feld, 406718 \quad Jeff Vogel, 407758 \quad Henrik Herrmann, 421853}
@@ -34,6 +38,36 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item
+        \begin{align*}
+            \sum_{n = 0}^\infty\frac{i^n + 7}{3^n} &= \sum_{n = 0}^\infty
+            \frac{i^n}{3^n} + \sum_{n = 0}^\infty\frac{7}{3^n}\\
+            &= \sum_{n = 0}^\infty\enbrace*{\frac{1}{3}i}^n + 7\sum_{n =
+            0}^\infty\frac{1}{3^n}\\
+            &\underbrace{=}_\text{geom. Reihe} \frac{1}{1 - \frac{1}{3}i} +
+            7\sum_{n = 0}^\infty\enbrace*{\frac{1}{3}}^n\\
+            &\underbrace{=}_\text{geom. Reihe} \frac{1 + \frac{1}{3}i}{1 +
+            \frac{1}{9}} + 7 \cdot \frac{1}{1 - \frac{1}{3}}\\
+            &= \frac{9}{10}\enbrace*{1 + \frac{1}{3}i} + \frac{21}{2}\\
+            &= \frac{57}{5} + \frac{3}{10}i
+        \end{align*}
+        \item Es ist \(x_0 = 0\) und somit \(a_n = \enbrace*{-1}^{n - 1}\frac{2^n}{n^n} = \enbrace*{-1}^{n - 1}\enbrace*{\frac{2}{n}}^n\). Wir
+        erhalten damit für den Konvergenzradius
+        \begin{align*}
+            \rho &= \frac{1}{\lim_{n \to \infty}\sqrt[n]{\enbrace*{-1}^{n - 1}
+            \enbrace*{\frac{2}{n}}^n}}\\
+            &= \frac{1}{\lim_{n \to \infty}\sqrt[n]{\enbrace*{-1}^{n + 1} \cdot
+            2^n \cdot \enbrace*{\frac{1}{n}}^n}}\\
+            &= \frac{1}{2\lim_{n \to \infty}\sqrt[n]{\enbrace*{-1}^{n + 1}
+            \enbrace*{\frac{1}{n}}^n}}\\
+            &= \frac{1}{2\lim_{n \to \infty}\sqrt[n]{\enbrace*{-1}} \cdot \frac{1}{n}}.
+        \end{align*}
+        Wir wissen, dass sich der Bruch \(\frac{1}{n}\) für \(n \to \infty\)
+        immer weiter der Null annähert. Folglich nähert sich auch unser gesamter
+        Nenner Null an und wir erhalten einen unendlichen Konvergenzradius
+        \(\rho\).
+    \end{enumerate}
 
     \section*{Aufgabe 2. (Konvergenz von Reihen)}
 
@@ -50,6 +84,52 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{itemize}
+        \item Majorantenkriterium: Wir wählen als Majorante die geometrische Reihe \(\sum_{k = 0}^\infty{q}^k\) mit \(b_k = q^k\) und \(q \in \RR\).
+        Von dieser wissen wir aus der Vorlesung, dass sie für \(k \to \infty\)
+        gegen den Grenzwert \(\frac{1}{1 - q}\) konvergiert.
+        \begin{align*}
+            \absolute*{a_k} \le b_k \iff \absolute*{\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}} \le b_k
+        \end{align*}
+        \[\frac{2 + \enbrace*{-1}^{k + 1}}{2^k} = \frac{2}{2^k} +
+        \frac{\enbrace*{-1}^{k + 1}}{2^k} = \enbrace*{\frac{1}{2}}^{k - 1}
+        - \enbrace*{-\frac{1}{2}}^k\]
+        %\begin{align*}
+        %    \sum_{k = 0}^\infty\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}
+        %    &= \sum_{k = 0}^\infty\frac{2}{2^k} + \sum_{k = 0}^\infty
+        %    \frac{\enbrace*{-1}^{k + 1}}{2^k}\\
+        %    &= \sum_{k = 0}^\infty\enbrace*{\frac{1}{2}}^{k - 1} -
+        %    \sum_{k = 0}^\infty\enbrace*{-\frac{1}{2}}^k\\
+        %    &=
+        %\end{align*}
+        \item Wurzelkriterium: Es gilt
+        \begin{align*}
+            \sqrt[k]{\absolute*{a_k}} = \sqrt[k]{\absolute*{\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}}} &= \sqrt[k]{\absolute*{2^{-k} \cdot \enbrace*{2 + \enbrace*{-1}^{k + 1}}}}\\
+            &= \frac{1}{2} \cdot \sqrt[k]{\absolute*{2 + \enbrace*{-1}^{k + 1}}}\\
+        \end{align*}
+        Es ist \(\enbrace*{-1}^{k + 1}\) \in \(\benbrace*{-1, 1}\), also ist der
+        Teil unter der Wurzel immer größer als \(0\). Folglich konvergiert
+        dieser nach dem Hinweis für \(k \to \infty\) gegen \(1\). Insgesamt
+        konvergiert \(\sqrt[k]{\absolute*{a_k}}\) somit für \(k \to \infty\)
+        gegen den Grenzwert \(\frac{1}{2}\). Nach dem Wurzelkriterium
+        konvergiert die gesamte Reihe somit auch.
+        \item Quotientenkriterium: Es gilt
+        \[a_k = \frac{2 + \enbrace*{-1}^{k + 1}}{2^k} \qquad
+        a_{k + 1} &= \frac{2 + \enbrace*{-1}^{k + 2}}{2^{k + 1}}\]
+        \begin{align*}
+            \absolute*{\frac{a_{k + 1}}{a_k}} = \absolute*{\frac{\frac{2 +
+            \enbrace*{-1}^{k + 2}}{2^{k + 1}}}{\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}}} &= \absolute*{\frac{\enbrace*{2 + \enbrace*{-1}^{k + 2}} \cdot 2^k}{2^{k + 1} \cdot \enbrace*{2 + \enbrace*{-1}^{k + 1}}}}\\
+            &= \absolute*{\frac{2 + \enbrace*{-1}^{k + 2}}{2 \cdot \enbrace*{2 + \enbrace*{-1}^{k + 1}}}}\\
+            &= \absolute*{\frac{2}{2 \cdot \enbrace*{2 + \enbrace*{-1}^{k + 1}}} + \frac{\enbrace*{-1}^{k + 2}}{2 \cdot \enbrace*{2 + \enbrace*{-1}^{k + 1}}}}\\
+            &= \absolute*{\frac{1}{2 + \enbrace*{-1}^{k + 1}} + \frac{\enbrace*{-1}^k}{2 \cdot \enbrace*{2 - \enbrace*{-1}^k}}}\\
+            &= \absolute*{\frac{1}{2 + \enbrace*{-1}^{k + 1}} + \frac{1}{2 + \enbrace*{-1}^{k + 1}} - \frac{1}{2}}\\
+            &= \absolute*{\frac{2}{2 + \enbrace*{-1}^{k + 1}} - \frac{1}{2}} = \absolute*{-\frac{2}{2 + \enbrace*{-1}^k} - \frac{1}{2}}
+        \end{align*}
+        Wir können sehen, dass der Nenner des Bruchs divergiert, denn der Wert
+        wechselt immer zwischen \(1\) und \(3\) (für ungerade und gerade \(k\) respektive). Somit alterniert unsere gesamte Folge zwischen den Werten
+        \(\frac{1}{6}\) und \(\frac{3}{2}\). Da kein Grenzwert für \(\absolute*{\frac{a_{k + 1}}{a_k}}\) existiert, können wir mit dem Quotientenkriterium keine Aussage über die Konvergenz der ursprünglichen Reihe tätigen.
+    \end{itemize}
+
 
     \section*{Aufgabe 3. (Stetigkeit)}
 
@@ -68,6 +148,23 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Wir wissen aus der letzten Hausaufgabenübung, dass die
+        Wurzelfunktion stetig ist. Dies wollen wir nun formal für den Nullpunkt
+        zeigen. Sei \(\enbrace*{a_n}_{n \in \NN}\) in \(\RR_+\) eine Folge mit
+        \(\lim_{n \to \infty}a_n = 0\). Wir wollen nun zeigen, dass
+        \[\lim_{n \to \infty}\sqrt{a_n} = \sqrt{0}.\]
+        Sei \(\varepsilon > 0\) dazu nun beliebig aber fest. Dann existiert ein
+        \(N \in \NN\), sodass für alle \(n \ge N\) gilt \(a_n < \varepsilon^2\).
+        Dies können wir umformen zu
+        \[{\forall}\varepsilon > 0{\exists}N = N\enbrace*{\varepsilon} \in \NN
+        {\forall}n \ge N: \sqrt{a_n} < \varepsilon.\]
+        Also gilt \(\lim_{n \to \infty}\sqrt{a_n} = 0 = \sqrt{0}\) und somit ist
+        die Funktion \(f\) stetig.
+        \item Die Funktion \(g\) ist nicht stetig im Nullpunkt. Dies wollen wir
+        mithilfe eines Widerspruchsbeweises zeigen. Wir nehmen also an, \(g\)
+        wäre stetig im Nullpunkt.
+    \end{enumerate}
 
     \section*{Aufgabe 4. (Lineare Abbildung)}
 
@@ -88,4 +185,92 @@
     \end{problem}
 
     \subsection*{Lösung}
+    \begin{enumerate}
+        \item Seien \(x_1 = 0, x_2 = 1 \in \RR\). Dann gilt
+        \[f_1\enbrace*{x_1 + x_2} = \begin{pmatrix}2\\2\\-2
+        \end{pmatrix} \ne \begin{pmatrix}3\\2\\-5\end{pmatrix} = \begin{pmatrix}
+        1\\0\\-3\end{pmatrix} + \begin{pmatrix}2\\2\\-2\end{pmatrix} =
+        f_1\enbrace*{x_1} + f_1\enbrace*{x_2}.\]
+        Da die Additivität nicht erfüllt ist, ist \(f_1\) nicht linear.
+        \item Seien \(\lambda, \mu \in \RR\) und \(v, w \in \RR^4\).
+        Dann gilt
+        \begin{align*}
+            f_2\enbrace*{\lambda{v} + \mu{w}} &= \begin{pmatrix}
+                \lambda{v_1} + \lambda{v_2} + \mu{w_1} + \mu{w_2}\\
+                \lambda{v_1} + \lambda{v_2} + \lambda{v_3} + \lambda{v_4}
+                + \mu{w_1} + \mu{w_2} + \mu{w_3} + \mu{w_4}
+            \end{pmatrix}\\
+            &= \begin{pmatrix}
+                \lambda\enbrace*{v_1 + v_2} + \mu\enbrace*{w_1 + w_2}\\
+                \lambda\enbrace*{v_1 + v_2 + v_3 + v_4}
+                + \mu\enbrace*{w_1 + w_2 + w_3 + w_4}
+            \end{pmatrix}\\
+            &= \lambda \cdot \begin{pmatrix}
+                v_1 + v_2\\
+                v_1 + v_2 + v_3 + v_4
+            \end{pmatrix} + \mu \cdot \begin{pmatrix}
+                w_1 + w_2\\
+                w_1 + w_2 + w_3 + w_4
+            \end{pmatrix}\\
+            &= \lambda \cdot f_2\enbrace*{v} + \mu \cdot f_2\enbrace*{w}.
+        \end{align*}
+        Da sowohl Additivität als auch Homogenität erfüllt sind, ist die
+        Abbildung linear. Für den Kern von \(f_2\) gilt
+        \begin{align*}
+            \ker\enbrace*{f_2} &= \penbrace*{\left.v \in \RR^4\,\right|\,
+            f_2\enbrace*{v} = 0 \in \RR^2}\\
+            &= \penbrace*{\left.v \in \RR^4\,\right|\,v_1 + v_2 = 0 \land
+            v_1 + v_2 + v_3 + v_4 = 0}\\
+            &= \penbrace*{v \in \RR^4\,\left|\,v = \begin{pmatrix}v_1\\-v_1\\
+            v_3\\-v_3\end{pmatrix}\right.}.
+        \end{align*}
+        Es folgt, dass \(\dim\enbrace*{\ker\enbrace*{f_2}} = 2\), denn jedes
+        \(v \in \ker\enbrace*{f_2}\) ist durch die folgende Linearkombination
+        aus zwei Vektoren des \(\RR^4\) darstellbar:
+        \[\lambda_1 \cdot \begin{pmatrix}1\\-1\\0\\0\end{pmatrix} + \lambda_2
+        \cdot \begin{pmatrix}0\\0\\1\\-1\end{pmatrix} \quad \text{für }
+        \lambda_1, \lambda_2 \in \RR.\]
+        \item Sei \(\lambda = 3\) und \(v = \begin{pmatrix}1\\1\\1\\1
+        \end{pmatrix} \in \RR^4\). Dann gilt
+        \[f_3\enbrace*{\lambda{v}} = \begin{pmatrix}3 \cdot 1 \cdot 3 \cdot 1\\
+        3 \cdot 1 \cdot 3 \cdot 1 \end{pmatrix} = \begin{pmatrix}9\\9
+        \end{pmatrix} \ne \begin{pmatrix}3\\3\end{pmatrix} = 3 \cdot
+        \begin{pmatrix}1 \cdot 1\\1 \cdot 1\end{pmatrix} = \lambda \cdot
+        f_3\enbrace*{v}.\]
+        Da Homogenität für diese Abbildung nicht erfüllt ist, ist sie nicht
+        linear.
+        \item Seien \(p, q \in \PP_3\) mit \(p\enbrace*{x} = \sum_{i = 0}^3
+        \alpha_ix^i\) und \(q\enbrace*{x} = \sum_{i = 0}^3\beta_ix^i\) und
+        \(\lambda, \mu \in \RR\). Dann gilt
+        \begin{align*}
+            f\enbrace*{\lambda{p\enbrace*{x}} + \mu{q\enbrace*{x}}} &=
+            f\enbrace*{\lambda{\alpha_0} + \mu{\beta_0} +
+            \enbrace*{\lambda{\alpha_1} + \mu{\beta_1}}x +
+            \enbrace*{\lambda{\alpha_2} + \mu{\beta_2}}x^2 +
+            \enbrace*{\lambda{\alpha_3} + \mu{\beta_3}}x^3}\\
+            &= \lambda{\alpha_1} + \mu{\beta_1} + 2\enbrace*{\lambda{\alpha_2}
+            + \mu{\beta_2}}x + 3\enbrace*{\lambda{\alpha_3} + \mu{\beta_3}}x^2\\
+            &= \lambda\enbrace*{\alpha_1 + 2\alpha_2x + 3\alpha_3x^2} +
+            \mu\enbrace*{\beta_1 + 2\beta_2x + 3\beta_3x^2}\\
+            &= \lambda{f\enbrace*{p\enbrace*{x}}} +
+            \mu{f\enbrace*{q\enbrace*{x}}}
+        \end{align*}
+        Da Additivität und Homogenität erfüllt sind, ist die Abbildung linear.
+        Für den Kern der Abbildung gilt
+        \begin{align*}
+            \ker\enbrace*{f_3} &= \penbrace*{\left.p \in \PP_3\,\right|\,
+            f_3\enbrace*{p\enbrace*{x}} = 0}\\
+            &= \penbrace*{\left.p \in \PP_3\,\right|\,f_3\enbrace*{\alpha_0 +
+            \alpha_1x + \alpha_2x^2 + \alpha_3x^3} = 0}\\
+            &= \penbrace*{\left.p \in \PP_3\,\right|\,\alpha_1 + 2\alpha_2x +
+            3\alpha_3x^2 = 0\text{ für alle }x \in \RR}\\
+            &= \penbrace*{\left.p \in \PP_3\,\right|\,\alpha_1 = \alpha_2 =
+            \alpha_3 = 0}\\
+            &= \penbrace*{\left.p \in \PP_3\,\right|\,p\enbrace*{x} =
+            \alpha_0} = \PP_0.
+        \end{align*}
+        Der Kern enthält also alle Polynome mit Grad \(0\). Daraus können wir
+        direkt folgern, dass \(\dim\enbrace*{\ker\enbrace*{f_4} = 1}\) für die
+        Dimension des Kerns gilt.
+    \end{enumerate}
 \end{document}

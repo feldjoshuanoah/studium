@@ -1,0 +1,118 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+
+\newcommand{\sis}[1]{\,\si{#1}}
+\newcommand{\degC}{\si{\degreeCelsius}}
+
+\sisetup{per-mode=fraction,sticky-per}
+
+\DeclareSIUnit{\calorie}{cal}
+\DeclareSIUnit{\atmosphere}{atm}
+
+\title{Übung 3}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Wärmekapazität)}
+
+    \begin{problem}
+        Bei vielen Lebensmitteln unterscheidet sich die Wärmekapazität im
+        gefrorenen Zustand von der im aufgetauten Zustand. Brokkoli zum
+        Beispiel hat eine Wärmekapazität von \(3,85
+        \sis{\kilo\joule\per\kilogram\kelvin}\) unter der Schmelztemperatur von
+        Wasser und nur \(1,84\sis{\kilo\joule\per\kilogram\kelvin}\) oberhalb
+        der Schmelztemperatur. Wie viel Energie muss man aufwenden, um die
+        Temperatur von \(500\sis{\gram}\) Brokkoli von \(-18\degC\) auf
+        \(50\degC\) zu erhöhen? Ignorieren sie bei der Berechnung den Einfuss
+        der Schmelzwärme von Wasser.
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 2. (Erwärmung von Eisen)}
+
+    \begin{problem}
+        Eisen der Masse \(300\sis{\gram}\) wird durch eine elektrische Heizung
+        mit einer konstanten Leistungsaufnahme von \(200\sis{\watt}\) in einem
+        Isoliermantel aufgeheizt. Berechnen Sie die Temperatur des
+        Eisenblockes nach \(t = 60\sis{\second}\), wenn man davon ausgeht, dass
+        er zum Zeitpunkt \(t = 0\sis{\second}\) eine Temperatur von
+        \(T_0 = 298\sis{\kelvin}\) hatte und dass durch die Isolierung keine
+        Wärme über die Oberfäche entweicht.
+
+        \textbf{Hinweis:} \quad \emph{Elektrische Arbeit kann vollständig in
+        Wärme umgewandelt werden.}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 3. (Quentschen von Zink)}
+
+    \begin{problem}
+        Zink der Masse \(20\sis{\kilogram}\) wird in einem Wasserbad der Masse
+        \(200\sis{\kilogram}\) gequentscht. Das Zink hat eine Anfangstemperatur
+        von \(400\degC\) und die Temperatur des Wasserbades beträgt zu Beginn
+        \(25\degC\). Welche Temperatur hat das Wasser nach Beendigung des
+        Prozesses? Die Wärmekapazität des Wasserbehälters und dessen
+        Wärmeabgabe an die Umgebung sei vernachlässigbar klein.
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 4. (Schmelzen von Eis)}
+
+    \begin{problem}
+        Sie möchten Getränke möglichst schnell kühlen ohne sie zu verwässern. Sie haben \(2\sis{\kilogram}\) Eis bei einer Temperatur von
+        \(-20\degC\) zur Verfügung. Ihr Dozent in Material- und Stoffkunde erzählt Ihnen, dass der Wärmeübergang in einem Wasserbad wesentlich schneller abläuft als in einem Eisbett. Daher entscheiden Sie sich, Leitungswasser mit einer Temperatur von \(15\degC\) zu Ihrem Eis zu mischen bis das entstehende Wasserbad eine Temperatur von \(0\degC\) hat. Wie viel Wasser müssen Sie hinzufügen? Nehmen Sie für Eis eine Wärmekapazität von \(2\,060\sis{\joule\per\kilogram\kelvin}\) an.
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 5. (Erwärmung von Wasser)}
+
+    \begin{problem}
+        Ein großer Topf, der mit \(10\sis{\liter}\) Wasser gefüllt ist wird mit
+        einer konstanten Leistung von \(4\sis{\kilo\watt}\) erhitzt. Die
+        Anfangstemperatur des Wassers beträgt \(5\degC\), die Endtemperatur
+        beträgt \(70\degC\). Der Topf ist nicht isoliert und gibt nachdem das
+        Wasser eine Temperatur von \(25\degC\) erreicht hat, eine konstante
+        Wärmeleistung von \(500\sis{\watt}\) an die Umgebung ab.
+
+        Folgende Stoffdaten sind gegeben und können über den gesamten
+        Temperaturbereich als konstant angenommen werden:
+        \begin{itemize}
+            \item Dichte von Wasser: \(\rho_W = 1\,000
+            \sis{\kilogram\per\meter\cubed}\)
+            \item spezifische Wärmekapazität von Wasser: \(c_{p, W} =
+            4\,181\sis{\joule\per\kilogram\kelvin}\)
+        \end{itemize}
+        \begin{enumerate}
+            \item Wie viele Minuten dauert der Heizvorgang?
+            \item Wegen eines Herdausfalls von \(10\sis{\minute}\) sinkt die
+            Temperatur des Wassers wieder. Welche Temperatur wird nach
+            \(10\sis{\minute}\) erreicht?
+        \end{enumerate}
+    \end{problem}
+\end{document}

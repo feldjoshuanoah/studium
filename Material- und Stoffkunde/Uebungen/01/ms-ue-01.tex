@@ -1,0 +1,148 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+
+\newcommand{\sis}[1]{\,\si{#1}}
+\newcommand{\degC}{\si{\degreeCelsius}}
+
+\sisetup{per-mode=fraction,sticky-per}
+
+\DeclareSIUnit{\calorie}{cal}
+\DeclareSIUnit{\atmosphere}{atm}
+
+\title{Übung 1}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Gültigkeit des idealen Gasgesetzes)}
+
+    \begin{problem}
+        Eine Annahme des idealen Gasgesetzes ist, dass der Druck nicht zu hoch
+        ist. Ist der Druch größer als \(1\sis{\mega\pascal}\), können wir das
+        ideale Gasgesetz eigentlich nicht anwenden. Betrachten Sie ein Mol
+        Sauerstoff-Gas (\(\ch{O2}\)) bei einer Temperatur von
+        \(273\sis{\kelvin}\) und einem Druck von \(100\sis{\bar}\).
+        \begin{enumerate}
+            \item Berechnen Sie das Volumen dieses Gases unter der Annahme, das
+            ideale Gasgesetz sei gültig.
+            \item Berechnen Sie das Volumen dieses Gases mit der
+            \emph{Viralgleichung}:
+            \[\frac{p\bar{V}}{RT} = 1 + \frac{B\enbrace*{T}p}{RT},\]
+            wobei \(\bar{V}\) das molare Volumen und \(B\enbrace*{T}\) eine
+            Funktion der Temperatur ist:
+            \[B\enbrace*{T} = \enbrace*{0,039\,5 - \frac{10\sis{\kelvin}}{T}
+            - \frac{1,084 \cdot 10^3\sis{\kelvin\squared}}{T^2}}
+            \sis{\liter\per\mole}.\]
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+    \begin{enumerate}
+        \item Mit dem idealen Gasgesetz gilt \(V = \frac{nRT}{p}\) und somit:
+        \[V = \frac{nRT}{p} = \frac{1\sis{\mole} \cdot 8,315\sis{\joule\per\mole\kelvin} \cdot 273\sis{\kelvin}}{100 \cdot 10^5\sis{\pascal}} = 2,27 \cdot 10^{-4}\sis{\meter\cubed}.\]
+        \item Wir können die Viralgleichung umformen zu
+        \[\bar{V} = \frac{RT}{p} + B\enbrace*{T}.\]
+        Bei \(273\sis{\kelvin}\) ist \(B\enbrace*{T}\):
+        \[B\enbrace*{273\sis{\kelvin}} = \enbrace*{0,039\,5 -
+        \frac{10\sis{\kelvin}}{273\sis{\kelvin}} - \frac{1,084 \cdot 10^3
+        \sis{\kelvin\squared}}{\enbrace*{273\sis{\kelvin}}^2}}
+        \sis{\liter\per\mole} = -0,011\,7\sis{\liter\per\mole}.\]
+        Damit folgt für ein Mol Sauerstoff-Gas:
+        \begin{align*}
+            V = n\bar{V} &= n\enbrace*{\frac{RT}{p} + B\enbrace*{T}}\\
+            &= 1\sis{\mole}\enbrace*{2,27 \cdot 10^{-4}
+            \sis{\meter\cubed\per\mole} - 0,011\,7\sis{\liter\per\mole}}\\
+            &= 2,15 \cdot 10^{-4}\sis{\meter\cubed}.
+        \end{align*}
+    \end{enumerate}
+
+    \section*{Aufgabe 2. (Van der Waals-Gleichung)}
+
+    \begin{problem}
+        Der tiefste Punkt der Erdoberfläche liegt im Meerestief ``Challanger
+        Deep'' \(11\,034\sis{\meter}\) unter dem Meeresspiegel im Marianengraben
+        im westlichen Pazifischen Ozean. Betrachten Sie zwei Blasen
+        Kohlendioxid (\ch{CO2}), jede mit einem Volumen von
+        \(1\sis{\centi\meter\cubed}\). Eine Blase befindet sich an der
+        Meeresoberfläche, die andere befindet sich im Challanger Deep.
+        Bestimmen Sie das Verhältnis der Mole Gas in den zwei Blasen.
+
+        Beachten Sie auch die folgenden Informationen:
+        \begin{itemize}
+            \item In solchen Tiefen ist das Idealgasgesetz ungültig.
+            Stattdessen muss ein anderes Gesetz genutzt werden. Verwenden Sie
+            die \emph{van der Waals-Gleichung}:
+            \[p = \frac{nRT}{V - nb} - \frac{an^2}{V^2}.\]
+            Darin sind \(a\) und \(b\) gasspezifische Parameter. Nehmen Sie für
+            Kohlendioxid folgende van der Waals-Parameter an:
+            \[a = 0,036\,4\sis{\liter\squared\atmosphere\per\mole\squared},
+            \quad b = 0\sis{\liter\per\mole}.\]
+            (Für diese Einheiten ist die Gaskonstante \(R = 0,082\,057
+            \sis{\liter\atmosphere\per\mole\kelvin}\).)
+            \item Die Temperatur im Ozean ist nicht konstant. Für Tiefen
+            jenseits \(2000\sis{\meter}\) unter dem Meeresspiegel entspricht die
+            Temperatur der folgenden Formel:
+            \[T\enbrace*{x} = 269\sis{\kelvin} + \enbrace*{0,8\sis{\kelvin}}
+            \frac{2\,000\sis{\meter} - x}{1\,000\sis{\meter}},\]
+            wobei \(x\) die Tiefe ist.
+            \item Der Druck in \(11\,034\sis{\meter}\) Tiefe beträgt ungefähr
+            \(1\,094\sis{\atmosphere}\).
+            \item Die Temperatur an der Meeresoberfläche beträgt
+            \(298\sis{\kelvin}\).
+        \end{itemize}
+    \end{problem}
+
+    \subsection*{Lösung} Die Temperatur in \(11\,034\sis{\meter}\) Tiefe ist
+    \[T = 269\sis{\kelvin} + \enbrace*{0,8\sis{\kelvin}}
+    \frac{2\,000\sis{\meter} - 11\,034\sis{\meter}}{1\,000\sis{\meter}}
+    = 261,8\sis{\kelvin}.\]
+    Das Volumen ist gegeben (\(1 \cdot 10^{-3}\sis{\liter}\)) und somit können
+    wir die Molanzahl berechnen. Mit der Annahme \(b = 0\sis{\liter\per\mole}\)
+    lässt sich die kubische van der Waals-Gleichung zu der quadratischen
+    Gleichung
+    \[p - \frac{nRT}{V} + \frac{an^2}{V^2} = 0\]
+    vereinfachen. Die Lösung dieser Gleichung ist
+    \[n = \frac{\frac{RT}{V} \pm \sqrt{\enbrace*{\frac{RT}{V}}^2 -
+    4\frac{a}{V^2}p}}{2\enbrace*{\frac{a}{V^2}}}.\]
+    Die verschiedenen Terme sind:
+    \[\frac{RT}{V} = \frac{0,082\,057\sis{\liter\atmosphere\per\mole\kelvin}
+    \cdot 261,8\sis{\kelvin}}{0,001\sis{\liter}} = 21\,483
+    \sis{\atmosphere\per\mole}\]
+    und
+    \[\frac{a}{V^2} = \frac{0,0364
+    \sis{\liter\squared\atmosphere\per\mole\squared}}{1 \cdot 10^{-6}
+    \sis{\liter\squared}} = 3,64 \cdot 10^4\sis{\atmosphere\per\mole\squared}\]
+    und damit haben wir
+    \[n_1 = \frac{21\,474 \pm \sqrt{21\,474^2 - 4 \cdot 1\,094 \cdot 3,64 \cdot 10^4}}{2 \cdot 3,64 \cdot 10^4}\sis{\mole} = 0,056\,3\sis{\mole} \lor 0,534\sis{\mole}.\]
+    Die größere Molzahl gehört zu einer flüssigen Phase. Da wir an einer
+    Gasblase interessiert sind, wählen wir \(n_1= 0,056\,3\sis{\mole}\).
+
+    Am Meeresspiegel haben wir bei Standarddruck und -temperatur:
+    \[n_2 = \frac{pV}{RT} = \frac{1\sis{\atmosphere} \cdot 0,001\sis{\liter}}
+    {0,082\,057\sis{\liter\atmosphere\per\mole\kelvin} \cdot 298\sis{\kelvin}}
+    = 4,1 \cdot 10^{-5}\sis{\mole}.\]
+    Damit ist das gesuchte Verhältnis
+    \[\frac{n_1}{n_2} = \frac{0,056\,3\sis{\mole}}{4,1 \cdot 10^{-5}\sis{\mole}}
+    \approx 1\,373.\]
+\end{document}

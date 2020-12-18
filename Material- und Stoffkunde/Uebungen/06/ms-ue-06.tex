@@ -1,0 +1,109 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+\newcommand{\sis}[1]{\,\si{#1}}
+\newcommand{\degC}{\si{\degreeCelsius}}
+
+\sisetup{per-mode=fraction,sticky-per}
+
+\title{Übung 6}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Stationäre Wärmeleitung)}
+
+    \begin{problem}
+        Die eindimensionale Wärmeleitung wird durch das Fouriersche Gesetz
+        beschrieben:
+        \[\dot{Q} = -\kappa{A}\frac{\partial{T\enbrace*{x}}}{\partial{x}}.\]
+        Betrachten wir eine Platte der Dicke \(d\), so stellt sich nach
+        Ablaufen aller zeitlich veränderlicher Prozesse ein lineares
+        Temperaturprofil über die Dicke der Platte ein. Es gilt
+        \[T\enbrace*{x} = T_A = \frac{T_B - T_A}{d}x,\]
+        mit den Temperaturen \(T_A\) bei \(x = 0\) und \(T_B\) bei \(x = d\) an
+        den Oberflächen der Platte. Mit
+        \[\frac{\partial{T\enbrace*{x}}}{\partial{x}} = \frac{T_B - T_A}{d}\]
+        ergibt sich der Wärmestrom durch die Platte zu
+        \[\dot{Q} = -\kappa{A}\frac{T_B - T_A}{d}.\]
+        Der Zustand in dem alle zeitlich veränderlichen Prozesse abgelaufen
+        sind wird als stationärer Zustand bezeichnet.
+
+        Betrachten Sie zwei Platten, eine Kupferplatte (Wärmeleitfähigkeit
+        \(\kappa_1 = 320\sis{\watt\per\meter\kelvin}\)) der Dicke \(d_1 =
+        5\sis{\centi\meter}\) und eine Eisenplatte (Wärmeleitfähigkeit
+        \(\kappa_2 = 80\sis{\watt\per\meter\kelvin}\)) der Dicke \(d_2 =
+        10\sis{\centi\meter}\). Die Platten stehen in direktem Kontakt und es
+        existiert kein Temperatursprung über die Kontaktstelle. Über den
+        Plattenverbund herrscht eine Temperaturdifferenz \(\Delta{T} = 80
+        \sis{\kelvin}\). Bestimmen Sie die Wärmestromdichte
+        \(\frac{\dot{Q}}{A}\) über den Plattenverbund im stationären Zustand.
+        Gehen Sie dabei wie folgt vor:
+        \begin{enumerate}
+            \item Stellen Sie die Ausdrücke für die Wärmestromdichten
+            \(\frac{\dot{Q_1}}{A}\) und \(\frac{\dot{Q_2}}{A}\) in Abhängigkeit
+            der Temperaturdifferenzen \(\Delta{T_1}\) und \(\Delta{T_2}\) auf.
+            \item Ermitteln Sie anhand einer Inzidenzmatrix die Bestimmtheit
+            des entstehenden Gleichungssystems.
+            \item Fügen Sie gegebenenfalls Gleichungen hinzu, die das Lösen der
+            Gleichungssystems erlauben.
+            \item Lösen Sie das Gleichungssystem.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 2. (Wärmeausdehnung I)}
+
+    \begin{problem}
+        Ein WÜrfel aus einem unbekannten Stoff ist komplett mit
+        \(1\sis{\liter}\) bei \(3,98\degC\) gefüllt. Die Seiten des Würfels
+        haben eine Dicke von \(1\sis{\centi\meter}\). Welchen Wert muss der
+        Linearausdehnungskoeffizient haben, damit der Würfel bei \(0\degC\)
+        immer noch komplett gefüllt ist? Der Raumausdehnungskoeffizient von
+        Wasser in diesem Temperaturbereich beträgt ungefähr \(-0,5 \cdot 10^{-4}
+        \sis{\per\kelvin}\). Halten Sie den errechneten Wert für sinnvoll?
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 3. (Wärmeausdehnung II)}
+
+    \begin{problem}
+        Aufgrund von Temperaturschwankungen zwischen Sommer und Winter und der
+        damit verbundenen Längenänderung von metallischen Bauteilen, werden
+        beim Bau von Brücken üblicherweise Dehnungsfugen eingeplant. Die
+        Ingenieure von Impractical Ideas, Inc. entwickeln eine alternative
+        Methode: Die Hauptkonstruktion einer Versuchsbrücke der Länge
+        \(100\sis{\meter}\) besteht aus Baustahl mit einem
+        Linearausdehnungskoeffizienten \(\alpha_S = 1,2 \cdot 10^{-5}
+        \sis{\per\kelvin}\). An einem Brückenkopf wird ein Konstruktionselement
+        der Länge \(1\sis{\meter}\) aus einer speziellen Legierung verbaut. Die
+        Legierung besitzt einen besonders hohen Linearausdehnungskoeffizienten
+        \(\alpha_L = 4,2 \cdot 10^{-4}\sis{\per\kelvin}\). Die Brücke wird im
+        Winter bei einer Temperatur von \(-20\degC\) spannungsfrei montiert und
+        das spezielle Konstruktionselement soll im Sommer so gekühlt werden,
+        dass die Brücke bis zu einer Temperatur von \(30\degC\) spannungsfrei
+        bleibt. Berechnen Sie die minimale Temperatur, die das spezielle
+        Konstruktionselement erreichen können muss.
+    \end{problem}
+
+    \subsection*{Lösung}
+\end{document}
