@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\usepackage{tikz}
+
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -19,11 +21,12 @@
 
 \sisetup{per-mode=fraction,sticky-per}
 
-\title{Übung 6}
+\title{Vorrechenübung 4}
 \author{Joshua Feld, 406718}
-\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
-\class{Material- und Stoffkunde}
-\professor{Prof. Dr. Gebhardt}
+\institute{RWTH Aachen University\\Lehrstuhl für computergestützte Analyse
+technischer Systeme}
+\class{Mechanik I}
+\professor{Prof. Dr. Behr}
 
 \begin{document}
     \maketitle
@@ -31,41 +34,24 @@
     \section*{Aufgabe 1. (Stationäre Wärmeleitung)}
 
     \begin{problem}
-        Die eindimensionale Wärmeleitung wird durch das Fouriersche Gesetz
-        beschrieben:
-        \[\dot{Q} = -\kappa{A}\frac{\partial{T\enbrace*{x}}}{\partial{x}}.\]
-        Betrachten wir eine Platte der Dicke \(d\), so stellt sich nach
-        Ablaufen aller zeitlich veränderlicher Prozesse ein lineares
-        Temperaturprofil über die Dicke der Platte ein. Es gilt
-        \[T\enbrace*{x} = T_A = \frac{T_B - T_A}{d}x,\]
-        mit den Temperaturen \(T_A\) bei \(x = 0\) und \(T_B\) bei \(x = d\) an
-        den Oberflächen der Platte. Mit
-        \[\frac{\partial{T\enbrace*{x}}}{\partial{x}} = \frac{T_B - T_A}{d}\]
-        ergibt sich der Wärmestrom durch die Platte zu
-        \[\dot{Q} = -\kappa{A}\frac{T_B - T_A}{d}.\]
-        Der Zustand in dem alle zeitlich veränderlichen Prozesse abgelaufen
-        sind wird als stationärer Zustand bezeichnet.
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[-] (0,0) -- (-2.5,5);
+                \draw[->] (0,0) -- (-.75,1.5) node[below left] {\(P\)};
+                \draw[-] (0,0) -- (3,-1.5);
+                \draw[->] (0,0) -- (1,-0.5) node[below left] {\(Q\)};
+                \draw[dashed] (0,0) -- (-2.5,0) -- (-2.5,5) -- (0,5) -- cycle;
+                \draw[dashed] (0,0) -- (3,0) -- (3,-1.5) -- (0,-1.5) -- cycle;
+                \draw node at (-3.1,2.5) {\(32\sis{\meter}\)};
+                \draw node at (-1.25,5.3) {\(16\sis{\meter}\)};
+                \draw node at (1.5,-1.8) {\(24\sis{\meter}\)};
+                \draw node at (3.55,-.75) {\(12\sis{\meter}\)};
+                \draw node at (2,4) {\(P = 76\sis{\kilo\newton}\)};
+                \draw node at (2,3.45) {\(Q = 52\sis{\kilo\newton}\)};
+                \draw node at (2.5,2.5) {Berechne \(P + Q\)};
 
-        Betrachten Sie zwei Platten, eine Kupferplatte (Wärmeleitfähigkeit
-        \(\kappa_1 = 320\sis{\watt\per\meter\kelvin}\)) der Dicke \(d_1 =
-        5\sis{\centi\meter}\) und eine Eisenplatte (Wärmeleitfähigkeit
-        \(\kappa_2 = 80\sis{\watt\per\meter\kelvin}\)) der Dicke \(d_2 =
-        10\sis{\centi\meter}\). Die Platten stehen in direktem Kontakt und es
-        existiert kein Temperatursprung über die Kontaktstelle. Über den
-        Plattenverbund herrscht eine Temperaturdifferenz \(\Delta{T} = 80
-        \sis{\kelvin}\). Bestimmen Sie die Wärmestromdichte
-        \(\frac{\dot{Q}}{A}\) über den Plattenverbund im stationären Zustand.
-        Gehen Sie dabei wie folgt vor:
-        \begin{enumerate}
-            \item Stellen Sie die Ausdrücke für die Wärmestromdichten
-            \(\frac{\dot{Q_1}}{A}\) und \(\frac{\dot{Q_2}}{A}\) in Abhängigkeit
-            der Temperaturdifferenzen \(\Delta{T_1}\) und \(\Delta{T_2}\) auf.
-            \item Ermitteln Sie anhand einer Inzidenzmatrix die Bestimmtheit
-            des entstehenden Gleichungssystems.
-            \item Fügen Sie gegebenenfalls Gleichungen hinzu, die das Lösen der
-            Gleichungssystems erlauben.
-            \item Lösen Sie das Gleichungssystem.
-        \end{enumerate}
+            \end{tikzpicture}
+        \end{center}
     \end{problem}
 
     \subsection*{Lösung}

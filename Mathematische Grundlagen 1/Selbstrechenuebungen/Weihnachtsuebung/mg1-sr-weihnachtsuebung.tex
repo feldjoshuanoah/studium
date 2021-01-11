@@ -1,0 +1,217 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\dotproduct}[2]{\left\langle{#1, #2}\right\rangle}
+
+\newcommand{\dd}{\,\differ}
+\DeclareMathOperator{\differ}{d}
+\DeclareMathOperator{\vecspan}{span}
+
+\DeclarePairedDelimiter{\absolute}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+\DeclarePairedDelimiter{\penbrace}{\{}{\}}
+
+\title{Weihnachtsübung}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Center for Computational Engineering Science}
+\class{Mathematische Grundlagen I}
+\professor{Prof. Dr. Torrilhon \& Prof. Dr. Stamm}
+
+\begin{document}
+    \maketitle
+    \section*{Aufgabe 1. (Vollständige Induktion)}
+
+    \begin{problem}
+        Zeigen Sie, dass für alle \(n \in \NN\) gilt:
+        \begin{enumerate}
+            \item \(1 + q + q^2 + \ldots + q^n = \frac{1 - q^{n + 1}}{1 - q}, \quad q \ne 1\)
+            \item \(\sum_{k = 1}^n\frac{1}{k^2} \le 2 - \frac{1}{n}\)
+        \end{enumerate}
+        \textbf{Hinweis:} \quad \emph{Übersetzen Sie Teil a) zunächst in die Summenschreibweise. Teil a) heißt auch die ``geometrische Summenformel''.}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 2. (Einheitswurzeln, Nullstellen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Bestimmen Sie die Polarkoordinatendarstellung der komplexen Zahlen \(-12 - 7i\), \(\overline{3 + 5i}\) und \(\enbrace*{1 - i}^{10}\), wobei jeweils das Argument in \(\left(-\pi, \pi\right]\) liegen soll.
+            \item Bestimmen Sie alle \(z \in \CC\) für die gilt: \(z^4 = -\frac{1}{2} + \frac{\sqrt{3}}{2}i\).
+            \item Das Polynom \(p\enbrace*{x} := 2x^4 - 4x^3 - 8x^2 - 16x - 64\)
+            hat die Nullstellen \(x = -2\) und \(x = 4\). Ermitteln Sie alle weiteren Nullstellen von \(p\) in \(\CC\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 3. (Komplexe Folgen)}
+
+    \begin{problem}
+        Wir betrachten die Folgen \(\enbrace*{a_n}_{n \in \NN}\) und \(\enbrace*{b_n}_{n \in \NN}\) mit
+        \[a_n = \enbrace*{\frac{1 + i\sqrt{3}}{2}}^n, \qquad
+        b_n = \enbrace*{-\frac{1}{2}}^na_n.\]
+        \begin{enumerate}
+            \item Bestimmen Sie alle konvergenten Teilfolgen von \(\enbrace*{a_n}\) und \(\enbrace*{b_n}\) und deren Grenzwert.
+            \item Bestimmen Sie \(\max\), \(\min\), \(\inf\) und \(\sup\) der
+            Folgen \(\enbrace*{c_n^k}_{n \in \NN}, k = 1, 2\) mit \(c_n^1 = \absolute*{a_n}\) und \(c_n^2 = \absolute*{b_n}\).
+            \item Skizzieren Sie \(a_n\) und \(b_n\) in der komplexen Ebene.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 4. (Konvergente Reihen und Potenzreihen)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Untersuchen Sie die folgende Reihe auf Konvergenz und bestimmen Sie gegebenenfalls den Grenzwert:
+            \[\sum_{k = 1}^\infty\frac{\enbrace*{2i}^k + 3^{k - 1}}{5^k}.\]
+            \item Bestimmen Sie den Konvergenzradius der Potenzreihe \(\sum_{n = 0}^\infty\cos\enbrace*{n\pi}\enbrace*{\frac{x}{2}}^n\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 5. (Stetigkeit, gleichmäßige und Lipschitz-Stetigkeit)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Untersuchen Sie die folgenden Funktionen auf Stetigkeit, gleichmäßige Stetigkeit und Lipschitz-Stetigkeit:
+            \begin{enumerate}[label=\roman*)]
+                \item \(f\enbrace*{x} = x^2\) mit \(f: \RR \to \RR\),
+                \item \(g\enbrace*{x} = x^2\) mit \(f: \benbrace*{0, 1} \to \RR\),
+                \item \(h\enbrace*{x} = m \cdot x + b\) mit \(m, b \in \RR\).
+            \end{enumerate}
+            \textbf{Hinweis:} \emph{Benutzen Sie die \(\varepsilon\)-\(\delta\)-Definition der Stetigkeit nur in Teil (i), argumentieren Sie in den anderen beiden Fällen geschickter.}
+            \item Benutzen Sie den Zwischenwertsatz um zu zeigen, dass \(k\enbrace*{x} = mx^2 + b\) immer mindestens eine Nullstelle besitzt, wenn \(m < 0\) und \(b > 0\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 6. (Lipschitz-Stetigkeit)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Zeigen Sie die Lipschitz-Stetigkeit der Funktion
+            \[f: \benbrace*{1, 10} \to \RR, f\enbrace*{x} = \frac{3x^2}{x^2 + 1}\]
+            und geben Sie eine Lipschitz-Konstante \(L > 0\) an.
+            \item Beweisen Sie, dass aus der Lipschitz-Stetigkeit einer Funktion
+            die gleichmäßige Stetigkeit folgt.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 7. (Vektorraum und Skalarprodukt)}
+
+    \begin{problem}
+        Seien \(a, b \in \RR\) mit \(a < b\), \(I := \benbrace*{a, b}\) und
+        \(k \in \NN_0\).
+        \[C^k\enbrace*{I} := \penbrace*{\left.f: I \to \RR\right|\,f\text{ ist }k\text{-mal stetig differenzierbar auf }I}\]
+        und
+        \[\dotproduct{f}{g}_{H^k} := \sum_{l = 0}^k\int_a^bf^{\enbrace*{l}}\enbrace*{x} \cdot g^{\enbrace*{l}}\enbrace*{x}\dd{x} \quad {\forall}f, g \in C^k\enbrace*{U}.\]
+        Zeigen Sie, dass \(C^k\enbrace*{I}\) unter der Vektoraddition
+        \[\enbrace*{f + g}\enbrace*{x} := f\enbrace*{x} + g\enbrace*{x} \quad
+        {\forall}x \in I, f, g \in C^k\enbrace*{I}\]
+        und der Multiplikation mit Skalaren
+        \[\enbrace*{\alpha \cdot f}\enbrace*{x} := \alpha \cdot f\enbrace*{x}
+        \quad {\forall}\alpha \in \RR, x \in I, f \in C^k\enbrace*{I}\]
+        ein \(\RR\)-Vektorraum ist. Zeigen Sie weiter, dass \(\dotproduct{f}{g}_{H^k}\) ein Skalarprodukt auf \(C^k\enbrace*{I}\) ist.
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 8. (Unterräume)}
+
+    \begin{problem}
+        Entscheiden und begründen Sie, ob \(U\) ein Unterraum des \(\RR\)-Vektorraums \(V\) ist:
+        \begin{enumerate}
+            \item \(V = \RR^2\), \quad \(U = \penbrace*{\enbrace*{x, y}^T \in \RR^2\,\left|\,\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}t\\2t\end{pmatrix}\right.}\)
+            \item \(V = \RR^3\), \quad \(U = \penbrace*{\left.\enbrace*{x, y, z}^T \in \RR^3\,\right|\,y = 2x + 1}\)
+            \item \(V = \RR^3\), \quad \(U = \penbrace*{\left.\enbrace*{x, y, z}^T \in \RR^3\,\right|\,y + 2x + 2z = 0}\)
+            \item \(V = \mathcal{F}\enbrace*{\benbrace*{a, b}, \RR}\), \quad Raum aller Funktionen \(f: \benbrace*{a, b} \to \RR\)
+            \begin{enumerate}[label=\roman*.]
+                \item \(U_1 = \penbrace*{\left.f: \benbrace*{a, b} \to \RR\,\right|\,f\text{ ist Polynom vom Grad }\le n}\)
+                \item \(U_2 = C^k\enbrace*{\benbrace*{a, b}}\)
+                \item \(U_3 = C^\infty\enbrace*{\benbrace*{a, b}}\)
+            \end{enumerate}
+            Welcher Unterraum ist dabei wieder ein Unterraum der jeweils anderen Teilräume?
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 9. (Lineare Unabhängigkeit)}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item Untersuchen Sie, ob \(\penbrace*{f_1, f_2, f_3} \subset \mathcal{F}\enbrace*{\RR, \RR}\) definiert durch
+            \[f_1\enbrace*{t} = \cos\enbrace*{t}, \quad
+            f_2\enbrace*{t} = \cos\enbrace*{2t}, \quad
+            f_3\enbrace*{t} = \cos\enbrace*{3t}, \quad t \in \RR,\]
+            linear unabhängig ist.
+            \item Sei \(\penbrace*{x, y, z} \subset V\) linear unabhängig. Ist
+            \(\penbrace*{x + y, x + z, y + z}\) auch linear abhängig?
+            \item Für welche Werte \(\lambda \in \RR\) ist
+            \(\penbrace*{\enbrace*{\lambda, 1, 0}^T, \enbrace*{1, \lambda, 1}^T, \enbrace*{0, 1, \lambda}^T}\) linear abhängig?
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 10. (Basis und Dimension)}
+
+    \begin{problem}
+        Bestimmen Sie die Dimension und eine Basis von
+        \begin{enumerate}
+            \item \(V = \penbrace*{\left.p \in \mathcal{P}_2\,\right|\,p\enbrace*{0} = 0}\),
+            \item \(V = \vecspan\penbrace*{1 - 2x, 2x - x^2, 1 - x^2, 1 + x^2}
+            \subset \mathcal{P}_2\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 11. (Bestapproximation)}
+
+    \begin{problem}
+        Seien
+        \[v_1 = \begin{pmatrix}1\\2\\0\end{pmatrix}, \quad
+        v_2 = \begin{pmatrix}4\\3\\2\end{pmatrix}, \quad
+        v_3 = \begin{pmatrix}0\\-1\\4\end{pmatrix}.\]
+        Vektoren  im \(\RR^3\) und der Teilraum \(U = \vecspan\penbrace*{v_1, v_2}\) gegeben. Bestimmen Sie die Bestapproximation von \(v_3\) durch ein Element \(u^*\) des Teilraums \(U\).
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+
+    \section*{Aufgabe 12. (Lineare Abbildungen)}
+
+    \begin{problem}
+        Gegeben seien die Abbildungen
+        \[\varphi: \RR^2 \to \RR^3, \penbrace*{x, y} \mapsto \begin{pmatrix}x - y\\2x\\y + 5x\end{pmatrix}\]
+        und
+        \[\phi: \RR^3 \to \RR, \penbrace*{x, y, z} \mapsto x + y + z.\]
+        \begin{enumerate}
+            \item Zeigen Sie die Linearität der Abbildungen \(\varphi\) und \(\phi\).
+            \item Identifizieren Sie jeweils die zugehörige Matrix.
+            \item Bilden Sie die Verknüpfung \(\phi \circ \varphi\) und geben Sie die Matrix an.
+            \item Diskutieren Sie die Verknüpfung \(\varphi \circ \phi\).
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung} \clearpage
+\end{document}

@@ -85,23 +85,10 @@
 
     \subsection*{Lösung}
     \begin{itemize}
-        \item Majorantenkriterium: Wir wählen als Majorante die geometrische Reihe \(\sum_{k = 0}^\infty{q}^k\) mit \(b_k = q^k\) und \(q \in \RR\).
-        Von dieser wissen wir aus der Vorlesung, dass sie für \(k \to \infty\)
-        gegen den Grenzwert \(\frac{1}{1 - q}\) konvergiert.
-        \begin{align*}
-            \absolute*{a_k} \le b_k \iff \absolute*{\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}} \le b_k
-        \end{align*}
+        \item Majorantenkriterium:
         \[\frac{2 + \enbrace*{-1}^{k + 1}}{2^k} = \frac{2}{2^k} +
         \frac{\enbrace*{-1}^{k + 1}}{2^k} = \enbrace*{\frac{1}{2}}^{k - 1}
         - \enbrace*{-\frac{1}{2}}^k\]
-        %\begin{align*}
-        %    \sum_{k = 0}^\infty\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}
-        %    &= \sum_{k = 0}^\infty\frac{2}{2^k} + \sum_{k = 0}^\infty
-        %    \frac{\enbrace*{-1}^{k + 1}}{2^k}\\
-        %    &= \sum_{k = 0}^\infty\enbrace*{\frac{1}{2}}^{k - 1} -
-        %    \sum_{k = 0}^\infty\enbrace*{-\frac{1}{2}}^k\\
-        %    &=
-        %\end{align*}
         \item Wurzelkriterium: Es gilt
         \begin{align*}
             \sqrt[k]{\absolute*{a_k}} = \sqrt[k]{\absolute*{\frac{2 + \enbrace*{-1}^{k + 1}}{2^k}}} &= \sqrt[k]{\absolute*{2^{-k} \cdot \enbrace*{2 + \enbrace*{-1}^{k + 1}}}}\\

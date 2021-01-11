@@ -1,0 +1,93 @@
+\documentclass[german,12pt]{homework}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{booktabs}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{icomma}
+
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\benbrace}{[}{]}
+
+\usepackage{chemformula}
+\usepackage{siunitx}
+\newcommand{\sis}[1]{\,\si{#1}}
+\newcommand{\degC}{\si{\degreeCelsius}}
+
+\sisetup{per-mode=fraction,sticky-per}
+
+\title{Übung 7}
+\author{Joshua Feld, 406718}
+\institute{RWTH Aachen University\\Aachener Verfahrenstechnik}
+\class{Material- und Stoffkunde}
+\professor{Prof. Dr. Gebhardt}
+
+\begin{document}
+    \maketitle
+
+    \section*{Aufgabe 1. (Arrhenius-Modell)}
+
+    \begin{problem}
+        Der Diffusionskoeffizient eines einatomigen, idealen Gases wurde bei verschiedenen Temperaturen gemessen. Die Messwerte sind der folgenden Tabelle zu entnehmen.
+        \begin{center}
+            \begin{tabular}{ll}
+                \toprule
+                Temperatur \(T\) & Diffusionskoeffizient \(D\)\\
+                \midrule
+                \(300\sis{\kelvin}\) & \(1,8 \cdot 10^{-5}\sis{\meter\squared\per\second}\)\\
+                \(350\sis{\kelvin}\) & \(3,2 \cdot 10^{-5}\sis{\meter\squared\per\second}\)\\
+                \(400\sis{\kelvin}\) & \(5 \cdot 10^{-5}\sis{\meter\squared\per\second}\)\\
+                \(450\sis{\kelvin}\) & \(7 \cdot 10^{-5}\sis{\meter\squared\per\second}\)\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \begin{enumerate}
+            \item Verifizieren Sie rechnerisch, dass die Messdaten durch das Arrhenius-Modell
+            \[D = D_0\exp\enbrace*{-\frac{E_a}{k_BT}}\]
+            angenähert werden können. Bestimmen Sie dazu die Parameter \(D_0\) und \(E_a\). Zeigen Sie anschließend, dass die Messwerte mit den errechneten Parametern hinreichend genau reproduziert werden können.
+            \item Bestimmen Sie rechnerisch die Wärmemenge, die einem Mol des Gases bei \(300\sis{\kelvin}\) zugeführt werden muss, um einen Diffusionskoeffizienten von \(D = 1,5 \cdot 10^{-4}\sis{\meter\squared\per\second}\) zu erreichen.
+            \item Lösen Sie die obigen Aufgabenteile graphisch durch eine geeignete Auftragung der Messwerte.
+        \end{enumerate}
+    \end{problem}
+
+    \subsection*{Lösung}
+
+    \section*{Aufgabe 2. (Kohlensäure)}
+
+    \begin{problem}
+        Cola wird bei der Herstellung mit einer Massenkonzentration \(\gamma = 7\sis{\gram\per\liter}\) an Kohlensäure (\ch{CO2}) angereichert. Durch die PET-Hülle der Flasche entweicht das gelöste \ch{CO2} durch Diffusion. Die Löslichkeit von \ch{CO2} in PET ist abhängig von der Konzentration von \ch{CO2} in der Flüssigkeit. Sie kann mit Hilfe eines Löslichkeitskoeffizienten \(H\) berechnet werden:
+        \[\gamma_{\ch{CO2},\text{PET}} = H \cdot \gamma_{\ch{CO2},\text{Cola}}.\]
+        \begin{enumerate}
+            \item Bestimmen Sie die anfängliche \ch{CO2}-Konzentration in der Flaschenwand an der Stelle höchster Konzentration. Auf der Außenseite wird \ch{CO2} vollständig abtransportiert, sodass die \ch{CO2}-Konzentration dort zu jeder Zeit Null ist.
+            \item Berechnen Sie den anfänglichen Massenstrom an \ch{CO2}, der über die Oberfläche verloren geht. Nehmen Sie dazu an, dass sich bereits ein lineares Konzentrationsgefälle über der Dicke des PET-Mantels eingestellt hat.
+            \item (Achtung: Schwierig!) Bestimmen Sie die Zeit nach der \(5\%\) des gelösten \ch{CO2} die Flasche durch Diffusion verlassen hat. Stellen Sie dazu zunächst eine Gleichung für die zeitliche Massenänderung auf.
+        \end{enumerate}
+        Treffen Sie zur Berechnung die folgenden Annahmen:
+        \begin{itemize}
+            \item Die Löslichkeit \(H\) ist konstant.
+            \item Das Konzentrationsprofil über der Manteldicke ist linear.
+            \item Das Volumen der Flüssigkeit bleibt konstant.
+            \item Die Diffusion im Inneren der Flasche ist viel schneller als die Diffusion durch den PET-Mantel, sodass das Innere als ideal durchgemischt angenommen werden kann, d.h. es gibt kein \ch{CO2}-Konzentrationsgefälle in der Flüssigkeit.
+        \end{itemize}
+        \textbf{Gegeben:}
+
+        \begin{center}
+            \begin{tabular}{ll}
+                \toprule
+                Diffusionskoeffizient & \(D = 2 \cdot 10^{-13}\sis{\meter\squared\per\second}\)\\
+                Oberfläche der Flasche & \(A = 0,07\sis{\meter\squared}\)\\
+                Dicke des PET-Mantels & \(d = 0,27\sis{\milli\meter}\)\\
+                Flüssigkeitsvolumen & \(V = 1,5\sis{\liter}\)\\
+                Löslichkeitskoeffizient & \(H = 1,43\)\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{problem}
+
+    \subsection*{Lösung}
+\end{document}
